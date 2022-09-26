@@ -17,7 +17,7 @@
         android:background="@color/white"
         android:lines="2"
         android:maxLines="2"
-        android:text=""
+        android:text="test"
         android:textAlignment="textEnd"
         android:textColor="@color/black"
         android:textSize="25sp"

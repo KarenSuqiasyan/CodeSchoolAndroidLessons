@@ -67,4 +67,4 @@ class CalculatorActivity : AppCompatActivity() {
         binding.tvWriting.append(string)
         binding.tvResult.text = ""
     }
-    }
+}

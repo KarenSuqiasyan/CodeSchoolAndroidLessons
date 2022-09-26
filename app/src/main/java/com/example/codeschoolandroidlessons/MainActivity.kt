@@ -1,13 +1,14 @@
 package com.example.codeschoolandroidlessons
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import com.example.codeschoolandroidlessons.calculator.CalculatorActivity
-import com.example.codeschoolandroidlessons.databinding.ActivityCalculatorBinding
 import com.example.codeschoolandroidlessons.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -16,9 +17,32 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.buttonCalculator.setOnClickListener {
-            val intent = Intent(this, CalculatorActivity::class.java)
-            startActivity(intent)
+
+        CodeSchoolHomeworkEnum.values().forEach {
+            val button = AppCompatButton(this)
+            button.text = it.name.replace("_", " ")
+            button.tag = it
+            binding.linearLayout.addView(button)
+            button.setOnClickListener(this)
         }
     }
+
+    override fun onClick(p0: View?) {
+        when (p0?.tag as CodeSchoolHomeworkEnum) {
+            CodeSchoolHomeworkEnum.CALCULATOR -> {
+                startActivity(Intent(this, CalculatorActivity::class.java))
+            }
+            CodeSchoolHomeworkEnum.TIC_TAC_TOE -> {
+
+            }
+        }
+    }
+}
+
+enum class CodeSchoolHomeworkEnum {
+    CALCULATOR,
+    TIC_TAC_TOE
+
+
+
 }

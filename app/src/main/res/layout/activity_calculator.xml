@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <TextView
@@ -47,48 +47,46 @@
         android:id="@+id/btnC"
         style="@style/ActionButtonStyle"
         android:layout_marginHorizontal="@dimen/_8"
-        android:background="@drawable/roundedbuttonblack"
+        android:background="@drawable/rounded_button_black"
         android:text="@string/c"
-        android:layout_height="0dp"
-        app:layout_constraintLeft_toLeftOf="@id/tvResult"
-        app:layout_constraintTop_toBottomOf="@id/tvResult"
-        app:layout_constraintRight_toLeftOf="@id/btnPercent"
         app:layout_constraintBottom_toTopOf="@id/btn7"
-        />
+        app:layout_constraintLeft_toLeftOf="@id/tvResult"
+        app:layout_constraintRight_toLeftOf="@id/btnPercent"
+        app:layout_constraintTop_toBottomOf="@id/tvResult" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnPercent"
         style="@style/ActionButtonStyle2"
-        android:background="@drawable/roundedbuttonblack"
+        android:background="@drawable/rounded_button_black"
         android:text="@string/percent"
+        app:layout_constraintBottom_toBottomOf="@id/btnC"
         app:layout_constraintLeft_toRightOf="@id/btnC"
         app:layout_constraintRight_toLeftOf="@id/btnBack"
-        app:layout_constraintTop_toTopOf="@id/btnC"
-        app:layout_constraintBottom_toBottomOf="@id/btnC"/>
+        app:layout_constraintTop_toTopOf="@id/btnC" />
 
     <ImageButton
         android:id="@+id/btnBack"
-        android:layout_height="0dp"
         style="@style/ActionButtonStyle2"
-        android:background="@drawable/roundedbuttonblack"
+        android:layout_height="0dp"
         android:layout_marginHorizontal="@dimen/_8"
+        android:background="@drawable/rounded_button_black"
         android:src="@drawable/ic_baseline_backspace_24"
+        app:layout_constraintBottom_toBottomOf="@id/btnPercent"
         app:layout_constraintLeft_toRightOf="@id/btnPercent"
         app:layout_constraintRight_toLeftOf="@id/btnDivide"
         app:layout_constraintTop_toTopOf="@id/btnPercent"
-        app:layout_constraintBottom_toBottomOf="@id/btnPercent"
         tools:ignore="RtlSymmetry" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnDivide"
         style="@style/ActionButtonStyle"
         android:layout_marginTop="@dimen/_16"
-        android:background="@drawable/roundedbuttonblack"
+        android:background="@drawable/rounded_button_black"
         android:text="@string/divide"
+        app:layout_constraintBottom_toTopOf="@id/btnMultiply"
         app:layout_constraintLeft_toRightOf="@id/btnBack"
         app:layout_constraintRight_toRightOf="@id/tvResult"
-        app:layout_constraintTop_toBottomOf="@id/tvResult"
-        app:layout_constraintBottom_toTopOf="@id/btnMultiply"/>
+        app:layout_constraintTop_toBottomOf="@id/tvResult" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn7"
@@ -121,10 +119,10 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnMultiply"
-        android:background="@drawable/roundedbuttonblack"
+        style="@style/ActionButtonStyle"
+        android:background="@drawable/rounded_button_black"
         android:padding="@dimen/_16"
         android:text="@string/multiply"
-        style="@style/ActionButtonStyle"
         app:layout_constraintLeft_toLeftOf="@id/btnDivide"
         app:layout_constraintRight_toRightOf="@id/btnDivide"
         app:layout_constraintTop_toBottomOf="@id/btnDivide" />
@@ -162,10 +160,10 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnMinus"
-        android:background="@drawable/roundedbuttonblack"
+        style="@style/ActionButtonStyle"
+        android:background="@drawable/rounded_button_black"
         android:padding="@dimen/_16"
         android:text="@string/minus"
-        style="@style/ActionButtonStyle"
         app:layout_constraintLeft_toLeftOf="@id/btnMultiply"
         app:layout_constraintRight_toRightOf="@id/btnMultiply"
         app:layout_constraintTop_toBottomOf="@id/btnMultiply" />
@@ -203,11 +201,11 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnPlus"
-        android:background="@drawable/roundedbuttonblack"
-        android:text="@string/plus"
         style="@style/ActionButtonStyle"
-        app:layout_constraintLeft_toRightOf="@id/btn3"
+        android:background="@drawable/rounded_button_black"
+        android:text="@string/plus"
         app:layout_constraintLeft_toLeftOf="@id/btnMinus"
+        app:layout_constraintLeft_toRightOf="@id/btn3"
         app:layout_constraintRight_toRightOf="@id/btnMinus"
         app:layout_constraintTop_toBottomOf="@id/btnMinus" />
 
@@ -233,9 +231,9 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnEquals"
-        android:layout_width="0dp"
-        android:background="@drawable/roundedbuttonblack"
         style="@style/ActionButtonStyle"
+        android:layout_width="0dp"
+        android:background="@drawable/rounded_button_black"
         android:text="@string/equals"
         app:layout_constraintLeft_toLeftOf="@id/btn3"
         app:layout_constraintRight_toRightOf="@id/btnPlus"

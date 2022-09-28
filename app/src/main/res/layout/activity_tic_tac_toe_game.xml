@@ -93,58 +93,58 @@
         android:background="@drawable/round_back_purple"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/imageview1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/round_back_dark_blue_border"
             android:padding="@dimen/_36"
-            android:src="@drawable/ic_baseline_backspace_24"
+            android:src="@drawable/ic_empty"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/imageview2"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/imageview2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/round_back_dark_blue_border"
             android:padding="@dimen/_36"
-            android:src="@drawable/ic_baseline_backspace_24"
+            android:src="@drawable/ic_empty"
             app:layout_constraintEnd_toStartOf="@id/imageview3"
             app:layout_constraintStart_toEndOf="@id/imageview1"
             app:layout_constraintTop_toTopOf="@id/imageview1" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/imageview3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/round_back_dark_blue_border"
             android:padding="@dimen/_36"
-            android:src="@drawable/ic_baseline_backspace_24"
+            android:src="@drawable/ic_empty"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageview2"
             app:layout_constraintTop_toTopOf="@id/imageview2" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/imageview4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_16"
             android:background="@drawable/round_back_dark_blue_border"
             android:padding="@dimen/_36"
-            android:src="@drawable/ic_baseline_backspace_24"
+            android:src="@drawable/ic_empty"
             app:layout_constraintBottom_toTopOf="@id/imageview1"
             app:layout_constraintEnd_toEndOf="@id/imageview1"
             app:layout_constraintStart_toStartOf="@id/imageview1" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/imageview5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/round_back_dark_blue_border"
             android:padding="@dimen/_36"
-            android:src="@drawable/ic_baseline_backspace_24"
+            android:src="@drawable/ic_empty"
             app:layout_constraintBottom_toBottomOf="@id/imageview4"
             app:layout_constraintEnd_toStartOf="@id/imageview6"
             app:layout_constraintStart_toEndOf="@id/imageview4"
@@ -152,13 +152,13 @@
 
             />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/imageview6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/round_back_dark_blue_border"
             android:padding="@dimen/_36"
-            android:src="@drawable/ic_baseline_backspace_24"
+            android:src="@drawable/ic_empty"
             app:layout_constraintBottom_toBottomOf="@id/imageview5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageview5"
@@ -166,36 +166,36 @@
 
             />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/imageview7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_16"
             android:background="@drawable/round_back_dark_blue_border"
             android:padding="@dimen/_36"
-            android:src="@drawable/ic_baseline_backspace_24"
+            android:src="@drawable/ic_empty"
             app:layout_constraintBottom_toTopOf="@id/imageview4"
             app:layout_constraintStart_toStartOf="@id/imageview4" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/imageview8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/round_back_dark_blue_border"
             android:padding="@dimen/_36"
-            android:src="@drawable/ic_baseline_backspace_24"
+            android:src="@drawable/ic_empty"
             app:layout_constraintBottom_toBottomOf="@id/imageview7"
             app:layout_constraintEnd_toStartOf="@id/imageview9"
             app:layout_constraintStart_toEndOf="@id/imageview7"
             app:layout_constraintTop_toTopOf="@id/imageview7" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/imageview9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/round_back_dark_blue_border"
             android:padding="@dimen/_36"
-            android:src="@drawable/ic_baseline_backspace_24"
+            android:src="@drawable/ic_empty"
             app:layout_constraintBottom_toBottomOf="@id/imageview8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageview8"

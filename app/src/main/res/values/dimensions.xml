@@ -3,6 +3,10 @@
     <dimen name="_8">8dp</dimen>
     <dimen name="_16">16dp</dimen>
     <dimen name="_36">36dp</dimen>
+    <dimen name="_48">48dp</dimen>
+    <dimen name="_50">50dp</dimen>
     <dimen name="_75">75dp</dimen>
+    <dimen name="_124">124dp</dimen>
+
 
 </resources>

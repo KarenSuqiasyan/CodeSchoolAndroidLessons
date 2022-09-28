@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Calculator-->
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,4 +10,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#111111</color>
     <color name="white">#F2F3F7</color>
+
+    <!-- TicTacToe-->
+
+    <color name="ticTacToeBackgroundColor">#05104A</color>
+    <color name="ticTacToeButtonBackgroundColor">#050C32</color>
+    <color name="ticTacToeHintColor">#A0A3A3</color>
+    <color name="ticTacToeStartGameButtonColor">#3289CD</color>
+
+
+
 </resources>

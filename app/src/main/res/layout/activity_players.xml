@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ticTacToeBackgroundColor"
+    tools:context=".tictactoe.PlayersActivity">
+
+
+    <TextView
+        android:id="@+id/TextviewEnterPlayerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_124"
+        android:gravity="center"
+        android:text="@string/enter_player_name"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ImageViewX"
+        android:layout_width="@dimen/_36"
+        android:layout_height="@dimen/_36"
+        android:layout_marginStart="@dimen/_16"
+        android:adjustViewBounds="true"
+        android:src="@drawable/x"
+        app:layout_constraintBottom_toBottomOf="@id/EditTextFirstPlayer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/EditTextFirstPlayer"></ImageView>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/EditTextFirstPlayer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_16"
+        android:layout_marginVertical="@dimen/_36"
+        android:hint="@string/player_one"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textColorHint="@color/ticTacToeHintColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ImageViewX"
+        app:layout_constraintTop_toBottomOf="@id/TextviewEnterPlayerName" />
+
+    <ImageView
+        android:id="@+id/ImageViewO"
+        android:layout_width="@dimen/_36"
+        android:layout_height="@dimen/_36"
+        android:layout_marginTop="@dimen/_36"
+        android:adjustViewBounds="true"
+        android:src="@drawable/o"
+        app:layout_constraintEnd_toEndOf="@id/ImageViewX"
+        app:layout_constraintStart_toStartOf="@id/ImageViewX"
+        app:layout_constraintTop_toBottomOf="@id/ImageViewX">
+
+    </ImageView>
+
+    <EditText
+        android:id="@+id/EditTextSecondPlayer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/player_two"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textColorHint="@color/ticTacToeHintColor"
+        app:layout_constraintBottom_toBottomOf="@id/ImageViewO"
+        app:layout_constraintEnd_toEndOf="@id/EditTextFirstPlayer"
+        app:layout_constraintStart_toStartOf="@id/EditTextFirstPlayer"
+        app:layout_constraintTop_toTopOf="@id/ImageViewO" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_36"
+        android:background="@drawable/rounded_button_blue"
+        android:text="@string/start_game"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/EditTextSecondPlayer"
+        app:layout_constraintStart_toStartOf="@id/ImageViewO"
+        app:layout_constraintTop_toBottomOf="@id/EditTextSecondPlayer" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

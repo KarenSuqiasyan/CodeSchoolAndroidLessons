@@ -90,7 +90,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn7"
         style="@style/NumberButtonStyle"
-        android:background="@drawable/roundedbuttonwhite"
+        android:background="@drawable/rounded_button_white"
         android:text="@string/_7"
         app:layout_constraintLeft_toLeftOf="@id/btnC"
         app:layout_constraintRight_toRightOf="@id/btnC"
@@ -99,7 +99,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn8"
         style="@style/NumberButtonStyle"
-        android:background="@drawable/roundedbuttonwhite"
+        android:background="@drawable/rounded_button_white"
         android:text="@string/_8"
         app:layout_constraintLeft_toLeftOf="@id/btnPercent"
         app:layout_constraintRight_toRightOf="@id/btnPercent"
@@ -108,7 +108,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn9"
         style="@style/NumberButtonStyle"
-        android:background="@drawable/roundedbuttonwhite"
+        android:background="@drawable/rounded_button_white"
         android:text="@string/_9"
         app:layout_constraintLeft_toLeftOf="@id/btnBack"
         app:layout_constraintRight_toRightOf="@id/btnBack"
@@ -129,7 +129,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn4"
         style="@style/NumberButtonStyle"
-        android:background="@drawable/roundedbuttonwhite"
+        android:background="@drawable/rounded_button_white"
         android:text="@string/_4"
         app:layout_constraintLeft_toLeftOf="@id/btn7"
         app:layout_constraintRight_toRightOf="@id/btn7"
@@ -138,7 +138,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn5"
         style="@style/NumberButtonStyle"
-        android:background="@drawable/roundedbuttonwhite"
+        android:background="@drawable/rounded_button_white"
         android:text="@string/_5"
         app:layout_constraintLeft_toLeftOf="@id/btn8"
         app:layout_constraintRight_toRightOf="@id/btn8"
@@ -149,7 +149,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn6"
         style="@style/NumberButtonStyle"
-        android:background="@drawable/roundedbuttonwhite"
+        android:background="@drawable/rounded_button_white"
         android:text="@string/_6"
         app:layout_constraintLeft_toLeftOf="@id/btn9"
         app:layout_constraintRight_toRightOf="@id/btn9"
@@ -170,7 +170,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn1"
         style="@style/NumberButtonStyle"
-        android:background="@drawable/roundedbuttonwhite"
+        android:background="@drawable/rounded_button_white"
         android:text="@string/_1"
         app:layout_constraintLeft_toLeftOf="@id/btn4"
         app:layout_constraintRight_toRightOf="@id/btn4"
@@ -179,7 +179,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn2"
         style="@style/NumberButtonStyle"
-        android:background="@drawable/roundedbuttonwhite"
+        android:background="@drawable/rounded_button_white"
         android:text="@string/_2"
         app:layout_constraintLeft_toLeftOf="@id/btn5"
         app:layout_constraintRight_toRightOf="@id/btn5"
@@ -190,7 +190,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn3"
         style="@style/NumberButtonStyle"
-        android:background="@drawable/roundedbuttonwhite"
+        android:background="@drawable/rounded_button_white"
         android:text="@string/_3"
         app:layout_constraintLeft_toLeftOf="@id/btn6"
         app:layout_constraintRight_toRightOf="@id/btn6"
@@ -211,7 +211,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn0"
         style="@style/NumberButtonStyle"
-        android:background="@drawable/roundedbuttonwhite"
+        android:background="@drawable/rounded_button_white"
         android:text="@string/_0"
         app:layout_constraintLeft_toLeftOf="@id/btn1"
         app:layout_constraintRight_toRightOf="@id/btn1"
@@ -220,7 +220,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnComa"
         style="@style/NumberButtonStyle"
-        android:background="@drawable/roundedbuttonwhite"
+        android:background="@drawable/rounded_button_white"
         android:text="@string/coma"
         app:layout_constraintLeft_toLeftOf="@id/btn2"
         app:layout_constraintRight_toRightOf="@id/btn2"

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.example.codeschoolandroidlessons.calculator.CalculatorActivity
 import com.example.codeschoolandroidlessons.databinding.ActivityMainBinding
+import com.example.codeschoolandroidlessons.tictactoe.PlayersActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(Intent(this, CalculatorActivity::class.java))
             }
             CodeSchoolHomeworkEnum.TIC_TAC_TOE -> {
-
+                startActivity(Intent(this, PlayersActivity::class.java))
             }
         }
     }
@@ -42,7 +43,4 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 enum class CodeSchoolHomeworkEnum {
     CALCULATOR,
     TIC_TAC_TOE
-
-
-
 }

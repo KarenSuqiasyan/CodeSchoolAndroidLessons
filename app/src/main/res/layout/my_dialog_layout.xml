@@ -23,7 +23,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/replayButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="@dimen/_16"
         android:background="@drawable/round_back_purple"
         android:text="@string/replay"
@@ -37,36 +37,39 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/showScoreButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="@dimen/_16"
         android:background="@drawable/round_back_purple"
         android:text="@string/show_score"
         android:textColor="@color/white"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/replayButton"
         app:layout_constraintStart_toStartOf="@id/replayButton"
         app:layout_constraintTop_toBottomOf="@id/replayButton" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/changeNamesButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="@dimen/_16"
         android:background="@drawable/round_back_purple"
         android:text="@string/change_names"
         android:textColor="@color/white"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/showScoreButton"
         app:layout_constraintStart_toStartOf="@id/showScoreButton"
         app:layout_constraintTop_toBottomOf="@id/showScoreButton" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/exitButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="@dimen/_16"
         android:background="@drawable/round_back_purple"
         android:text="@string/exit"
         android:textColor="@color/white"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/changeNamesButton"
         app:layout_constraintStart_toStartOf="@id/changeNamesButton"
         app:layout_constraintTop_toBottomOf="@id/changeNamesButton" />
 

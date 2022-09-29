@@ -45,7 +45,6 @@ class TicTacToeGameActivity : AppCompatActivity() {
                 performAction(p0 as ImageView, 0)
             }
         }
-
         binding.imageview2.setOnClickListener { p0 ->
             if (isSelected(1)) {
                 performAction(p0 as ImageView, 1)
@@ -56,7 +55,6 @@ class TicTacToeGameActivity : AppCompatActivity() {
                 performAction(p0 as ImageView, 2)
             }
         }
-
         binding.imageview4.setOnClickListener { p0 ->
             if (isSelected(3)) {
                 performAction(p0 as ImageView, 3)
@@ -67,7 +65,6 @@ class TicTacToeGameActivity : AppCompatActivity() {
                 performAction(p0 as ImageView, 4)
             }
         }
-
         binding.imageview6.setOnClickListener { p0 ->
             if (isSelected(5)) {
                 performAction(p0 as ImageView, 5)
@@ -78,7 +75,6 @@ class TicTacToeGameActivity : AppCompatActivity() {
                 performAction(p0 as ImageView, 6)
             }
         }
-
         binding.imageview8.setOnClickListener { p0 ->
             if (isSelected(7)) {
                 performAction(p0 as ImageView, 7)
@@ -94,7 +90,7 @@ class TicTacToeGameActivity : AppCompatActivity() {
     private fun performAction(imageView: ImageView, selectedPosition: Int) {
         boxPositions[selectedPosition] = playerTurn
         if (playerTurn == 1) {
-            imageView.setImageResource(R.drawable.x)
+            imageView.setImageResource(R.drawable.ic_x)
             if (winCheck()) {
                 val dialog = MyDialog(
                     this@TicTacToeGameActivity,
@@ -116,7 +112,7 @@ class TicTacToeGameActivity : AppCompatActivity() {
                 totalSelectedBoxes++
             }
         } else {
-            imageView.setImageResource(R.drawable.o)
+            imageView.setImageResource(R.drawable.ic_o)
             if (winCheck()) {
                 val dialog = MyDialog(
                     this@TicTacToeGameActivity,
@@ -172,15 +168,15 @@ class TicTacToeGameActivity : AppCompatActivity() {
         boxPositions = arrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0)
         playerTurn = 1
         totalSelectedBoxes = 1
-        binding.imageview1.setBackgroundResource(R.drawable.ic_empty)
-        binding.imageview2.setBackgroundResource(R.drawable.ic_empty)
-        binding.imageview3.setBackgroundResource(R.drawable.ic_empty)
-        binding.imageview4.setBackgroundResource(R.drawable.ic_empty)
-        binding.imageview5.setBackgroundResource(R.drawable.ic_empty)
-        binding.imageview6.setBackgroundResource(R.drawable.ic_empty)
-        binding.imageview7.setBackgroundResource(R.drawable.ic_empty)
-        binding.imageview8.setBackgroundResource(R.drawable.ic_empty)
-        binding.imageview9.setBackgroundResource(R.drawable.ic_empty)
+        binding.imageview1.setImageResource(R.drawable.ic_empty)
+        binding.imageview2.setImageResource(R.drawable.ic_empty)
+        binding.imageview3.setImageResource(R.drawable.ic_empty)
+        binding.imageview4.setImageResource(R.drawable.ic_empty)
+        binding.imageview5.setImageResource(R.drawable.ic_empty)
+        binding.imageview6.setImageResource(R.drawable.ic_empty)
+        binding.imageview7.setImageResource(R.drawable.ic_empty)
+        binding.imageview8.setImageResource(R.drawable.ic_empty)
+        binding.imageview9.setImageResource(R.drawable.ic_empty)
 
     }
 }

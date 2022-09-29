@@ -18,7 +18,6 @@ class PlayersActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.startGameButton.setOnClickListener {
-
             val firstPlayerName = binding.EditTextFirstPlayer.text.toString()
             val secondPlayerName = binding.EditTextSecondPlayer.text.toString()
             if (firstPlayerName.isEmpty() || secondPlayerName.isEmpty()) {

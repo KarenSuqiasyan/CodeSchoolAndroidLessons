@@ -21,6 +21,10 @@
     <string name="_2">2</string>
     <string name="_3">3</string>
     <string name="_0">0</string>
+
+
+    <!-- TicTacToe-->
+
     <string name="enter_player_name">Enter Player Names</string>
     <string name="player_one">Player One</string>
     <string name="player_two">Player Two</string>
@@ -30,7 +34,5 @@
     <string name="change_names">change Names</string>
     <string name="exit">exit</string>
     <string name="message_here">Message Here</string>
-
-    <!-- TicTacToe-->
 
 </resources>

@@ -32,7 +32,9 @@
         android:src="@drawable/ic_x"
         app:layout_constraintBottom_toBottomOf="@id/EditTextFirstPlayer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/EditTextFirstPlayer"></ImageView>
+        app:layout_constraintTop_toTopOf="@id/EditTextFirstPlayer">
+
+    </ImageView>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/EditTextFirstPlayer"

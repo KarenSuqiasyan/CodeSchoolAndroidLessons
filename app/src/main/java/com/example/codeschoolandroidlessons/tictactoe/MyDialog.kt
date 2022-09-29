@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import com.example.codeschoolandroidlessons.MainActivity
 import com.example.codeschoolandroidlessons.databinding.MyDialogLayoutBinding
 
 class MyDialog(context: Context, message: String, ticTacToeGameActivity: TicTacToeGameActivity) :
@@ -11,12 +12,10 @@ class MyDialog(context: Context, message: String, ticTacToeGameActivity: TicTacT
 
     var massage: String
     var ticTacToeGameActivity: TicTacToeGameActivity
-
     init {
         this.massage = message
         this.ticTacToeGameActivity = ticTacToeGameActivity
     }
-
     private lateinit var binding: MyDialogLayoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +30,10 @@ class MyDialog(context: Context, message: String, ticTacToeGameActivity: TicTacT
             dismiss()
         }
         binding.exitButton.setOnClickListener {
-            System.out
+            val intent = Intent(ticTacToeGameActivity, MainActivity::class.java)
+            ticTacToeGameActivity.startActivity(intent)
+            dismiss()
+
         }
         binding.changeNamesButton.setOnClickListener {
             val intent = Intent(ticTacToeGameActivity, PlayersActivity::class.java)
@@ -40,5 +42,4 @@ class MyDialog(context: Context, message: String, ticTacToeGameActivity: TicTacT
             dismiss()
         }
     }
-
 }

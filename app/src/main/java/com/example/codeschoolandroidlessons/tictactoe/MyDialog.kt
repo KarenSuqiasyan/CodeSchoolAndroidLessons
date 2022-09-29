@@ -2,9 +2,8 @@ package com.example.codeschoolandroidlessons.tictactoe
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.os.Message
-import com.example.codeschoolandroidlessons.databinding.ActivityTicTacToeGameBinding
 import com.example.codeschoolandroidlessons.databinding.MyDialogLayoutBinding
 
 class MyDialog(context: Context, message: String, ticTacToeGameActivity: TicTacToeGameActivity) :
@@ -31,5 +30,15 @@ class MyDialog(context: Context, message: String, ticTacToeGameActivity: TicTacT
             ticTacToeGameActivity.replay()
             dismiss()
         }
+        binding.exitButton.setOnClickListener {
+            System.out
+        }
+        binding.changeNamesButton.setOnClickListener {
+            val intent = Intent(ticTacToeGameActivity, PlayersActivity::class.java)
+            ticTacToeGameActivity.replay()
+            ticTacToeGameActivity.startActivity(intent)
+            dismiss()
+        }
     }
+
 }

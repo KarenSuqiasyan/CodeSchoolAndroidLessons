@@ -16,6 +16,8 @@ class TicTacToeGameActivity : AppCompatActivity() {
     var boxPositions = arrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0)
     var playerTurn = 1
     var totalSelectedBoxes = 1
+    var countX = 1
+    var countO = 1
 
 
     private lateinit var binding: ActivityTicTacToeGameBinding
@@ -90,15 +92,17 @@ class TicTacToeGameActivity : AppCompatActivity() {
     private fun performAction(imageView: ImageView, selectedPosition: Int) {
         boxPositions[selectedPosition] = playerTurn
         if (playerTurn == 1) {
-            imageView.setImageResource(R.drawable.ic_x)
+            imageView.setImageResource(R.drawable.ic_cross)
             if (winCheck()) {
                 val dialog = MyDialog(
                     this@TicTacToeGameActivity,
-                    "${binding.TextViewPlayerOne.text} $ has win the match",
+                    "${binding.TextViewPlayerOne.text} has win the match",
                     this@TicTacToeGameActivity
                 )
                 dialog.setCancelable(false)
                 dialog.show()
+                binding.TextviewScoreX.text = countX.toString()
+                countX++
             } else if (totalSelectedBoxes == 9) {
                 val dialog = MyDialog(
                     this@TicTacToeGameActivity,
@@ -112,15 +116,17 @@ class TicTacToeGameActivity : AppCompatActivity() {
                 totalSelectedBoxes++
             }
         } else {
-            imageView.setImageResource(R.drawable.ic_o)
+            imageView.setImageResource(R.drawable.ic_circle)
             if (winCheck()) {
                 val dialog = MyDialog(
                     this@TicTacToeGameActivity,
-                    "${binding.TextViewPlayerTwo.text} $ has win the match",
+                    "${binding.TextViewPlayerTwo.text} has win the match",
                     this@TicTacToeGameActivity
                 )
                 dialog.setCancelable(false)
                 dialog.show()
+                binding.TextviewScoreO.text = countO.toString()
+                countO++
             } else if (selectedPosition == 9) {
                 val dialog = MyDialog(
                     this@TicTacToeGameActivity,

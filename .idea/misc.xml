@@ -9,6 +9,8 @@
         <entry key="app/src/main/res/drawable-v24/rounded_button_black.xml" value="0.197" />
         <entry key="app/src/main/res/drawable-v24/rounded_button_blue.xml" value="0.197" />
         <entry key="app/src/main/res/drawable-v24/roundedbuttonblack.xml" value="0.1735" />
+        <entry key="app/src/main/res/drawable/ic_circle.xml" value="0.197" />
+        <entry key="app/src/main/res/drawable/ic_cross.xml" value="0.197" />
         <entry key="app/src/main/res/drawable/ic_empty.xml" value="0.197" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1735" />
         <entry key="app/src/main/res/drawable/round_back_dark_blue_border.xml" value="0.197" />

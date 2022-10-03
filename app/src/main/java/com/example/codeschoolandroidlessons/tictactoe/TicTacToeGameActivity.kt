@@ -1,5 +1,6 @@
 package com.example.codeschoolandroidlessons.tictactoe
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,6 +10,8 @@ import android.widget.LinearLayout
 import com.example.codeschoolandroidlessons.R
 import com.example.codeschoolandroidlessons.databinding.ActivityMainBinding
 import com.example.codeschoolandroidlessons.databinding.ActivityTicTacToeGameBinding
+import com.example.codeschoolandroidlessons.tictactoe.PlayersActivity.Companion.FIRST_PLAYER
+import com.example.codeschoolandroidlessons.tictactoe.PlayersActivity.Companion.SECOND_PLAYER
 
 class TicTacToeGameActivity : AppCompatActivity() {
 
@@ -16,8 +19,12 @@ class TicTacToeGameActivity : AppCompatActivity() {
     var boxPositions = arrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0)
     var playerTurn = 1
     var totalSelectedBoxes = 1
-    var countX = 1
-    var countO = 1
+
+    companion object {
+        var countX = 0
+        var countO = 0
+    }
+
 
 
     private lateinit var binding: ActivityTicTacToeGameBinding
@@ -36,8 +43,8 @@ class TicTacToeGameActivity : AppCompatActivity() {
         combinationsList.add(intArrayOf(2, 4, 6))
         combinationsList.add(intArrayOf(0, 4, 8))
 
-        val firstPlayerName = intent.getStringExtra("firstPlayer")
-        val secondPlayerName = intent.getStringExtra("secondPlayer")
+        val firstPlayerName = intent.getStringExtra(FIRST_PLAYER)
+        val secondPlayerName = intent.getStringExtra(SECOND_PLAYER)
 
         binding.TextViewPlayerOne.text = firstPlayerName
         binding.TextViewPlayerTwo.text = secondPlayerName
@@ -89,6 +96,7 @@ class TicTacToeGameActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun performAction(imageView: ImageView, selectedPosition: Int) {
         boxPositions[selectedPosition] = playerTurn
         if (playerTurn == 1) {
@@ -101,8 +109,8 @@ class TicTacToeGameActivity : AppCompatActivity() {
                 )
                 dialog.setCancelable(false)
                 dialog.show()
-                binding.TextviewScoreX.text = countX.toString()
                 countX++
+                binding.TextviewScoreX.text = "score $countX"
             } else if (totalSelectedBoxes == 9) {
                 val dialog = MyDialog(
                     this@TicTacToeGameActivity,
@@ -125,8 +133,8 @@ class TicTacToeGameActivity : AppCompatActivity() {
                 )
                 dialog.setCancelable(false)
                 dialog.show()
-                binding.TextviewScoreO.text = countO.toString()
                 countO++
+                binding.TextviewScoreO.text = "score $countX"
             } else if (selectedPosition == 9) {
                 val dialog = MyDialog(
                     this@TicTacToeGameActivity,

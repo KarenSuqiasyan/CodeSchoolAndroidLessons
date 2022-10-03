@@ -28,10 +28,15 @@ class PlayersActivity : AppCompatActivity() {
                 ).show()
             } else {
                 val intent = Intent(this, TicTacToeGameActivity::class.java)
-                intent.putExtra("firstPlayer", firstPlayerName)
-                intent.putExtra("secondPlayer", secondPlayerName)
+                intent.putExtra(FIRST_PLAYER, firstPlayerName)
+                intent.putExtra(SECOND_PLAYER, secondPlayerName)
                 startActivity(intent)
             }
         }
+    }
+
+    companion object {
+        const val FIRST_PLAYER = "firstPlayer"
+        const val SECOND_PLAYER = "secondPlayer"
     }
 }

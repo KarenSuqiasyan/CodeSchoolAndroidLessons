@@ -9,15 +9,15 @@ import android.widget.Toast
 import com.example.codeschoolandroidlessons.MainActivity
 import com.example.codeschoolandroidlessons.databinding.MyDialogLayoutBinding
 
-class MyDialog(context: Context, message: String, ticTacToeGameActivity: TicTacToeGameActivity) :
+class MyDialog(context: Context, message: String, ticTacToeView: TicTacToeView) :
     Dialog(context) {
 
     var massage: String
-    var ticTacToeGameActivity: TicTacToeGameActivity
+    private var ticTacToeView: TicTacToeView
 
     init {
         this.massage = message
-        this.ticTacToeGameActivity = ticTacToeGameActivity
+        this.ticTacToeView = ticTacToeView
     }
 
     private lateinit var binding: MyDialogLayoutBinding
@@ -31,25 +31,26 @@ class MyDialog(context: Context, message: String, ticTacToeGameActivity: TicTacT
         binding.messageTextView.text = massage
 
         binding.replayButton.setOnClickListener {
-            ticTacToeGameActivity.replay()
+            ticTacToeView.replay()
             dismiss()
         }
         binding.exitButton.setOnClickListener {
-            val intent = Intent(ticTacToeGameActivity, MainActivity::class.java)
-            ticTacToeGameActivity.startActivity(intent)
+            val intent = Intent(context, MainActivity::class.java)
+            context.startActivity(intent)
             dismiss()
-
         }
         binding.changeNamesButton.setOnClickListener {
-            val intent = Intent(ticTacToeGameActivity, PlayersActivity::class.java)
-            ticTacToeGameActivity.replay()
-            ticTacToeGameActivity.startActivity(intent)
+            val intent = Intent(context, PlayersActivity::class.java)
+            ticTacToeView.replay()
+            TicTacToeView.countX = 0
+            TicTacToeView.countO = 0
+            context.startActivity(intent)
             dismiss()
         }
         binding.showScoreButton.setOnClickListener {
             val toast = Toast.makeText(
-                ticTacToeGameActivity,
-                "X score - ${TicTacToeGameActivity.countX} O score - ${TicTacToeGameActivity.countO}",
+                context,
+                "X score - ${TicTacToeView.countX} O score - ${TicTacToeView.countO}",
                 Toast.LENGTH_LONG
             )
             toast.show()

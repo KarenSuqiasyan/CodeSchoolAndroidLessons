@@ -1,12 +1,11 @@
 package com.example.codeschoolandroidlessons.tictactoe
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.codeschoolandroidlessons.MainActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.example.codeschoolandroidlessons.databinding.ActivityPlayersBinding
-import com.example.codeschoolandroidlessons.databinding.ActivityTicTacToeGameBinding
+
 
 class PlayersActivity : AppCompatActivity() {
 

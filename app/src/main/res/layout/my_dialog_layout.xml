@@ -30,8 +30,8 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@id/showScoreButton"
-        app:layout_constraintEnd_toEndOf="@id/messageTextView"
-        app:layout_constraintStart_toStartOf="@id/messageTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/messageTextView" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -43,8 +43,8 @@
         android:text="@string/show_score"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@id/replayButton"
-        app:layout_constraintStart_toStartOf="@id/replayButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/replayButton" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -56,8 +56,8 @@
         android:text="@string/change_names"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@id/showScoreButton"
-        app:layout_constraintStart_toStartOf="@id/showScoreButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/showScoreButton" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -69,8 +69,8 @@
         android:text="@string/exit"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@id/changeNamesButton"
-        app:layout_constraintStart_toStartOf="@id/changeNamesButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/changeNamesButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

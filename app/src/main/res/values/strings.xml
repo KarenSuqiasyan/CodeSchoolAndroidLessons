@@ -34,5 +34,6 @@
     <string name="change_names">change Names</string>
     <string name="exit">exit</string>
     <string name="message_here">Message Here</string>
+    <string name="score_0">score 0</string>
 
 </resources>

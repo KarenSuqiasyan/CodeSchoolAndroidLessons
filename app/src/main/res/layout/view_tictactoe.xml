@@ -8,103 +8,124 @@
     android:background="@color/ticTacToeBackgroundColor"
     tools:context=".tictactoe.TicTacToeGameActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8"
+        android:layout_marginVertical="@dimen/_16"
         android:gravity="center"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/firstPlayerLayout"
-            android:layout_width="120dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/round_back_blue_border"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="@dimen/_16"
+            app:layout_constraintEnd_toStartOf="@id/secondPlayerLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
                 android:id="@+id/TextViewFirstPlayer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16"
+                android:layout_marginVertical="@dimen/_8"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/player_one"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:id="@+id/ImageViewX"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:src="@drawable/ic_x" />
+                android:src="@drawable/ic_x"
+                app:layout_constraintTop_toBottomOf="@id/TextViewFirstPlayer"
+                app:layout_constraintStart_toStartOf="@id/TextViewFirstPlayer"
+                app:layout_constraintEnd_toEndOf="@id/TextViewFirstPlayer"
+                android:layout_marginVertical="@dimen/_8"/>
 
             <TextView
                 android:id="@+id/TextviewScoreX"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_8"
+                android:text="@string/score_0"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_margin="@dimen/_8"
+                app:layout_constraintTop_toBottomOf="@id/ImageViewX"
+                app:layout_constraintStart_toStartOf="@id/ImageViewX"
+                app:layout_constraintEnd_toEndOf="@id/ImageViewX"/>
 
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/secondPlayerLayout"
-            android:layout_width="120dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_8"
+            android:layout_margin="@dimen/_16"
             android:background="@drawable/round_back_dark_blue_border"
-            android:gravity="center"
-            android:orientation="vertical">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/firstPlayerLayout"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/TextViewSecondPlayer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16"
+                android:layout_marginVertical="@dimen/_8"
                 android:gravity="center"
                 android:maxLines="1"
-                android:text="@string/player_two"
+                android:text="@string/player_one"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:id="@+id/ImageViewO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:src="@drawable/ic_o" />
+                android:src="@drawable/ic_o"
+                app:layout_constraintTop_toBottomOf="@id/TextViewSecondPlayer"
+                app:layout_constraintStart_toStartOf="@id/TextViewSecondPlayer"
+                app:layout_constraintEnd_toEndOf="@id/TextViewSecondPlayer"
+                android:layout_marginVertical="@dimen/_8" />
 
             <TextView
                 android:id="@+id/TextviewScoreO"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/score_0"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_marginVertical="@dimen/_8"
+                app:layout_constraintTop_toBottomOf="@id/ImageViewO"
+                app:layout_constraintStart_toStartOf="@id/ImageViewO"
+                app:layout_constraintEnd_toEndOf="@id/ImageViewO" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_16"
-        android:layout_marginTop="112dp"
         android:layout_marginEnd="@dimen/_16"
-        android:layout_marginBottom="@dimen/_50"
+        android:layout_marginVertical="@dimen/_50"
         android:background="@drawable/round_back_purple"
         android:padding="@dimen/_16"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -192,7 +213,7 @@
 
         <ImageView
             android:id="@+id/imageview7"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_16"
             android:background="@drawable/round_back_dark_blue_border"

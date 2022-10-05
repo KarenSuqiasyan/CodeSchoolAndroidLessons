@@ -52,7 +52,8 @@ class MyDialog(context: Context, message: String, ticTacToeView: TicTacToeView) 
         binding.showScoreButton.setOnClickListener {
             val toast = Toast.makeText(
                 context,
-                "X score - ${TicTacToeView.countX} O score - ${TicTacToeView.countO}",
+                "${ticTacToeView.binding.TextViewFirstPlayer.text} - ${TicTacToeView.countX} " +
+                        "${ticTacToeView.binding.TextViewSecondPlayer.text} - ${TicTacToeView.countO}",
                 Toast.LENGTH_LONG
             )
             toast.show()

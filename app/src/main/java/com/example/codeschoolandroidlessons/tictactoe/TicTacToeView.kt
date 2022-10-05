@@ -1,8 +1,6 @@
 package com.example.codeschoolandroidlessons.tictactoe
 
-import android.accessibilityservice.GestureDescription
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater

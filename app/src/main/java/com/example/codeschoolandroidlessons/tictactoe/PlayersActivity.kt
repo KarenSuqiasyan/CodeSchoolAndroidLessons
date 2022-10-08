@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.codeschoolandroidlessons.databinding.ActivityPlayersBinding
 
-
 class PlayersActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPlayersBinding

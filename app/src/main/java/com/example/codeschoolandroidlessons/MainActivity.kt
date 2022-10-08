@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.example.codeschoolandroidlessons.calculator.CalculatorActivity
 import com.example.codeschoolandroidlessons.databinding.ActivityMainBinding
+import com.example.codeschoolandroidlessons.recyclerview_countries.CountriesActivity
 import com.example.codeschoolandroidlessons.tictactoe.PlayersActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -36,11 +37,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             CodeSchoolHomeworkEnum.TIC_TAC_TOE -> {
                 startActivity(Intent(this, PlayersActivity::class.java))
             }
+            CodeSchoolHomeworkEnum.RECYCLERVIEW_COUNTRIES -> {
+                startActivity(Intent(this, CountriesActivity::class.java))
+            }
         }
     }
 }
 
 enum class CodeSchoolHomeworkEnum {
     CALCULATOR,
-    TIC_TAC_TOE
+    TIC_TAC_TOE,
+    RECYCLERVIEW_COUNTRIES
 }

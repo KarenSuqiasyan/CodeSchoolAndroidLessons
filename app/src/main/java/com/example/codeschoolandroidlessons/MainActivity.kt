@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.example.codeschoolandroidlessons.calculator.CalculatorActivity
 import com.example.codeschoolandroidlessons.databinding.ActivityMainBinding
-import com.example.codeschoolandroidlessons.recyclerview_countries.CountriesActivity
+import com.example.codeschoolandroidlessons.recyclerview_countries.ui.CountriesActivity
 import com.example.codeschoolandroidlessons.tictactoe.PlayersActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {

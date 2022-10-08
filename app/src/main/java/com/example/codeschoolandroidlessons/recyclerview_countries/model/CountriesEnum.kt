@@ -1,4 +1,4 @@
-package com.example.codeschoolandroidlessons.recyclerview_countries
+package com.example.codeschoolandroidlessons.recyclerview_countries.model
 
 enum class CountriesEnum(val description: String, val shortDescription: String, val title: String, val flagUrl: String) {
 

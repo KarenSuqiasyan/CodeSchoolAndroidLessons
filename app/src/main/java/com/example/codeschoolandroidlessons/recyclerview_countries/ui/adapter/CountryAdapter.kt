@@ -1,4 +1,4 @@
-package com.example.codeschoolandroidlessons.recyclerview_countries
+package com.example.codeschoolandroidlessons.recyclerview_countries.ui.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.codeschoolandroidlessons.databinding.ItemCountriesBinding
+import com.example.codeschoolandroidlessons.recyclerview_countries.model.CountriesEnum
+import com.example.codeschoolandroidlessons.recyclerview_countries.ui.CountryDetailsActivity
 
 
 class CountryAdapter(var counties: Array<CountriesEnum>) : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {

@@ -21,5 +21,4 @@ class CountriesActivity : AppCompatActivity() {
         binding.CountriesRecyclerview.adapter = adapter
 
     }
-
 }

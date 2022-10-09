@@ -11,7 +11,6 @@ import com.example.codeschoolandroidlessons.databinding.ItemCountriesBinding
 import com.example.codeschoolandroidlessons.recyclerview_countries.model.CountriesEnum
 import com.example.codeschoolandroidlessons.recyclerview_countries.ui.CountryDetailsActivity
 
-
 class CountryAdapter(var counties: Array<CountriesEnum>) : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
 
     private lateinit var layoutInflater: LayoutInflater
@@ -22,7 +21,6 @@ class CountryAdapter(var counties: Array<CountriesEnum>) : RecyclerView.Adapter<
         context = recyclerView.context
         layoutInflater = LayoutInflater.from(context)
     }
-
 
     inner class CountryViewHolder(private val binding: ItemCountriesBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -54,8 +52,6 @@ class CountryAdapter(var counties: Array<CountriesEnum>) : RecyclerView.Adapter<
         const val COUNTRIES_ENUM_DESCRIPTION = "CountriesEnumDescription"
         const val COUNTRIES_ENUM_TITLE = "CountriesEnumTitle"
         const val COUNTRIES_ENUM_FLAG = "CountriesEnumFlag"
-
-
     }
 }
 

@@ -31,15 +31,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         when (p0?.tag as CodeSchoolHomeworkEnum) {
-            CodeSchoolHomeworkEnum.CALCULATOR -> {
-                startActivity(Intent(this, CalculatorActivity::class.java))
-            }
-            CodeSchoolHomeworkEnum.TIC_TAC_TOE -> {
-                startActivity(Intent(this, PlayersActivity::class.java))
-            }
-            CodeSchoolHomeworkEnum.RECYCLERVIEW_COUNTRIES -> {
-                startActivity(Intent(this, CountriesActivity::class.java))
-            }
+            CodeSchoolHomeworkEnum.CALCULATOR -> startActivity(Intent(this, CalculatorActivity::class.java))
+            CodeSchoolHomeworkEnum.TIC_TAC_TOE -> startActivity(Intent(this, PlayersActivity::class.java))
+            CodeSchoolHomeworkEnum.RECYCLERVIEW_COUNTRIES -> startActivity(Intent(this, CountriesActivity::class.java))
         }
     }
 }

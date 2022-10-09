@@ -1,4 +1,4 @@
-package com.example.codeschoolandroidlessons.recyclerview_countries.ui
+package com.example.codeschoolandroidlessons.recyclerview_countries.ui.countrieslist
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

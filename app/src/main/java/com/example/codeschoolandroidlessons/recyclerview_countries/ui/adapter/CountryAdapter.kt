@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.codeschoolandroidlessons.databinding.ItemCountriesBinding
 import com.example.codeschoolandroidlessons.recyclerview_countries.model.CountriesEnum
-import com.example.codeschoolandroidlessons.recyclerview_countries.ui.CountryDetailsActivity
+import com.example.codeschoolandroidlessons.recyclerview_countries.ui.countrydetails.CountryDetailsActivity
 
 class CountryAdapter(var counties: Array<CountriesEnum>) : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
 

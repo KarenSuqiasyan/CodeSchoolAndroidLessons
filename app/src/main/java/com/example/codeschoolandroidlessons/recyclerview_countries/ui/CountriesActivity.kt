@@ -16,9 +16,14 @@ class CountriesActivity : AppCompatActivity() {
         binding = ActivityCountriesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val adapter = CountryAdapter(CountriesEnum.values())
-        binding.CountriesRecyclerview.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.CountriesRecyclerview.adapter = adapter
+        binding.CountriesRecyclerview.apply {
+            layoutManager = LinearLayoutManager(this@CountriesActivity)
+            adapter = CountryAdapter(CountriesEnum.values())
+        }
+
+//        val adapter = CountryAdapter(CountriesEnum.values())
+//        binding.CountriesRecyclerview.layoutManager = LinearLayoutManager(this)
+//        binding.CountriesRecyclerview.adapter = adapter
 
     }
 }

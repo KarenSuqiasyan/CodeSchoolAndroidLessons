@@ -20,10 +20,5 @@ class CountriesActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@CountriesActivity)
             adapter = CountryAdapter(CountriesEnum.values())
         }
-
-//        val adapter = CountryAdapter(CountriesEnum.values())
-//        binding.CountriesRecyclerview.layoutManager = LinearLayoutManager(this)
-//        binding.CountriesRecyclerview.adapter = adapter
-
     }
 }

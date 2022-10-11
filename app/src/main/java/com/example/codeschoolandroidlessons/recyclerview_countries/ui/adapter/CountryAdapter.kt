@@ -57,6 +57,8 @@ class CountryAdapter(var countries: Array<CountriesEnum>, private val countryIte
         const val COUNTRIES_ENUM_DESCRIPTION = "CountriesEnumDescription"
         const val COUNTRIES_ENUM_TITLE = "CountriesEnumTitle"
         const val COUNTRIES_ENUM_FLAG = "CountriesEnumFlag"
+        const val COUNTRIES_ENUM_FLAG2 = "CountriesEnumFlag2"
+
         const val LABEL = "label"
     }
 

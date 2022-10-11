@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.codeschoolandroidlessons.databinding.ItemCountriesBinding
-import com.example.codeschoolandroidlessons.recyclerview_countries.model.CountriesEnum
+import com.example.codeschoolandroidlessons.recyclerview_countries.data.model.CountriesEnum
 
 class CountryAdapter(var countries: Array<CountriesEnum>, private val countryItemClickListener: (CountryActionEnum, CountriesEnum) -> Unit) : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
 
@@ -26,7 +26,7 @@ class CountryAdapter(var countries: Array<CountriesEnum>, private val countryIte
 
         init {
             binding.root.setOnClickListener { countryItemClickListener(CountryActionEnum.ACTION_ITEM_CLICK, countries[absoluteAdapterPosition]) }
-            binding.flagImageview.setOnClickListener {countryItemClickListener(CountryActionEnum.ACTION_FLAG_CLICK, countries[absoluteAdapterPosition]) }
+            binding.flagImageview.setOnClickListener { countryItemClickListener(CountryActionEnum.ACTION_FLAG_CLICK, countries[absoluteAdapterPosition]) }
             binding.titleTextview.setOnLongClickListener {
                 val clipboardManager = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                 clipboardManager.setPrimaryClip(ClipData.newPlainText(LABEL, binding.titleTextview.text))
@@ -34,7 +34,6 @@ class CountryAdapter(var countries: Array<CountriesEnum>, private val countryIte
                 false
             }
         }
-
         fun bind(countriesEnum: CountriesEnum) {
             binding.titleTextview.text = countriesEnum.title
             binding.descriptionTextview.text = countriesEnum.shortDescription
@@ -42,13 +41,11 @@ class CountryAdapter(var countries: Array<CountriesEnum>, private val countryIte
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
-        return CountryViewHolder(ItemCountriesBinding.inflate(layoutInflater, parent, false))
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = CountryViewHolder(ItemCountriesBinding.inflate(layoutInflater, parent, false))
+
 
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
-        val countriesEnum = countries[position]
-        holder.bind(countriesEnum)
+        holder.bind(countries[position])
     }
 
     override fun getItemCount() = countries.size

@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.codeschoolandroidlessons.databinding.ActivityCountriesBinding
-import com.example.codeschoolandroidlessons.recyclerview_countries.model.CountriesEnum
+import com.example.codeschoolandroidlessons.recyclerview_countries.data.model.CountriesEnum
 import com.example.codeschoolandroidlessons.recyclerview_countries.ui.adapter.CountryAdapter
 import com.example.codeschoolandroidlessons.recyclerview_countries.ui.countrydetails.CountryDetailsActivity
 

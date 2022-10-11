@@ -19,5 +19,6 @@ class CountryDetailsActivity : AppCompatActivity() {
         binding.detailsTextView.text = intent.getStringExtra(COUNTRIES_ENUM_DESCRIPTION)
         binding.titleTextview2.text = intent.getStringExtra(COUNTRIES_ENUM_TITLE)
         Glide.with(this).load(intent.getStringExtra(COUNTRIES_ENUM_FLAG)).into(binding.flagImageview2)
+
     }
 }

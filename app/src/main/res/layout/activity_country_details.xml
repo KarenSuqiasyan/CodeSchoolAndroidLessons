@@ -34,4 +34,9 @@
         android:layout_marginVertical="@dimen/_36"
         app:layout_constraintTop_toBottomOf="@id/detailsTextView" />
 
+    <ImageView
+        android:id="@+id/flagImageview3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

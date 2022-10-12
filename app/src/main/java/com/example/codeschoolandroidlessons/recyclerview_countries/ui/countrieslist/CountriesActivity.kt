@@ -1,10 +1,13 @@
 package com.example.codeschoolandroidlessons.recyclerview_countries.ui.countrieslist
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.example.codeschoolandroidlessons.R
 import com.example.codeschoolandroidlessons.databinding.ActivityCountriesBinding
 import com.example.codeschoolandroidlessons.recyclerview_countries.data.model.CountriesEnum
 import com.example.codeschoolandroidlessons.recyclerview_countries.ui.adapter.CountryAdapter
@@ -34,9 +37,13 @@ class CountriesActivity : AppCompatActivity() {
                         startActivity(intent)
                     }
                     CountryAdapter.CountryActionEnum.ACTION_FLAG_CLICK -> {
-                        val intent = Intent(this@CountriesActivity, CountryDetailsActivity::class.java)
-                        intent.putExtra(CountryAdapter.COUNTRIES_ENUM_FLAG2, country.flagUrl)
-                        startActivity(intent)
+                        val builder = Dialog(this@CountriesActivity)
+                        builder.setContentView(R.layout.image_dialog)
+                        builder.show()
+                        Glide.with(this@CountriesActivity).load(country.flagUrl).into(builder.findViewById(R.id.dialogImageView))
+//                        val intent = Intent(this@CountriesActivity, CountryDetailsActivity::class.java)
+//                        intent.putExtra(CountryAdapter.COUNTRIES_ENUM_FLAG2, country.flagUrl)
+//                        startActivity(intent)
                     }
                 }
             }

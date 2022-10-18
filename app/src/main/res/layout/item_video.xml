@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_200"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/_8">
 
-    <com.google.android.exoplayer2.ui.PlayerView
+    <VideoView
         android:id="@+id/itemVideo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

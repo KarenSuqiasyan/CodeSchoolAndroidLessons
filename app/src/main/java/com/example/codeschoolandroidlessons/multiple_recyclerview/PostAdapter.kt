@@ -2,20 +2,22 @@ package com.example.codeschoolandroidlessons.multiple_recyclerview
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
+import android.widget.MediaController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.codeschoolandroidlessons.databinding.*
+import com.example.codeschoolandroidlessons.recyclerview_countries.data.model.CountriesEnum
+import com.example.codeschoolandroidlessons.recyclerview_countries.ui.adapter.CountryAdapter
 
-class PostAdapter : RecyclerView.Adapter<PostAdapter.BaseViewHolder>() {
+class PostAdapter(private val items: MutableList<Any> = mutableListOf(), private val postItemClickListener: (PostAdapter.PostActionEnum, Any) -> Unit) : RecyclerView.Adapter<PostAdapter.BaseViewHolder>() {
 
     private lateinit var layoutInflater: LayoutInflater
     private lateinit var context: Context
-
-    private val items: MutableList<Any> = mutableListOf()
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         super.onAttachedToRecyclerView(recyclerView)
@@ -35,13 +37,15 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.BaseViewHolder>() {
 
     override fun getItemCount(): Int = items.size
 
-    override fun getItemViewType(position: Int) = when (val currentItem = items[position]) {
-            (currentItem is TextPost) -> VIEW_TYPE_TEXT_POST
-            (currentItem is VideoPost) -> VIEW_TYPE_VIDEO_POST
-            (currentItem is ImagePost) -> VIEW_TYPE_IMAGE_POST
-            (currentItem is UrlPost) -> VIEW_TYPE_URL_POST
+    override fun getItemViewType(position: Int): Int {
+        return when (items[position]) {
+            is TextPost -> VIEW_TYPE_TEXT_POST
+            is VideoPost -> VIEW_TYPE_VIDEO_POST
+            is ImagePost -> VIEW_TYPE_IMAGE_POST
+            is UrlPost -> VIEW_TYPE_URL_POST
             else -> UNDEFINED
         }
+    }
 
     @SuppressLint("NotifyDataSetChanged")
     fun updateData(items: MutableList<Any>) {
@@ -54,7 +58,6 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.BaseViewHolder>() {
         abstract fun bind(item: Any)
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     inner class TextViewHolder(private val binding: ItemTextBinding) : BaseViewHolder(binding.root) {
         override fun bind(item: Any) {
             (item as TextPost).let {
@@ -63,33 +66,38 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.BaseViewHolder>() {
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     inner class VideoViewHolder(private val binding: ItemVideoBinding) : BaseViewHolder(binding.root) {
         override fun bind(item: Any) {
             (item as VideoPost).let {
+                binding.itemVideo.setVideoURI(Uri.parse(it.videoUrl))
+                binding.itemVideo.setMediaController(MediaController(context))
+                binding.itemVideo.start()
             }
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     inner class UrlViewHolder(private val binding: ItemUrlBinding) : BaseViewHolder(binding.root) {
 
         private lateinit var webViewBinding: ActivityWebViewBinding
         override fun bind(item: Any) {
             (item as UrlPost).let {
                 binding.urlTextView.text = item.url
-                val myWebView: WebView = webViewBinding.webView
+
             }
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     inner class ImageViewHolder(private val binding: ItemImageBinding) : BaseViewHolder(binding.root) {
         override fun bind(item: Any) {
             (item as ImagePost).let {
                 Glide.with(context).load(item.imageUrl).into(binding.itemImageview)
             }
         }
+    }
+
+    enum class PostActionEnum {
+        ACTION_ITEM_CLICK,
+        ACTION_IMAGE_CLICK,
     }
 
     companion object {
@@ -100,5 +108,4 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.BaseViewHolder>() {
         private const val VIEW_TYPE_VIDEO_POST = 3
         private const val VIEW_TYPE_IMAGE_POST = 4
     }
-
 }

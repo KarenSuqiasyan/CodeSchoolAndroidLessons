@@ -1,4 +1,4 @@
-package com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity
+package com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity.fullscreenimage
 
 import android.os.Bundle
 import android.view.MotionEvent

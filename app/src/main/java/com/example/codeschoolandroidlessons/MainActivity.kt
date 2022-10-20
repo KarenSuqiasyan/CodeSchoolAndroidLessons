@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.example.codeschoolandroidlessons.calculator.CalculatorActivity
 import com.example.codeschoolandroidlessons.databinding.ActivityMainBinding
-import com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity.PostActivity
+import com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity.posthome.PostHomeActivity
 import com.example.codeschoolandroidlessons.recyclerview_countries.ui.countrieslist.CountriesActivity
 import com.example.codeschoolandroidlessons.tictactoe.PlayersActivity
 
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             CodeSchoolHomeworkEnum.CALCULATOR -> startActivity(Intent(this, CalculatorActivity::class.java))
             CodeSchoolHomeworkEnum.TIC_TAC_TOE -> startActivity(Intent(this, PlayersActivity::class.java))
             CodeSchoolHomeworkEnum.RECYCLERVIEW_COUNTRIES -> startActivity(Intent(this, CountriesActivity::class.java))
-            CodeSchoolHomeworkEnum.POST -> startActivity(Intent(this, PostActivity::class.java))
+            CodeSchoolHomeworkEnum.POST -> startActivity(Intent(this, PostHomeActivity::class.java))
         }
     }
 }

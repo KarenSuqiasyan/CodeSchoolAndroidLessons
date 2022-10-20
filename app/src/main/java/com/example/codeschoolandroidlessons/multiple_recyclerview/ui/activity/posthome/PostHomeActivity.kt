@@ -1,24 +1,22 @@
-package com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity
+package com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity.posthome
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.codeschoolandroidlessons.R
 import com.example.codeschoolandroidlessons.databinding.ActivityPostBinding
-import com.example.codeschoolandroidlessons.databinding.ItemTextBinding
 import com.example.codeschoolandroidlessons.multiple_recyclerview.data.DB
 import com.example.codeschoolandroidlessons.multiple_recyclerview.data.model.ImagePost
 import com.example.codeschoolandroidlessons.multiple_recyclerview.data.model.TextPost
 import com.example.codeschoolandroidlessons.multiple_recyclerview.data.model.UrlPost
 import com.example.codeschoolandroidlessons.multiple_recyclerview.data.model.VideoPost
+import com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity.webview.WebViewActivity
+import com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity.fullscreenimage.FullScreenImageActivity
 import com.example.codeschoolandroidlessons.multiple_recyclerview.ui.adapter.PostAdapter
 import com.example.codeschoolandroidlessons.multiple_recyclerview.utils.Utils
 
-class PostActivity : AppCompatActivity() {
+class PostHomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPostBinding
     private val items = DB.getData()
@@ -31,7 +29,7 @@ class PostActivity : AppCompatActivity() {
         adapterClick()
 
         binding.PostRecyclerview.apply {
-            layoutManager = LinearLayoutManager(this@PostActivity)
+            layoutManager = LinearLayoutManager(this@PostHomeActivity)
             adapter = postAdapter
         }
         postAdapter.updateData(items)
@@ -43,14 +41,14 @@ class PostActivity : AppCompatActivity() {
             when (action) {
                 PostAdapter.PostActionEnum.ACTION_URL_ITEM_CLICK -> {
                     post as UrlPost
-                    val intent = Intent(this@PostActivity, WebViewActivity::class.java)
+                    val intent = Intent(this@PostHomeActivity, WebViewActivity::class.java)
                     intent.putExtra(PostAdapter.URL_FOR_WEB_VIEW, post.url)
                     startActivity(intent)
                 }
                 PostAdapter.PostActionEnum.ACTION_IMAGE_ITEM_CLICK -> {
                     post as ImagePost
 
-                    val intent = Intent(this@PostActivity, FullScreenImageActivity::class.java)
+                    val intent = Intent(this@PostHomeActivity, FullScreenImageActivity::class.java)
                     intent.putExtra(PostAdapter.FULL_SCREEN_IMAGE, post.imageUrl)
                     startActivity(intent)
                 }

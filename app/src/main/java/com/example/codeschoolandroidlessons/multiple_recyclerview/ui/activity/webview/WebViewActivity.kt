@@ -1,4 +1,4 @@
-package com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity
+package com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity.webview
 
 import android.os.Bundle
 import android.webkit.WebViewClient

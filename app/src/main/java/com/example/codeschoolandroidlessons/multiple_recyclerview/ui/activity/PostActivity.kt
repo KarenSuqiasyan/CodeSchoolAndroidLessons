@@ -22,7 +22,7 @@ class PostActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPostBinding
     private val items = DB.getData()
-    lateinit var postAdapter: PostAdapter
+    private lateinit var postAdapter: PostAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

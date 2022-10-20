@@ -16,10 +16,13 @@
         android:theme="@style/Theme.CodeSchoolAndroidLessons"
         tools:targetApi="31">
         <activity
-            android:name=".multiple_recyclerview.PostActivity"
+            android:name=".multiple_recyclerview.ui.activity.FullScreenImageActivity"
             android:exported="false" />
         <activity
-            android:name=".multiple_recyclerview.ActivityWebView"
+            android:name=".multiple_recyclerview.ui.activity.PostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".multiple_recyclerview.ui.activity.WebViewActivity"
             android:exported="false" />
         <activity
             android:name=".recyclerview_countries.ui.countrydetails.CountryDetailsActivity"

@@ -35,5 +35,7 @@
     <string name="exit">exit</string>
     <string name="message_here">Message Here</string>
     <string name="score_0">score 0</string>
+    <string name="click_the_button_to_share_info">click the button to share info</string>
+    <string name="show_more">show more</string>
 
 </resources>

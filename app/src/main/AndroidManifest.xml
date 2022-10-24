@@ -16,6 +16,15 @@
         android:theme="@style/Theme.CodeSchoolAndroidLessons"
         tools:targetApi="31">
         <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginAndRagistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pickers_and_menues.PickerAndMenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".multiple_recyclerview.ui.activity.fullscreenimage.FullScreenImageActivity"
             android:exported="false" />
         <activity

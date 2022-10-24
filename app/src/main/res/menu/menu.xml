@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/overflowMenu"
+        android:icon="@drawable/ic_menu"
+        android:title=""
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/calendar"
+                android:icon="@drawable/ic_calendar"
+                android:title="Calendar"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/time"
+                android:icon="@drawable/ic_time_picker"
+                android:title="Time"
+                app:showAsAction="never" />
+
+        </menu>
+    </item>
+</menu>

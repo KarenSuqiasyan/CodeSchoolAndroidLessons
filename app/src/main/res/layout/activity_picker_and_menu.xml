@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pickers_and_menues.PickerAndMenuActivity">
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:datePickerMode="calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/getDateButton"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_8"
+        android:text="@string/get_date"
+        app:layout_constraintStart_toStartOf="@id/datePicker"
+        app:layout_constraintTop_toBottomOf="@id/datePicker" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/getDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/getDateButton"
+        app:layout_constraintEnd_toEndOf="@id/datePicker"
+        app:layout_constraintStart_toEndOf="@id/getDateButton"
+        app:layout_constraintTop_toTopOf="@id/getDateButton" />
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/getTimeButton"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_8"
+        android:text="@string/get_time"
+        app:layout_constraintStart_toStartOf="@id/timePicker"
+        app:layout_constraintTop_toBottomOf="@id/timePicker" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/getTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/getTimeButton"
+        app:layout_constraintEnd_toEndOf="@id/timePicker"
+        app:layout_constraintStart_toEndOf="@id/getTimeButton"
+        app:layout_constraintTop_toTopOf="@id/getTimeButton" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

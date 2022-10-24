@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login_ragistration.LoginAndRagistrationActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dataMeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_124"
+        android:text="@string/data_me"
+        android:textColor="@color/signInButtonBorderColor"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/knowYourselfTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/know_yourself_better"
+        android:textColor="@color/signInButtonBorderColor"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/dataMeTextView"
+        app:layout_constraintStart_toStartOf="@id/dataMeTextView"
+        app:layout_constraintTop_toBottomOf="@id/dataMeTextView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logInButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_16"
+        android:background="@drawable/login_round_button"
+        android:text="@string/log_in"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/signUpButton"
+        app:layout_constraintEnd_toEndOf="@id/signUpButton"
+        app:layout_constraintStart_toStartOf="@id/signUpButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_36"
+        android:background="@drawable/signup_round_button"
+        android:text="@string/sign_up"
+        android:textColor="@color/signInButtonBorderColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

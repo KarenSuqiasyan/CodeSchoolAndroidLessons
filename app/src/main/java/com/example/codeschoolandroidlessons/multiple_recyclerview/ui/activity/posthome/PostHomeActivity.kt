@@ -11,8 +11,8 @@ import com.example.codeschoolandroidlessons.multiple_recyclerview.data.model.Ima
 import com.example.codeschoolandroidlessons.multiple_recyclerview.data.model.TextPost
 import com.example.codeschoolandroidlessons.multiple_recyclerview.data.model.UrlPost
 import com.example.codeschoolandroidlessons.multiple_recyclerview.data.model.VideoPost
-import com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity.webview.WebViewActivity
 import com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity.fullscreenimage.FullScreenImageActivity
+import com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity.webview.WebViewActivity
 import com.example.codeschoolandroidlessons.multiple_recyclerview.ui.adapter.PostAdapter
 import com.example.codeschoolandroidlessons.multiple_recyclerview.utils.Utils
 
@@ -54,22 +54,27 @@ class PostHomeActivity : AppCompatActivity() {
                 }
                 PostAdapter.PostActionEnum.ACTION_SHARE_TEXT -> {
                     post as TextPost
-                    Utils.share(this, post.text, "text/plain")
+                    Utils.share(this, post.text, SHARE_TEXT)
                 }
                 PostAdapter.PostActionEnum.ACTION_SHARE_IMAGE -> {
                     post as ImagePost
-                    Utils.share(this, post.imageUrl, "image/jpeg")
+                    Utils.share(this, post.imageUrl, SHARE_LINK)
                 }
                 PostAdapter.PostActionEnum.ACTION_SHARE_VIDEO -> {
                     post as VideoPost
-                    Utils.share(this, post.videoUrl, "image/jpeg")
+                    Utils.share(this, post.videoUrl, SHARE_LINK)
                 }
                 PostAdapter.PostActionEnum.ACTION_SHARE_URL -> {
                     post as UrlPost
-                    Utils.share(this, post.url, "image/jpeg")
+                    Utils.share(this, post.url, SHARE_LINK)
                 }
             }
         }
         postAdapter.updateData(items)
+    }
+
+    companion object {
+        private const val SHARE_TEXT = "text/plain"
+        private const val SHARE_LINK = "image/jpeg"
     }
 }

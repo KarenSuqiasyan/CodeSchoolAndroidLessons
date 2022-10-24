@@ -6,7 +6,6 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.MediaController
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isVisible
@@ -64,10 +63,9 @@ class PostAdapter(private val postItemClickListener: (PostActionEnum, Any) -> Un
     }
 
     abstract inner class BaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        abstract fun shareButton(): AppCompatButton
+        private fun shareButton() = itemView.findViewById(R.id.shareButton) as AppCompatButton
         abstract val shareTypeEnum: PostActionEnum
         abstract fun bind(item: Any)
-
         init {
             this.shareButton().setOnClickListener {
                 postItemClickListener(shareTypeEnum, items[absoluteAdapterPosition])
@@ -87,7 +85,6 @@ class PostAdapter(private val postItemClickListener: (PostActionEnum, Any) -> Un
             }
 //            binding.textPostIncludedLayout.shareButton.setOnClickListener { postItemClickListener(PostActionEnum.ACTION_SHARE_TEXT, items[absoluteAdapterPosition]) }
         }
-        override fun shareButton() = itemView.findViewById(R.id.shareButton) as AppCompatButton
         override val shareTypeEnum = PostActionEnum.ACTION_SHARE_TEXT
 
         override fun bind(item: Any) {
@@ -103,8 +100,6 @@ class PostAdapter(private val postItemClickListener: (PostActionEnum, Any) -> Un
         init {
 //            binding.videoPostIncludedLayout.shareButton.setOnClickListener { postItemClickListener(PostActionEnum.ACTION_SHARE_VIDEO, items[absoluteAdapterPosition]) }
         }
-
-        override fun shareButton() = itemView.findViewById(R.id.shareButton) as AppCompatButton
         override val shareTypeEnum = PostActionEnum.ACTION_SHARE_VIDEO
 
         override fun bind(item: Any) {
@@ -121,8 +116,6 @@ class PostAdapter(private val postItemClickListener: (PostActionEnum, Any) -> Un
             binding.root.setOnClickListener { postItemClickListener(PostActionEnum.ACTION_URL_ITEM_CLICK, items[absoluteAdapterPosition]) }
 //            binding.urlPostIncludedLayout.shareButton.setOnClickListener { postItemClickListener(PostActionEnum.ACTION_SHARE_URL, items[absoluteAdapterPosition]) }
         }
-
-        override fun shareButton() = itemView.findViewById(R.id.shareButton) as AppCompatButton
         override val shareTypeEnum = PostActionEnum.ACTION_SHARE_URL
 
         override fun bind(item: Any) {
@@ -138,8 +131,6 @@ class PostAdapter(private val postItemClickListener: (PostActionEnum, Any) -> Un
             binding.root.setOnClickListener { postItemClickListener(PostActionEnum.ACTION_IMAGE_ITEM_CLICK, items[absoluteAdapterPosition]) }
 //            binding.imagePostIncludedLayout.shareButton.setOnClickListener { postItemClickListener(PostActionEnum.ACTION_SHARE_IMAGE, items[absoluteAdapterPosition]) }
         }
-
-        override fun shareButton() = itemView.findViewById(R.id.shareButton) as AppCompatButton
         override val shareTypeEnum = PostActionEnum.ACTION_SHARE_IMAGE
 
         override fun bind(item: Any) {

@@ -4,7 +4,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login_ragistration.LoginActivity">
+    tools:context=".login_registration.LoginActivity">
+
+    <View
+        android:id="@+id/forthLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_124"
+        android:layout_marginEnd="@dimen/_124"
+        android:layout_marginBottom="@dimen/_75"
+        android:background="@drawable/forth_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="@dimen/_50"
+        android:text="@string/log_in"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/forthLogin"
+        app:layout_constraintEnd_toEndOf="@+id/forthLogin" />
+
+    <View
+        android:id="@+id/thirdLogin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_0"
+        android:layout_marginTop="-70dp"
+        android:background="@drawable/third_login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/secondLogin" />
+
+    <View
+        android:id="@+id/secondLogin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_0"
+        android:layout_marginTop="-70dp"
+        android:background="@drawable/second_login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mainLogin" />
+
+    <View
+        android:id="@+id/mainLogin"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:background="@drawable/main_login"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/emailOrPhoneTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8"
+        android:text="@string/email_or_phone_number"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/emailOrPhoneEditText"
+        app:layout_constraintStart_toStartOf="@id/passwordTextView" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/emailOrPhoneEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_36"
+        android:layout_marginBottom="@dimen/_8"
+        android:background="#1f2e4e"
+        android:hint="@string/type_here"
+        android:minHeight="@dimen/_36"
+        android:textColor="@color/white"
+        android:textColorHint="#4a5974"
+        app:layout_constraintBottom_toTopOf="@id/passwordTextView"
+        app:layout_constraintEnd_toEndOf="@id/passwordTextView"
+        app:layout_constraintStart_toStartOf="@id/passwordTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/passwordTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8"
+        android:text="@string/password"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/passwordEditText"
+        app:layout_constraintStart_toStartOf="@id/passwordEditText" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_36"
+        android:layout_marginBottom="@dimen/_36"
+        android:background="#1f2e4e"
+        android:hint="@string/type_here"
+        android:minHeight="@dimen/_36"
+        android:textColor="@color/white"
+        android:textColorHint="#4a5974"
+        app:layout_constraintBottom_toTopOf="@id/logInButton"
+        app:layout_constraintEnd_toEndOf="@id/logInButton"
+        app:layout_constraintStart_toStartOf="@id/logInButton" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/logInButton"
@@ -12,10 +111,12 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/_36"
         android:background="@drawable/login_round_button"
+        android:paddingHorizontal="@dimen/_36"
         android:text="@string/log_in"
+        android:textAllCaps="false"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@id/mainLogin"
+        app:layout_constraintEnd_toEndOf="@id/mainLogin"
+        app:layout_constraintStart_toStartOf="@id/mainLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

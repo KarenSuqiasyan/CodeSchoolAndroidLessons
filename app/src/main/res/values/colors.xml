@@ -19,8 +19,8 @@
     <color name="ticTacToeStartGameButtonColor">#3289CD</color>
 
     <!-- Login and Registration-->
-    <color name="signInButtonColor">#1A2045</color>
-    <color name="signInButtonBorderColor">#6476DA</color>
+    <color name="signInButtonColor">#101f41</color>
+    <color name="signInButtonBorderColor">#3156ed</color>
 
 
 

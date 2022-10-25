@@ -29,6 +29,10 @@
         <item name="android:padding">@dimen/_16</item>
     </style>
 
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/dialog_background_rounded</item>
+    </style>
+
     <!-- TicTacToe-->
 
 

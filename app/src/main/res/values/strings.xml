@@ -40,8 +40,13 @@
     <string name="get_date">get Date</string>
     <string name="get_time">get time</string>
     <string name="sign_up">Sign Up</string>
-    <string name="log_in">Log in</string>
+    <string name="log_in">Log In</string>
     <string name="data_me">Data me.</string>
     <string name="know_yourself_better">Know yourself better</string>
+    <string name="type_here">Type here...</string>
+    <string name="password">Password</string>
+    <string name="email_or_phone_number">Email or Phone Number</string>
+    <string name="name_or_pseudo">Name or pseudo</string>
+    <string name="confirm_password">Confirm password</string>
 
 </resources>

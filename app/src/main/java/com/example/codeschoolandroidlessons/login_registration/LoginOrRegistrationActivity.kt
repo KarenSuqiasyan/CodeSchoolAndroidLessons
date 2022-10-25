@@ -10,6 +10,7 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.example.codeschoolandroidlessons.R
 import com.example.codeschoolandroidlessons.databinding.ActivityLoginOrRegistrationBinding
 import com.example.codeschoolandroidlessons.login_registration.LoginActivity.Companion.PASSWORD
@@ -22,7 +23,7 @@ class LoginOrRegistrationActivity : AppCompatActivity() {
     private var signUpResult: ActivityResultLauncher<Intent>? = null
 
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginOrRegistrationBinding.inflate(layoutInflater)
@@ -37,6 +38,8 @@ class LoginOrRegistrationActivity : AppCompatActivity() {
                     setContentView(R.layout.username_password_dialog)
                     findViewById<TextView>(R.id.passwordTextView2).text = "password: $password"
                     findViewById<TextView>(R.id.emailOrPhoneTextView2).text = "username: $username"
+                    findViewById<TextView>(R.id.confirmPasswordTextView).isVisible = false
+                    findViewById<TextView>(R.id.nameOrPseudoTextView).isVisible = false
                 }.show()
             }
         }

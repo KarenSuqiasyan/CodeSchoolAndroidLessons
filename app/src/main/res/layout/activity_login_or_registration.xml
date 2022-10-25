@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".login_registration.LoginOrRegistrationActivity">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/graphicImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/graphic"
+        app:layout_constraintBottom_toBottomOf="@id/dataMeTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.47" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/dataMeTextView"
         android:layout_width="wrap_content"

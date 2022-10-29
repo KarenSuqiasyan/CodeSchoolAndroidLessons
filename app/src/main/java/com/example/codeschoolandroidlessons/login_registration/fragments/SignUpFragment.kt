@@ -6,33 +6,36 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.codeschoolandroidlessons.databinding.FragmentSignUpBinding
+import com.example.codeschoolandroidlessons.login_registration.fragments.HomeFragment.Companion.CONFIRM_PASSWORD
+import com.example.codeschoolandroidlessons.login_registration.fragments.HomeFragment.Companion.NAME_OR_PSEUDO
+import com.example.codeschoolandroidlessons.login_registration.fragments.HomeFragment.Companion.PASSWORD
+import com.example.codeschoolandroidlessons.login_registration.fragments.HomeFragment.Companion.USER_NAME
 
 class SignUpFragment : Fragment() {
 
     private lateinit var binding: FragmentSignUpBinding
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSignUpBinding.inflate(inflater, container, false);
-        val view = binding.root
         binding.signUpButton.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putString(LogInFragment.USER_NAME, binding.emailOrPhoneSignUpEditText.text.toString())
-            bundle.putString(LogInFragment.PASSWORD, binding.confirmPasswordSignUpEditText.text.toString())
-            bundle.putString(LogInFragment.CONFIRM_PASSWORD, binding.confirmPasswordSignUpEditText.text.toString())
-            bundle.putString(LogInFragment.NAME_OR_PSEUDO, binding.nameOrPseudoSignUpEditText.text.toString())
+            val bundle = Bundle().apply {
+                putString(USER_NAME, binding.emailOrPhoneSignUpEditText.text.toString())
+                putString(PASSWORD, binding.confirmPasswordSignUpEditText.text.toString())
+                putString(CONFIRM_PASSWORD, binding.confirmPasswordSignUpEditText.text.toString())
+                putString(NAME_OR_PSEUDO, binding.nameOrPseudoSignUpEditText.text.toString())
+            }
             val homeFragment = HomeFragment.newInstance()
             homeFragment.arguments = bundle
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(com.example.codeschoolandroidlessons.R.id.container, homeFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            requireActivity().supportFragmentManager.beginTransaction().apply {
+                replace(com.example.codeschoolandroidlessons.R.id.container, homeFragment)
+                addToBackStack(null)
+                commit()
+            }
         }
-        return view
-
+        return binding.root
     }
 
     companion object {

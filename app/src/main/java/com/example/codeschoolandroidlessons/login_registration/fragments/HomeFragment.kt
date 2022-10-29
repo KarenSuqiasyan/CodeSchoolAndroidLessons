@@ -40,7 +40,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     @SuppressLint("SetTextI18n")
     private fun showDialog(username: String?, password: String?, confirmPassword: String? = "", nameOrPseudo: String? = "") {
-        Dialog(requireContext(), R.style.CustomAlertDialog).apply {
+        Dialog(requireContext(), R.style.UsernamePasswordDialog).apply {
             setContentView(R.layout.username_password_dialog)
             findViewById<TextView>(R.id.passwordTextView2).text = "password: $username"
             findViewById<TextView>(R.id.emailOrPhoneTextView2).text = "username: $password"

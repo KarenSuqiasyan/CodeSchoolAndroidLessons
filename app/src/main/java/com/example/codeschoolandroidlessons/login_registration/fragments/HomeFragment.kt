@@ -16,18 +16,16 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     private lateinit var binding: FragmentHomeBinding
 
-    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.signUpButton.setOnClickListener(this)
         binding.logInButton.setOnClickListener(this)
         return binding.root
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val bundle = this.arguments
@@ -40,7 +38,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    @SuppressLint("CutPasteId", "SetTextI18n")
+    @SuppressLint("SetTextI18n")
     private fun showDialog(username: String?, password: String?, confirmPassword: String? = "", nameOrPseudo: String? = "") {
         Dialog(requireContext(), R.style.CustomAlertDialog).apply {
             setContentView(R.layout.username_password_dialog)
@@ -85,7 +83,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 }
             }
         }
-
     }
 }
 

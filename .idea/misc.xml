@@ -46,6 +46,9 @@
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.1899696048632219" />
         <entry key="app/src/main/res/layout/activity_tic_tac_toe_game.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_web_view.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/fragment_log_in.xml" value="0.27708333333333335" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.2046875" />
         <entry key="app/src/main/res/layout/image_dialog.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_countries.xml" value="0.16935780843098946" />
         <entry key="app/src/main/res/layout/item_image.xml" value="0.28125" />

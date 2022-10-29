@@ -1,11 +1,11 @@
-package com.example.codeschoolandroidlessons.login_registration
+package com.example.codeschoolandroidlessons.login_registration.activity
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.codeschoolandroidlessons.databinding.ActivitySignUpBinding
-import com.example.codeschoolandroidlessons.login_registration.LoginActivity.Companion.PASSWORD
-import com.example.codeschoolandroidlessons.login_registration.LoginActivity.Companion.USER_NAME
+import com.example.codeschoolandroidlessons.login_registration.activity.LoginActivity.Companion.PASSWORD
+import com.example.codeschoolandroidlessons.login_registration.activity.LoginActivity.Companion.USER_NAME
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding

@@ -1,4 +1,4 @@
-package com.example.codeschoolandroidlessons.login_registration
+package com.example.codeschoolandroidlessons.login_registration.activity
 
 import android.content.Intent
 import android.os.Bundle

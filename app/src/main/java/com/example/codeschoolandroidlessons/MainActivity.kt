@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.example.codeschoolandroidlessons.calculator.CalculatorActivity
 import com.example.codeschoolandroidlessons.databinding.ActivityMainBinding
-import com.example.codeschoolandroidlessons.login_registration.LoginOrRegistrationActivity
+import com.example.codeschoolandroidlessons.login_registration.activity.LoginOrRegistrationActivity
 import com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity.posthome.PostHomeActivity
 import com.example.codeschoolandroidlessons.pickers_and_menues.PickerAndMenuActivity
 import com.example.codeschoolandroidlessons.recyclerview_countries.ui.countrieslist.CountriesActivity

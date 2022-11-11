@@ -37,6 +37,4 @@ class LogInFragment : Fragment() {
         @JvmStatic
         fun newInstance() = LogInFragment()
     }
-
-
 }

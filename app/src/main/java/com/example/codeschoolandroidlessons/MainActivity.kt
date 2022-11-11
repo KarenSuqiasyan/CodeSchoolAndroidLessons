@@ -10,6 +10,7 @@ import com.example.codeschoolandroidlessons.databinding.ActivityMainBinding
 import com.example.codeschoolandroidlessons.login_registration.activity.LoginOrRegistrationActivity
 import com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity.posthome.PostHomeActivity
 import com.example.codeschoolandroidlessons.pickers_and_menues.PickerAndMenuActivity
+import com.example.codeschoolandroidlessons.playmarket.activity.PlayMarketHomeActivity
 import com.example.codeschoolandroidlessons.recyclerview_countries.ui.countrieslist.CountriesActivity
 import com.example.codeschoolandroidlessons.tictactoe.PlayersActivity
 
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             CodeSchoolHomeworkEnum.POST -> startActivity(Intent(this, PostHomeActivity::class.java))
             CodeSchoolHomeworkEnum.PICKERS_AND_MENUS->startActivity(Intent(this, PickerAndMenuActivity::class.java))
             CodeSchoolHomeworkEnum.LOGIN_OR_REGISTRATION->startActivity(Intent(this, LoginOrRegistrationActivity::class.java))
+            CodeSchoolHomeworkEnum.PLAY_MARKET->startActivity(Intent(this, PlayMarketHomeActivity::class.java))
 
         }
     }
@@ -51,5 +53,6 @@ enum class CodeSchoolHomeworkEnum {
     RECYCLERVIEW_COUNTRIES,
     POST,
     PICKERS_AND_MENUS,
-    LOGIN_OR_REGISTRATION
+    LOGIN_OR_REGISTRATION,
+    PLAY_MARKET
 }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/kidsForUImageView"
+        android:layout_width="@dimen/_128dp"
+        android:layout_height="@dimen/_128dp"
+        android:layout_margin="@dimen/_16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/cornerSize"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/kidsForUNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/name"
+        app:layout_constraintStart_toStartOf="@+id/kidsForUImageView"
+        app:layout_constraintTop_toBottomOf="@+id/kidsForUImageView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/kidsForURatingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/rating"
+        app:layout_constraintStart_toStartOf="@+id/kidsForUNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/kidsForUNameTextView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/kidsForUStarImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/kidsForURatingTextView"
+        app:layout_constraintStart_toEndOf="@+id/kidsForURatingTextView"
+        app:layout_constraintTop_toTopOf="@+id/kidsForURatingTextView"
+        app:srcCompat="@android:drawable/btn_star" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

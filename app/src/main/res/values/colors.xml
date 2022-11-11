@@ -23,6 +23,13 @@
     <color name="signInButtonBorderColor">#3156ed</color>
 
 
+    <!-- Play Market-->
+
+    <color name="gray">#8C8C8C</color>
+
+    <!--End Play Market-->
+
+
 
 
 </resources>

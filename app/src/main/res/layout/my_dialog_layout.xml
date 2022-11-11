@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/round_back_dark_blue_border"
-    android:padding="@dimen/_16">
+    android:padding="@dimen/_16dp">
 
 
     <TextView
         android:id="@+id/messageTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_16"
+        android:layout_margin="@dimen/_16dp"
         android:gravity="center"
         android:text="@string/message_here"
         android:textSize="20sp"
@@ -24,7 +24,7 @@
         android:id="@+id/replayButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/_16"
+        android:layout_margin="@dimen/_16dp"
         android:background="@drawable/round_back_purple"
         android:text="@string/replay"
         android:textColor="@color/white"
@@ -38,7 +38,7 @@
         android:id="@+id/showScoreButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/_16"
+        android:layout_margin="@dimen/_16dp"
         android:background="@drawable/round_back_purple"
         android:text="@string/show_score"
         android:textColor="@color/white"
@@ -51,7 +51,7 @@
         android:id="@+id/changeNamesButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/_16"
+        android:layout_margin="@dimen/_16dp"
         android:background="@drawable/round_back_purple"
         android:text="@string/change_names"
         android:textColor="@color/white"
@@ -64,7 +64,7 @@
         android:id="@+id/exitButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/_16"
+        android:layout_margin="@dimen/_16dp"
         android:background="@drawable/round_back_purple"
         android:text="@string/exit"
         android:textColor="@color/white"

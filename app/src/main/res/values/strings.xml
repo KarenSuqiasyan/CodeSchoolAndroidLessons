@@ -1,6 +1,23 @@
 <resources>
     <string name="app_name">Code School Homework</string>
 
+    <!-- Global-->
+    <string name="global_enter_player_name">Enter Player Names</string>
+    <string name="global_games">Games</string>
+    <string name="global_apps">Apps</string>
+    <string name="global_for_you">For you</string>
+    <string name="global_top_charts">Top Charts</string>
+    <string name="global_kids">Kids</string>
+    <string name="global_categories">Categories</string>
+    <string name="global_name">name</string>
+    <string name="global_rating">rating</string>
+    <string name="global_memory_size">memory size</string>
+
+
+
+    <!-- End Global-->
+
+
     <!-- Calculator-->
     <string name="c">C</string>
     <string name="percent">%</string>
@@ -24,8 +41,7 @@
 
 
     <!-- TicTacToe-->
-
-    <string name="enter_player_name">Enter Player Names</string>
+    <string name="enter_player_name">@string/global_enter_player_name</string>
     <string name="player_one">Player One</string>
     <string name="player_two">Player Two</string>
     <string name="start_game">START GAME</string>
@@ -43,12 +59,35 @@
     <string name="log_in">Log In</string>
     <string name="data_me">Data me.</string>
     <string name="know_yourself_better">Know yourself better</string>
-    <string name="type_here">Type here...</string>
+    <string name="type_here">Type here…</string>
     <string name="password">Password</string>
     <string name="email_or_phone_number">Email or Phone Number</string>
     <string name="name_or_pseudo">Name or pseudo</string>
     <string name="confirm_password">Confirm password</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--End TicTacToe-->
+
+
+    <!-- Play Market-->
+    <string name="games">@string/global_games</string>
+    <string name="apps">@string/global_apps</string>
+    <string name="for_you">@string/global_for_you</string>
+    <string name="kids">@string/global_kids</string>
+    <string name="top_charts">@string/global_top_charts</string>
+    <string name="categories">@string/global_categories</string>
+    <string name="name">@string/global_name</string>
+    <string name="rating">@string/global_rating</string>
+    <string name="memory_size">@string/global_memory_size</string>
+    <string name="top_free">top free</string>
+    <string name="number">number</string>
+    <string name="browse_by_age">Browse by age</string>
+    <string name="ages_up_to_5">Ages up to 5</string>
+    <string name="ages_6_8">Ages 6-8</string>
+
+
+    <!-- End Play Market-->
+
 
 </resources>

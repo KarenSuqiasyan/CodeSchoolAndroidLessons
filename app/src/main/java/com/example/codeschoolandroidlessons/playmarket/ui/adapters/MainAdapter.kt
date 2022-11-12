@@ -52,7 +52,6 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
         }
     }
 
-
     @SuppressLint("NotifyDataSetChanged")
     fun updateData(items: List<Any>) {
         this.items.clear()
@@ -75,9 +74,6 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
                     Glide.with(context).load(item.imageUrl).centerCrop().into(binding.secondaryForYouImageView)
                     binding.ratingTextView.text = item.rating.toString()
                     binding.topChartsMemorySizeTextView.text = item.memory.toString()
-                }
-                else -> {
-
                 }
             }
         }
@@ -102,8 +98,6 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
                     binding.topChartsMemorySizeTextView.isVisible = false
                     Glide.with(context).load(item.imageUrl).centerCrop().into(binding.topChartsImageView)
                 }
-                else -> {
-                }
             }
         }
     }
@@ -116,8 +110,6 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
                 is AppsCategoriesDto -> {
                     binding.categoriesTextView.text = item.categories
                 }
-                else -> {
-                }
             }
         }
     }
@@ -129,8 +121,6 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
                 }
                 is AppsTopChartsTopFreeDto -> {
                     binding.categoriesTextView.text = item.title
-                }
-                else -> {
                 }
             }
         }
@@ -153,9 +143,6 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
                     binding.kidsForUNameTextView.text = item.title
                     binding.kidsForURatingTextView.text = item.rating.toString()
                     Glide.with(context).load(item.imageUrl).centerCrop().into(binding.kidsForUImageView)
-                }
-                else -> {
-
                 }
             }
         }

@@ -12,6 +12,11 @@
     <string name="global_name">name</string>
     <string name="global_rating">rating</string>
     <string name="global_memory_size">memory size</string>
+    <string name="global_top_free">top free</string>
+    <string name="global_number">number</string>
+    <string name="global_browse_by_age">Browse by age</string>
+    <string name="global_ages_up_to_5">Ages up to 5</string>
+    <string name="global_ages_6_8">Ages 6–8</string>
 
 
 
@@ -80,11 +85,11 @@
     <string name="name">@string/global_name</string>
     <string name="rating">@string/global_rating</string>
     <string name="memory_size">@string/global_memory_size</string>
-    <string name="top_free">top free</string>
-    <string name="number">number</string>
-    <string name="browse_by_age">Browse by age</string>
-    <string name="ages_up_to_5">Ages up to 5</string>
-    <string name="ages_6_8">Ages 6-8</string>
+    <string name="top_free">@string/global_top_free</string>
+    <string name="number">@string/global_number</string>
+    <string name="browse_by_age">@string/global_browse_by_age</string>
+    <string name="ages_up_to_5">@string/global_ages_up_to_5</string>
+    <string name="ages_6_8">@string/global_ages_6_8</string>
 
 
     <!-- End Play Market-->

@@ -39,7 +39,6 @@ class CategoriesFragment(fragmentTypeEnum: FragmentTypeEnum) : BasePlayMarketFra
                 FragmentTypeEnum.GAMES -> GamesCategoryDto.values().toList()
             }
         )
-
     }
 
     companion object {

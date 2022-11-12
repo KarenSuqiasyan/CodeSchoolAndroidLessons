@@ -5,13 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.codeschoolandroidlessons.databinding.FragmentBottomSheetDialogBinding
+import com.example.codeschoolandroidlessons.playmarket.ui.adapters.MainAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class BottomSheetFragmentDialog : BottomSheetDialogFragment() {
+class BottomSheetFragmentDialog(dataList: MutableList<Any>) : BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentBottomSheetDialogBinding
+    private val mainAdapter = MainAdapter()
+    private var mDataList = dataList
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,9 +27,14 @@ class BottomSheetFragmentDialog : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.bottomSheetDialogRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter
+            adapter = mainAdapter
+            mainAdapter.updateData(mDataList)
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(dataList: MutableList<Any>) = BottomSheetFragmentDialog(dataList)
     }
 }

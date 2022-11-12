@@ -5,13 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.codeschoolandroidlessons.databinding.FragmentForYouBinding
+import com.example.codeschoolandroidlessons.playmarket.FragmentTypeEnum
+import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsForYouDto
 import com.example.codeschoolandroidlessons.playmarket.data.games_model.GameForYouDto
 import com.example.codeschoolandroidlessons.playmarket.ui.BasePlayMarketFragment
 import com.example.codeschoolandroidlessons.playmarket.ui.adapters.GlobalScrollAdapter
 
-class ForYouFragment : BasePlayMarketFragment() {
+class ForYouFragment(fragmentTypeEnum: FragmentTypeEnum) : BasePlayMarketFragment() {
 
     private lateinit var binding: FragmentForYouBinding
+    private var mFragmentTypeEnum = fragmentTypeEnum
 
     private val adapter = GlobalScrollAdapter()
 
@@ -31,17 +34,25 @@ class ForYouFragment : BasePlayMarketFragment() {
     private fun setupViews() {
         binding.forYouRecyclerView.adapter = adapter
         adapter.updateData(
-            listOf(
-                GameForYouDto.values().toList(),
-                GameForYouDto.values().toList(),
-                GameForYouDto.values().toList(),
-                GameForYouDto.values().toList(),
-            )
+            when (mFragmentTypeEnum) {
+                FragmentTypeEnum.GAMES -> listOf(
+                    GameForYouDto.values().toList(),
+                    GameForYouDto.values().toList(),
+                    GameForYouDto.values().toList(),
+                    GameForYouDto.values().toList()
+                )
+                FragmentTypeEnum.APPS -> listOf(
+                    AppsForYouDto.values().toList(),
+                    AppsForYouDto.values().toList(),
+                    AppsForYouDto.values().toList(),
+                    AppsForYouDto.values().toList()
+                )
+            }
         )
     }
 
     companion object {
         @JvmStatic
-        fun newInstance() = ForYouFragment()
+        fun newInstance(fragmentTypeEnum: FragmentTypeEnum) = ForYouFragment(fragmentTypeEnum)
     }
 }

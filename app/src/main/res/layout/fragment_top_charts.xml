@@ -14,13 +14,13 @@
         android:layout_marginTop="@dimen/_16dp"
         android:text="@string/top_free"
         app:layout_constraintBottom_toTopOf="@id/topChartsRecyclerView"
-        app:layout_constraintEnd_toEndOf="@id/kidsAges9_12Button"
+        app:layout_constraintEnd_toEndOf="@id/topChartsCategoriesButton"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/kidsAges9_12Button"
+        android:id="@+id/topChartsCategoriesButton"
         style="@style/bottomSheetButton"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_0dp"

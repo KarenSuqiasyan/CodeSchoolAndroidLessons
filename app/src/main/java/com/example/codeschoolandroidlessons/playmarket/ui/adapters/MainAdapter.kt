@@ -5,17 +5,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.codeschoolandroidlessons.databinding.ItemCategoriesGamesAppsBinding
-import com.example.codeschoolandroidlessons.databinding.ItemForYouGamesBinding
-import com.example.codeschoolandroidlessons.databinding.ItemTopChartsGamesAppsBinding
-import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsCategoriesDto
-import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsForYouDto
-import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsTopChartsDto
-import com.example.codeschoolandroidlessons.playmarket.data.games_model.GameForYouDto
-import com.example.codeschoolandroidlessons.playmarket.data.games_model.GameTopChartsDto
-import com.example.codeschoolandroidlessons.playmarket.data.games_model.GamesCategoryDto
+import com.example.codeschoolandroidlessons.databinding.*
+import com.example.codeschoolandroidlessons.playmarket.data.apps_model.*
+import com.example.codeschoolandroidlessons.playmarket.data.games_model.*
 
 class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
 
@@ -36,6 +31,8 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
             VIEW_TYPE_TOP_CHARTS -> TopChartsItemViewHolder(ItemTopChartsGamesAppsBinding.inflate(layoutInflater, parent, false))
             VIEW_TYPE_GAMES_FOR_YOU -> GamesForYouItemViewHolder(ItemForYouGamesBinding.inflate(layoutInflater, parent, false))
             VIEW_TYPE_CATEGORIES -> CategoriesItemViewHolder(ItemCategoriesGamesAppsBinding.inflate(layoutInflater, parent, false))
+            VIEW_TYPE_KIDS_AND_FOR_YOU_APPS -> KidsAndAppsForYouItemViewHolder(ItemKidsGamesAppsForuAppsBinding.inflate(layoutInflater, parent, false))
+            VIEW_TYPE_TOP_CHARTS_TOP_FREE -> TopChartsTopFreeItemViewHolder(ItemCategoriesGamesAppsBinding.inflate(layoutInflater, parent, false))
             else -> throw IllegalArgumentException("undefined viewType: $viewType in ${this::class.java.simpleName}")
         }
     }
@@ -49,7 +46,8 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
             is AppsTopChartsDto, is GameTopChartsDto -> VIEW_TYPE_TOP_CHARTS
             is GameForYouDto -> VIEW_TYPE_GAMES_FOR_YOU
             is GamesCategoryDto, is AppsCategoriesDto -> VIEW_TYPE_CATEGORIES
-//            is UrlPost -> MainAdapter.VIEW_TYPE_URL_POST
+            is AppsKidsDto, is GamesKidsDto, is AppsForYouDto -> VIEW_TYPE_KIDS_AND_FOR_YOU_APPS
+            is GamesTopChartsTopFreeDto, is AppsTopChartsTopFreeDto -> VIEW_TYPE_TOP_CHARTS_TOP_FREE
             else -> UNDEFINED
         }
     }
@@ -86,20 +84,22 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
     }
 
     private inner class TopChartsItemViewHolder(val binding: ItemTopChartsGamesAppsBinding) : BaseViewHolder(binding.root) {
+
+        @SuppressLint("SetTextI18n")
         override fun bind(item: Any) {
             when (item) {
-                is GameForYouDto -> {
+                is GameTopChartsDto -> {
                     binding.topChartsTitleTextView.text = item.title
-                    binding.topChartsNumberTextView.text = items[absoluteAdapterPosition + 1].toString()
+                    binding.topChartsNumberTextView.text = (absoluteAdapterPosition + 1).toString()
                     binding.topChartsRatingTextView.text = item.rating.toString()
                     binding.topChartsMemorySizeTextView.text = item.memory.toString()
                     Glide.with(context).load(item.imageUrl).centerCrop().into(binding.topChartsImageView)
                 }
-                is AppsForYouDto -> {
+                is AppsTopChartsDto -> {
                     binding.topChartsTitleTextView.text = item.title
-                    binding.topChartsNumberTextView.text = items[absoluteAdapterPosition + 1].toString()
+                    binding.topChartsNumberTextView.text = (absoluteAdapterPosition + 1).toString()
                     binding.topChartsRatingTextView.text = item.rating.toString()
-                    binding.topChartsMemorySizeTextView.text = item.memory.toString()
+                    binding.topChartsMemorySizeTextView.isVisible = false
                     Glide.with(context).load(item.imageUrl).centerCrop().into(binding.topChartsImageView)
                 }
                 else -> {
@@ -110,28 +110,65 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
     private inner class CategoriesItemViewHolder(val binding: ItemCategoriesGamesAppsBinding) : BaseViewHolder(binding.root) {
         override fun bind(item: Any) {
             when (item) {
-                is GameForYouDto -> {
-                    binding.categoriesTextView.text = item.title
-                    Glide.with(context).load(item.imageUrl).centerCrop().into(binding.categoriesImageView)
+                is GamesCategoryDto -> {
+                    binding.categoriesTextView.text = item.categoryName
                 }
-                is AppsForYouDto -> {
-                    binding.categoriesTextView.text = item.title
-                    Glide.with(context).load(item.imageUrl).centerCrop().into(binding.categoriesImageView)
+                is AppsCategoriesDto -> {
+                    binding.categoriesTextView.text = item.categories
                 }
                 else -> {
                 }
             }
         }
     }
+    private inner class TopChartsTopFreeItemViewHolder(val binding: ItemCategoriesGamesAppsBinding) : BaseViewHolder(binding.root) {
+        override fun bind(item: Any) {
+            when (item) {
+                is GamesTopChartsTopFreeDto -> {
+                    binding.categoriesTextView.text = item.title
+                }
+                is AppsTopChartsTopFreeDto -> {
+                    binding.categoriesTextView.text = item.title
+                }
+                else -> {
+                }
+            }
+        }
+    }
+    private inner class KidsAndAppsForYouItemViewHolder(val binding: ItemKidsGamesAppsForuAppsBinding) : BaseViewHolder(binding.root) {
+
+        override fun bind(item: Any) {
+            when (item) {
+                is GamesKidsDto -> {
+                    binding.kidsForUNameTextView.text = item.title
+                    binding.kidsForURatingTextView.text = item.rating.toString()
+                    Glide.with(context).load(item.imageUrl).centerCrop().into(binding.kidsForUImageView)
+                }
+                is AppsKidsDto -> {
+                    binding.kidsForUNameTextView.text = item.title
+                    binding.kidsForURatingTextView.text = item.rating.toString()
+                    Glide.with(context).load(item.imageUrl).centerCrop().into(binding.kidsForUImageView)
+                }
+                is AppsForYouDto -> {
+                    binding.kidsForUNameTextView.text = item.title
+                    binding.kidsForURatingTextView.text = item.rating.toString()
+                    Glide.with(context).load(item.imageUrl).centerCrop().into(binding.kidsForUImageView)
+                }
+                else -> {
+
+                }
+            }
+        }
+    }
+
     companion object {
         private const val UNDEFINED = -1
 
         private const val VIEW_TYPE_TOP_CHARTS = 1
         private const val VIEW_TYPE_GAMES_FOR_YOU = 2
         private const val VIEW_TYPE_CATEGORIES = 3
-//        private const val VIEW_TYPE_IMAGE_POST = 4
-//
-//        const val URL_FOR_WEB_VIEW = "url for web view"
-//        const val FULL_SCREEN_IMAGE = "full screen image"
+        private const val VIEW_TYPE_KIDS_AND_FOR_YOU_APPS = 4
+        private const val VIEW_TYPE_TOP_CHARTS_TOP_FREE = 5
+
     }
 }

@@ -8,6 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.codeschoolandroidlessons.playmarket.ui.BasePlayMarketFragment
 import com.example.codeschoolandroidlessons.R
 import com.example.codeschoolandroidlessons.databinding.FragmentGamesMainTabBinding
+import com.example.codeschoolandroidlessons.playmarket.FragmentTypeEnum
 import com.example.codeschoolandroidlessons.playmarket.ui.categories.CategoriesFragment
 import com.example.codeschoolandroidlessons.playmarket.ui.for_you.ForYouFragment
 import com.example.codeschoolandroidlessons.playmarket.ui.kids.KidsFragment
@@ -18,10 +19,10 @@ class GamesMainTabFragment : BasePlayMarketFragment() {
 
     private lateinit var binding: FragmentGamesMainTabBinding
     private val tabFragments = mutableListOf<BasePlayMarketFragment>(
-        CategoriesFragment.newInstance(),
-        ForYouFragment.newInstance(),
-        KidsFragment.newInstance(),
-        TopChartsFragment.newInstance()
+        CategoriesFragment.newInstance(FragmentTypeEnum.GAMES),
+        ForYouFragment.newInstance(FragmentTypeEnum.GAMES),
+        KidsFragment.newInstance(FragmentTypeEnum.GAMES),
+        TopChartsFragment.newInstance(FragmentTypeEnum.GAMES)
     )
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

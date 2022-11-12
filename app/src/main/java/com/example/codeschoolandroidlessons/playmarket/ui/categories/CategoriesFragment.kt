@@ -5,15 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.codeschoolandroidlessons.databinding.FragmentCategoriesBinding
+import com.example.codeschoolandroidlessons.playmarket.FragmentTypeEnum
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsCategoriesDto
 import com.example.codeschoolandroidlessons.playmarket.data.games_model.GamesCategoryDto
 import com.example.codeschoolandroidlessons.playmarket.ui.BasePlayMarketFragment
 import com.example.codeschoolandroidlessons.playmarket.ui.adapters.MainAdapter
 
-class CategoriesFragment : BasePlayMarketFragment() {
+class CategoriesFragment(fragmentTypeEnum: FragmentTypeEnum) : BasePlayMarketFragment() {
 
     private lateinit var binding: FragmentCategoriesBinding
     private val adapter = MainAdapter()
+    private val mFragmentTypeEnum: FragmentTypeEnum = fragmentTypeEnum
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,13 +32,18 @@ class CategoriesFragment : BasePlayMarketFragment() {
 
     private fun setupViews() {
         binding.categoriesRecyclerView.adapter = adapter
+
         adapter.updateData(
-            GamesCategoryDto.values().toList(),
+            when (mFragmentTypeEnum) {
+                FragmentTypeEnum.APPS -> AppsCategoriesDto.values().toList()
+                FragmentTypeEnum.GAMES -> GamesCategoryDto.values().toList()
+            }
         )
+
     }
 
     companion object {
         @JvmStatic
-        fun newInstance() = CategoriesFragment()
+        fun newInstance(fragmentTypeEnum: FragmentTypeEnum) = CategoriesFragment(fragmentTypeEnum)
     }
 }

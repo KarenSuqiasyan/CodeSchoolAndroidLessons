@@ -5,10 +5,13 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.codeschoolandroidlessons.databinding.ItemScrollableRecyclerviewForuKidsBinding
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsForYouDto
+import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsKidsDto
 import com.example.codeschoolandroidlessons.playmarket.data.games_model.GameForYouDto
+import com.example.codeschoolandroidlessons.playmarket.data.games_model.GamesKidsDto
 
 class GlobalScrollAdapter : RecyclerView.Adapter<GlobalScrollAdapter.BaseViewHolder>() {
 
@@ -51,8 +54,10 @@ class GlobalScrollAdapter : RecyclerView.Adapter<GlobalScrollAdapter.BaseViewHol
 
         override fun bind(item: List<Any>) {
             binding.titleTextview.text = when (item[absoluteAdapterPosition]) {
-                is GameForYouDto -> "Games"
-                is AppsForYouDto -> "Apps"
+                is GameForYouDto -> "Games For You"
+                is AppsForYouDto -> "Apps For You"
+                is GamesKidsDto -> "Games For Kids"
+                is AppsKidsDto -> "Games For Kids"
                 else -> "Other Programs"
             }
             adapter.updateData(item)

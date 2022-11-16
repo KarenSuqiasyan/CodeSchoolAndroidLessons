@@ -6,28 +6,28 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.codeschoolandroidlessons.R
+import com.example.codeschoolandroidlessons.databinding.FragmentPlaymarketAppsMainTabBinding
 import com.example.codeschoolandroidlessons.playmarket.ui.base.fragment.BasePlayMarketFragment
-import com.example.codeschoolandroidlessons.databinding.FragmentAppsMainTabBinding
-import com.example.codeschoolandroidlessons.playmarket.ui.fragments.FragmentTypeEnum
-import com.example.codeschoolandroidlessons.playmarket.ui.fragments.categories.CategoriesFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.fragments.for_you.ForYouFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.fragments.kids.KidsFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.fragments.top_charts.TopChartsFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.home.fragments.FragmentTypeEnum
+import com.example.codeschoolandroidlessons.playmarket.ui.home.fragments.categories.CategoriesFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.home.fragments.for_you.ForYouFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.home.fragments.kids.KidsFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.home.fragments.top_charts.TopChartsFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 class AppsMainTabFragment : BasePlayMarketFragment() {
 
-    private lateinit var binding: FragmentAppsMainTabBinding
+    private lateinit var binding: FragmentPlaymarketAppsMainTabBinding
     private val tabFragments = mutableListOf<BasePlayMarketFragment>(
         ForYouFragment.newInstance(FragmentTypeEnum.APPS),
         TopChartsFragment.newInstance(FragmentTypeEnum.APPS),
         KidsFragment.newInstance(FragmentTypeEnum.APPS),
         CategoriesFragment.newInstance(FragmentTypeEnum.APPS)
 
-        )
+    )
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = FragmentAppsMainTabBinding.inflate(inflater, container, false)
+        binding = FragmentPlaymarketAppsMainTabBinding.inflate(inflater, container, false)
         return binding.root
     }
 

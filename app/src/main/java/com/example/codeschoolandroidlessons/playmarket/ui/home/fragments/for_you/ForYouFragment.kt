@@ -1,19 +1,19 @@
-package com.example.codeschoolandroidlessons.playmarket.ui.fragments.for_you
+package com.example.codeschoolandroidlessons.playmarket.ui.home.fragments.for_you
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.codeschoolandroidlessons.databinding.FragmentForYouBinding
+import com.example.codeschoolandroidlessons.databinding.FragmentPlaymarketForYouBinding
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsForYouDto
 import com.example.codeschoolandroidlessons.playmarket.data.games_model.GameForYouDto
 import com.example.codeschoolandroidlessons.playmarket.ui.adapters.NestedScrollAdapter
 import com.example.codeschoolandroidlessons.playmarket.ui.base.fragment.BasePlayMarketFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.fragments.FragmentTypeEnum
+import com.example.codeschoolandroidlessons.playmarket.ui.home.fragments.FragmentTypeEnum
 
 class ForYouFragment(fragmentTypeEnum: FragmentTypeEnum) : BasePlayMarketFragment() {
 
-    private lateinit var binding: FragmentForYouBinding
+    private lateinit var binding: FragmentPlaymarketForYouBinding
     private var mFragmentTypeEnum = fragmentTypeEnum
     private val nestedAdapter: NestedScrollAdapter by lazy {
         NestedScrollAdapter(this)
@@ -23,7 +23,7 @@ class ForYouFragment(fragmentTypeEnum: FragmentTypeEnum) : BasePlayMarketFragmen
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentForYouBinding.inflate(inflater, container, false)
+        binding = FragmentPlaymarketForYouBinding.inflate(inflater, container, false)
         return binding.root
     }
 

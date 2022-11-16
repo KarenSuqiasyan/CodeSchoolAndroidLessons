@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".playmarket.ui.fragments.kids.KidsFragment">
+        tools:context=".playmarket.ui.home.fragments.kids.KidsFragment">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/kidsBackgroundImageView"
@@ -75,7 +75,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/kidsAges9_12Button"
-            tools:listitem="@layout/item_kids_games_apps_foru_apps" />
+            tools:listitem="@layout/item_playmarket_kids_games_apps_foru_apps" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

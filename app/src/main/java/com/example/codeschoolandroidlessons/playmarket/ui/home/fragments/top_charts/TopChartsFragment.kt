@@ -1,32 +1,32 @@
-package com.example.codeschoolandroidlessons.playmarket.ui.fragments.top_charts
+package com.example.codeschoolandroidlessons.playmarket.ui.home.fragments.top_charts
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.codeschoolandroidlessons.databinding.FragmentTopChartsBinding
-import com.example.codeschoolandroidlessons.playmarket.ui.fragments.FragmentTypeEnum
+import com.example.codeschoolandroidlessons.databinding.FragmentPlaymarketTopChartsBinding
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsCategoriesDto
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsTopChartsDto
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsTopChartsTopFreeDto
 import com.example.codeschoolandroidlessons.playmarket.data.games_model.GameTopChartsDto
 import com.example.codeschoolandroidlessons.playmarket.data.games_model.GamesTopChartsTopFreeDto
-import com.example.codeschoolandroidlessons.playmarket.ui.base.fragment.BasePlayMarketFragment
 import com.example.codeschoolandroidlessons.playmarket.ui.adapters.BaseAdapter
+import com.example.codeschoolandroidlessons.playmarket.ui.base.fragment.BasePlayMarketFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.home.fragments.FragmentTypeEnum
 
 class TopChartsFragment(fragmentTypeEnum: FragmentTypeEnum) : BasePlayMarketFragment() {
 
-    private lateinit var binding: FragmentTopChartsBinding
+    private lateinit var binding: FragmentPlaymarketTopChartsBinding
     private var mFragmentTypeEnum = fragmentTypeEnum
     private val baseAdapter: BaseAdapter by lazy {
-        BaseAdapter (this)
+        BaseAdapter(this)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentTopChartsBinding.inflate(inflater, container, false)
+        binding = FragmentPlaymarketTopChartsBinding.inflate(inflater, container, false)
         return binding.root
     }
 

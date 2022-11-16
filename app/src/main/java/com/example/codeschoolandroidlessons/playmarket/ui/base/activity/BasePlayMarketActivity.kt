@@ -11,8 +11,9 @@ import androidx.fragment.app.Fragment
 import com.example.codeschoolandroidlessons.MyApplication
 import com.example.codeschoolandroidlessons.R
 import com.example.codeschoolandroidlessons.playmarket.utils.internet_connection.ConnectionReceiver
+import com.example.codeschoolandroidlessons.playmarket.utils.internet_connection.ConnectionReceiverListener
 
-abstract class BasePlayMarketActivity : AppCompatActivity(), ConnectionReceiver.ConnectionReceiverListener {
+abstract class BasePlayMarketActivity : AppCompatActivity(), ConnectionReceiverListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

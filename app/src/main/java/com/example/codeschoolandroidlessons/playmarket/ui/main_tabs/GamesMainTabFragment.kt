@@ -5,19 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.codeschoolandroidlessons.playmarket.ui.base.fragment.BasePlayMarketFragment
 import com.example.codeschoolandroidlessons.R
-import com.example.codeschoolandroidlessons.databinding.FragmentGamesMainTabBinding
-import com.example.codeschoolandroidlessons.playmarket.ui.fragments.FragmentTypeEnum
-import com.example.codeschoolandroidlessons.playmarket.ui.fragments.categories.CategoriesFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.fragments.for_you.ForYouFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.fragments.kids.KidsFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.fragments.top_charts.TopChartsFragment
+import com.example.codeschoolandroidlessons.databinding.FragmentPlaymarketGamesMainTabBinding
+import com.example.codeschoolandroidlessons.playmarket.ui.base.fragment.BasePlayMarketFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.home.fragments.FragmentTypeEnum
+import com.example.codeschoolandroidlessons.playmarket.ui.home.fragments.categories.CategoriesFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.home.fragments.for_you.ForYouFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.home.fragments.kids.KidsFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.home.fragments.top_charts.TopChartsFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 class GamesMainTabFragment : BasePlayMarketFragment() {
 
-    private lateinit var binding: FragmentGamesMainTabBinding
+    private lateinit var binding: FragmentPlaymarketGamesMainTabBinding
     private val tabFragments = mutableListOf<BasePlayMarketFragment>(
         ForYouFragment.newInstance(FragmentTypeEnum.GAMES),
         TopChartsFragment.newInstance(FragmentTypeEnum.GAMES),
@@ -26,7 +26,7 @@ class GamesMainTabFragment : BasePlayMarketFragment() {
     )
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = FragmentGamesMainTabBinding.inflate(inflater, container, false)
+        binding = FragmentPlaymarketGamesMainTabBinding.inflate(inflater, container, false)
         return binding.root
     }
 

@@ -10,7 +10,7 @@ import com.example.codeschoolandroidlessons.databinding.ActivityMainBinding
 import com.example.codeschoolandroidlessons.login_registration.activity.LoginOrRegistrationActivity
 import com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity.posthome.PostHomeActivity
 import com.example.codeschoolandroidlessons.pickers_and_menues.PickerAndMenuActivity
-import com.example.codeschoolandroidlessons.playmarket.ui.activity.PlayMarketHomeActivity
+import com.example.codeschoolandroidlessons.playmarket.ui.home.activity.PlayMarketHomeActivity
 import com.example.codeschoolandroidlessons.recyclerview_countries.ui.countrieslist.CountriesActivity
 import com.example.codeschoolandroidlessons.tictactoe.PlayersActivity
 

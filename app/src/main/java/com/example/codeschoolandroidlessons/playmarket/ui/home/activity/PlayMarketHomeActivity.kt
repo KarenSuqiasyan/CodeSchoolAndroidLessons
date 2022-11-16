@@ -1,9 +1,9 @@
-package com.example.codeschoolandroidlessons.playmarket.ui.activity
+package com.example.codeschoolandroidlessons.playmarket.ui.home.activity
 
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.example.codeschoolandroidlessons.R
-import com.example.codeschoolandroidlessons.databinding.ActivityPlayMarketHomeBinding
+import com.example.codeschoolandroidlessons.databinding.ActivityPlaymarketHomeBinding
 import com.example.codeschoolandroidlessons.playmarket.ui.base.activity.BasePlayMarketActivity
 import com.example.codeschoolandroidlessons.playmarket.ui.main_tabs.AppsMainTabFragment
 import com.example.codeschoolandroidlessons.playmarket.ui.main_tabs.GamesMainTabFragment
@@ -11,11 +11,11 @@ import com.example.codeschoolandroidlessons.playmarket.ui.main_tabs.GamesMainTab
 
 class PlayMarketHomeActivity : BasePlayMarketActivity() {
 
-    private lateinit var binding: ActivityPlayMarketHomeBinding
+    private lateinit var binding: ActivityPlaymarketHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityPlayMarketHomeBinding.inflate(layoutInflater)
+        binding = ActivityPlaymarketHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.homeBottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {

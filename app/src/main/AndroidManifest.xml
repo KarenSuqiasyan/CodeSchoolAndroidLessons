@@ -21,7 +21,7 @@
             android:name=".playmarket.ui.base.activity.BasePlayMarketActivity"
             android:exported="false" />
         <activity
-            android:name=".playmarket.ui.activity.PlayMarketHomeActivity"
+            android:name=".playmarket.ui.home.activity.PlayMarketHomeActivity"
             android:exported="false" />
         <activity
             android:name=".login_registration.activity.LoginOrRegistrationActivity"

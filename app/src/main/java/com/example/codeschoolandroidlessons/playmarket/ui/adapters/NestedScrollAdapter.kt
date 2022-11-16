@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.codeschoolandroidlessons.databinding.ItemScrollableRecyclerviewForuKidsBinding
-import com.example.codeschoolandroidlessons.playmarket.data.base.BaseItemType
+import com.example.codeschoolandroidlessons.databinding.ItemPlaymarketScrollableRecyclerviewForuKidsBinding
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsForYouDto
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsKidsDto
+import com.example.codeschoolandroidlessons.playmarket.data.base.BaseItemType
 import com.example.codeschoolandroidlessons.playmarket.data.games_model.GameForYouDto
 import com.example.codeschoolandroidlessons.playmarket.data.games_model.GamesKidsDto
 import com.example.codeschoolandroidlessons.playmarket.ui.base.OnItemClickListener
@@ -27,7 +27,8 @@ class NestedScrollAdapter(private val onItemClickListener: OnItemClickListener) 
         layoutInflater = LayoutInflater.from(context)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder = PlayStoreMainViewHolder(ItemScrollableRecyclerviewForuKidsBinding.inflate(layoutInflater, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder =
+        PlayStoreMainViewHolder(ItemPlaymarketScrollableRecyclerviewForuKidsBinding.inflate(layoutInflater, parent, false))
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) = holder.bind(items[position])
 
@@ -45,9 +46,10 @@ class NestedScrollAdapter(private val onItemClickListener: OnItemClickListener) 
         notifyDataSetChanged()
     }
 
-    private inner class PlayStoreMainViewHolder(val binding: ItemScrollableRecyclerviewForuKidsBinding) : BaseViewHolder(binding.root) {
+    private inner class PlayStoreMainViewHolder(val binding: ItemPlaymarketScrollableRecyclerviewForuKidsBinding) : BaseViewHolder(binding.root) {
 
         val adapter = BaseAdapter(onItemClickListener)
+
         init {
             binding.scrollableForUAndKidsRecyclerView.adapter = adapter
         }

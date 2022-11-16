@@ -1,18 +1,18 @@
-package com.example.codeschoolandroidlessons.playmarket.ui.fragments.top_charts
+package com.example.codeschoolandroidlessons.playmarket.ui.home.fragments.top_charts
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.example.codeschoolandroidlessons.databinding.FragmentBottomSheetDialogBinding
+import com.example.codeschoolandroidlessons.databinding.FragmentPlaymarketBottomSheetDialogBinding
 import com.example.codeschoolandroidlessons.playmarket.data.base.BaseItemType
 import com.example.codeschoolandroidlessons.playmarket.ui.adapters.BaseAdapter
 import com.example.codeschoolandroidlessons.playmarket.ui.base.bottomsheetdialog.BaseBottomSheetFragmentDialog
 
 class BottomSheetFragmentDialog(dataList: MutableList<BaseItemType>) : BaseBottomSheetFragmentDialog() {
 
-    private lateinit var binding: FragmentBottomSheetDialogBinding
+    private lateinit var binding: FragmentPlaymarketBottomSheetDialogBinding
     private var mDataList = dataList
 
     private val baseAdapter: BaseAdapter by lazy {
@@ -24,7 +24,7 @@ class BottomSheetFragmentDialog(dataList: MutableList<BaseItemType>) : BaseBotto
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentBottomSheetDialogBinding.inflate(inflater, container, false)
+        binding = FragmentPlaymarketBottomSheetDialogBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -36,6 +36,7 @@ class BottomSheetFragmentDialog(dataList: MutableList<BaseItemType>) : BaseBotto
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
     }
+
     companion object {
         @JvmStatic
         fun newInstance(dataList: MutableList<BaseItemType>) = BottomSheetFragmentDialog(dataList)

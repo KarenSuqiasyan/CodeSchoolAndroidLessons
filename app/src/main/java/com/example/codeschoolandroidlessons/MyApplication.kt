@@ -2,6 +2,7 @@ package com.example.codeschoolandroidlessons
 
 import android.app.Application
 import com.example.codeschoolandroidlessons.playmarket.utils.internet_connection.ConnectionReceiver
+import com.example.codeschoolandroidlessons.playmarket.utils.internet_connection.ConnectionReceiverListener
 
 class MyApplication : Application() {
 
@@ -10,7 +11,7 @@ class MyApplication : Application() {
         instance = this
     }
 
-    fun setConnectionListener (listener: ConnectionReceiver.ConnectionReceiverListener) {
+    fun setConnectionListener (listener: ConnectionReceiverListener) {
         ConnectionReceiver.connectionReceiverListener = listener
     }
 

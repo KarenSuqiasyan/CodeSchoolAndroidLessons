@@ -29,11 +29,11 @@ class BaseAdapter(private val onItemClickListener: OnItemClickListener) : Recycl
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
             : BaseViewHolder {
         return when (viewType) {
-            VIEW_TYPE_TOP_CHARTS -> TopChartsItemViewHolder(ItemTopChartsGamesAppsBinding.inflate(layoutInflater, parent, false))
-            VIEW_TYPE_GAMES_FOR_YOU -> GamesForYouItemViewHolder(ItemForYouGamesBinding.inflate(layoutInflater, parent, false))
-            VIEW_TYPE_CATEGORIES -> CategoriesItemViewHolder(ItemCategoriesGamesAppsBinding.inflate(layoutInflater, parent, false))
-            VIEW_TYPE_KIDS_AND_FOR_YOU_APPS -> KidsAndAppsForYouItemViewHolder(ItemKidsGamesAppsForuAppsBinding.inflate(layoutInflater, parent, false))
-            VIEW_TYPE_TOP_CHARTS_TOP_FREE -> TopChartsTopFreeItemViewHolder(ItemCategoriesGamesAppsBinding.inflate(layoutInflater, parent, false))
+            VIEW_TYPE_TOP_CHARTS -> TopChartsItemViewHolder(ItemPlaymarketTopChartsGamesAppsBinding.inflate(layoutInflater, parent, false))
+            VIEW_TYPE_GAMES_FOR_YOU -> GamesForYouItemViewHolder(ItemPlaymarketForYouGamesBinding.inflate(layoutInflater, parent, false))
+            VIEW_TYPE_CATEGORIES -> CategoriesItemViewHolder(ItemPlaymarketCategoriesGamesAppsBinding.inflate(layoutInflater, parent, false))
+            VIEW_TYPE_KIDS_AND_FOR_YOU_APPS -> KidsAndAppsForYouItemViewHolder(ItemPlaymarketKidsGamesAppsForuAppsBinding.inflate(layoutInflater, parent, false))
+            VIEW_TYPE_TOP_CHARTS_TOP_FREE -> TopChartsTopFreeItemViewHolder(ItemPlaymarketCategoriesGamesAppsBinding.inflate(layoutInflater, parent, false))
             else -> throw IllegalArgumentException("undefined viewType: $viewType in ${this::class.java.simpleName}")
         }
     }
@@ -70,7 +70,7 @@ class BaseAdapter(private val onItemClickListener: OnItemClickListener) : Recycl
         abstract fun bind(item: BaseItemType)
     }
 
-    private inner class GamesForYouItemViewHolder(val binding: ItemForYouGamesBinding) : BaseViewHolder(binding.root) {
+    private inner class GamesForYouItemViewHolder(val binding: ItemPlaymarketForYouGamesBinding) : BaseViewHolder(binding.root) {
 
         override fun bind(item: BaseItemType) {
             when (item) {
@@ -85,7 +85,7 @@ class BaseAdapter(private val onItemClickListener: OnItemClickListener) : Recycl
         }
     }
 
-    private inner class TopChartsItemViewHolder(val binding: ItemTopChartsGamesAppsBinding) : BaseViewHolder(binding.root) {
+    private inner class TopChartsItemViewHolder(val binding: ItemPlaymarketTopChartsGamesAppsBinding) : BaseViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
         override fun bind(item: BaseItemType) {
@@ -107,7 +107,7 @@ class BaseAdapter(private val onItemClickListener: OnItemClickListener) : Recycl
             }
         }
     }
-    private inner class CategoriesItemViewHolder(val binding: ItemCategoriesGamesAppsBinding) : BaseViewHolder(binding.root) {
+    private inner class CategoriesItemViewHolder(val binding: ItemPlaymarketCategoriesGamesAppsBinding) : BaseViewHolder(binding.root) {
         override fun bind(item: BaseItemType) {
             when (item) {
                 is GamesCategoryDto -> {
@@ -119,7 +119,7 @@ class BaseAdapter(private val onItemClickListener: OnItemClickListener) : Recycl
             }
         }
     }
-    private inner class TopChartsTopFreeItemViewHolder(val binding: ItemCategoriesGamesAppsBinding) : BaseViewHolder(binding.root) {
+    private inner class TopChartsTopFreeItemViewHolder(val binding: ItemPlaymarketCategoriesGamesAppsBinding) : BaseViewHolder(binding.root) {
         override fun bind(item: BaseItemType) {
             when (item) {
                 is GamesTopChartsTopFreeDto -> {
@@ -131,7 +131,7 @@ class BaseAdapter(private val onItemClickListener: OnItemClickListener) : Recycl
             }
         }
     }
-    private inner class KidsAndAppsForYouItemViewHolder(val binding: ItemKidsGamesAppsForuAppsBinding) : BaseViewHolder(binding.root) {
+    private inner class KidsAndAppsForYouItemViewHolder(val binding: ItemPlaymarketKidsGamesAppsForuAppsBinding) : BaseViewHolder(binding.root) {
 
         override fun bind(item: BaseItemType) {
             when (item) {

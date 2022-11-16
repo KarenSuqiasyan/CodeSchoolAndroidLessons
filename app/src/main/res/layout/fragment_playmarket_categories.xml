@@ -4,16 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".playmarket.ui.fragments.for_you.ForYouFragment">
+    tools:context=".playmarket.ui.home.fragments.categories.CategoriesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/forYouRecyclerView"
+        android:id="@+id/categoriesRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_16dp"
         android:orientation="vertical"
-        android:clipToPadding="false"
-        android:paddingBottom="@dimen/_16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_for_you_games"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_playmarket_categories_games_apps" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

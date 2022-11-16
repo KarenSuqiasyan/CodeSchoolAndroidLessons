@@ -16,10 +16,6 @@ class ConnectionReceiver : BroadcastReceiver() {
         if (connectionReceiverListener != null) connectionReceiverListener?.onNetworkConnectionChange(isConnected)
     }
 
-    interface ConnectionReceiverListener {
-        fun onNetworkConnectionChange(isConnected: Boolean)
-    }
-
     companion object {
         var connectionReceiverListener: ConnectionReceiverListener? = null
     }
@@ -38,4 +34,8 @@ class ConnectionReceiver : BroadcastReceiver() {
         }
         return result
     }
+}
+
+interface ConnectionReceiverListener {
+    fun onNetworkConnectionChange(isConnected: Boolean)
 }

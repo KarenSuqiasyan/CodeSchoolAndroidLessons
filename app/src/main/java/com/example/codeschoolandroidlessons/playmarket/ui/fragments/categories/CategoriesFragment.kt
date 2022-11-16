@@ -1,21 +1,23 @@
-package com.example.codeschoolandroidlessons.playmarket.ui.categories
+package com.example.codeschoolandroidlessons.playmarket.ui.fragments.categories
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.codeschoolandroidlessons.databinding.FragmentCategoriesBinding
-import com.example.codeschoolandroidlessons.playmarket.FragmentTypeEnum
+import com.example.codeschoolandroidlessons.playmarket.ui.fragments.FragmentTypeEnum
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsCategoriesDto
 import com.example.codeschoolandroidlessons.playmarket.data.games_model.GamesCategoryDto
-import com.example.codeschoolandroidlessons.playmarket.ui.BasePlayMarketFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.adapters.MainAdapter
+import com.example.codeschoolandroidlessons.playmarket.ui.base.fragment.BasePlayMarketFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.adapters.BaseAdapter
 
 class CategoriesFragment(fragmentTypeEnum: FragmentTypeEnum) : BasePlayMarketFragment() {
 
     private lateinit var binding: FragmentCategoriesBinding
-    private val adapter = MainAdapter()
     private val mFragmentTypeEnum: FragmentTypeEnum = fragmentTypeEnum
+    private val baseAdapter: BaseAdapter by lazy {
+        BaseAdapter (this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,9 +33,9 @@ class CategoriesFragment(fragmentTypeEnum: FragmentTypeEnum) : BasePlayMarketFra
     }
 
     private fun setupViews() {
-        binding.categoriesRecyclerView.adapter = adapter
+        binding.categoriesRecyclerView.adapter = baseAdapter
 
-        adapter.updateData(
+        baseAdapter.updateData(
             when (mFragmentTypeEnum) {
                 FragmentTypeEnum.APPS -> AppsCategoriesDto.values().toList()
                 FragmentTypeEnum.GAMES -> GamesCategoryDto.values().toList()

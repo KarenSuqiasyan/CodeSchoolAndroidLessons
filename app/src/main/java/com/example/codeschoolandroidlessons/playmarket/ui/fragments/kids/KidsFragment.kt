@@ -1,23 +1,25 @@
-package com.example.codeschoolandroidlessons.playmarket.ui.kids
+package com.example.codeschoolandroidlessons.playmarket.ui.fragments.kids
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.example.codeschoolandroidlessons.databinding.FragmentKidsBinding
-import com.example.codeschoolandroidlessons.playmarket.FragmentTypeEnum
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsKidsDto
 import com.example.codeschoolandroidlessons.playmarket.data.games_model.GamesKidsDto
-import com.example.codeschoolandroidlessons.playmarket.ui.BasePlayMarketFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.adapters.GlobalScrollAdapter
+import com.example.codeschoolandroidlessons.playmarket.ui.adapters.NestedScrollAdapter
+import com.example.codeschoolandroidlessons.playmarket.ui.base.fragment.BasePlayMarketFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.fragments.FragmentTypeEnum
 
 class KidsFragment(fragmentTypeEnum: FragmentTypeEnum) : BasePlayMarketFragment() {
 
     private lateinit var binding: FragmentKidsBinding
-    private val adapter = GlobalScrollAdapter()
     private var mFragmentTypeEnum = fragmentTypeEnum
 
-
+    private val nestedAdapter: NestedScrollAdapter by lazy {
+        NestedScrollAdapter(this)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,14 +34,22 @@ class KidsFragment(fragmentTypeEnum: FragmentTypeEnum) : BasePlayMarketFragment(
     }
 
     private fun setupViews() {
-        binding.kidsRecyclerView.adapter = adapter
-        adapter.updateData(
+        binding.kidsRecyclerView.adapter = nestedAdapter
+        Glide.with(requireActivity()).load("https://cdn.wallpapersafari.com/2/29/oWJgyU.jpg").centerCrop().into(binding.kidsBackgroundImageView)
+        nestedAdapter.updateData(
             when (mFragmentTypeEnum) {
                 FragmentTypeEnum.GAMES -> listOf(
-                    AppsKidsDto.values().toList(),
+                    GamesKidsDto.values().toList(),
+                    GamesKidsDto.values().toList(),
+                    GamesKidsDto.values().toList(),
+                    GamesKidsDto.values().toList()
+
                 )
                 FragmentTypeEnum.APPS -> listOf(
-                    GamesKidsDto.values().toList(),
+                    AppsKidsDto.values().toList(),
+                    AppsKidsDto.values().toList(),
+                    AppsKidsDto.values().toList(),
+                    AppsKidsDto.values().toList()
                 )
             }
         )

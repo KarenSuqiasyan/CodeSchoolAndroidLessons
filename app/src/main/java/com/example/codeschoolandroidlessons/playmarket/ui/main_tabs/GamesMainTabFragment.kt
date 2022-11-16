@@ -5,24 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.codeschoolandroidlessons.playmarket.ui.BasePlayMarketFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.base.fragment.BasePlayMarketFragment
 import com.example.codeschoolandroidlessons.R
 import com.example.codeschoolandroidlessons.databinding.FragmentGamesMainTabBinding
-import com.example.codeschoolandroidlessons.playmarket.FragmentTypeEnum
-import com.example.codeschoolandroidlessons.playmarket.ui.categories.CategoriesFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.for_you.ForYouFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.kids.KidsFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.top_charts.TopChartsFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.fragments.FragmentTypeEnum
+import com.example.codeschoolandroidlessons.playmarket.ui.fragments.categories.CategoriesFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.fragments.for_you.ForYouFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.fragments.kids.KidsFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.fragments.top_charts.TopChartsFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 class GamesMainTabFragment : BasePlayMarketFragment() {
 
     private lateinit var binding: FragmentGamesMainTabBinding
     private val tabFragments = mutableListOf<BasePlayMarketFragment>(
-        CategoriesFragment.newInstance(FragmentTypeEnum.GAMES),
         ForYouFragment.newInstance(FragmentTypeEnum.GAMES),
+        TopChartsFragment.newInstance(FragmentTypeEnum.GAMES),
         KidsFragment.newInstance(FragmentTypeEnum.GAMES),
-        TopChartsFragment.newInstance(FragmentTypeEnum.GAMES)
+        CategoriesFragment.newInstance(FragmentTypeEnum.GAMES)
     )
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

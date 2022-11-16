@@ -5,20 +5,21 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.codeschoolandroidlessons.databinding.ItemScrollableRecyclerviewForuKidsBinding
+import com.example.codeschoolandroidlessons.playmarket.data.base.BaseItemType
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsForYouDto
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsKidsDto
 import com.example.codeschoolandroidlessons.playmarket.data.games_model.GameForYouDto
 import com.example.codeschoolandroidlessons.playmarket.data.games_model.GamesKidsDto
+import com.example.codeschoolandroidlessons.playmarket.ui.base.OnItemClickListener
 
-class GlobalScrollAdapter : RecyclerView.Adapter<GlobalScrollAdapter.BaseViewHolder>() {
+class NestedScrollAdapter(private val onItemClickListener: OnItemClickListener) : RecyclerView.Adapter<NestedScrollAdapter.BaseViewHolder>() {
 
     private lateinit var context: Context
     private lateinit var layoutInflater: LayoutInflater
 
-    private val items = mutableListOf<List<Any>>()
+    private val items = mutableListOf<List<BaseItemType>>()
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         super.onAttachedToRecyclerView(recyclerView)
@@ -34,11 +35,11 @@ class GlobalScrollAdapter : RecyclerView.Adapter<GlobalScrollAdapter.BaseViewHol
 
     abstract class BaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        abstract fun bind(item: List<Any>)
+        abstract fun bind(item: List<BaseItemType>)
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateData(items: List<List<Any>>) {
+    fun updateData(items: List<List<BaseItemType>>) {
         this.items.clear()
         this.items.addAll(items)
         notifyDataSetChanged()
@@ -46,13 +47,12 @@ class GlobalScrollAdapter : RecyclerView.Adapter<GlobalScrollAdapter.BaseViewHol
 
     private inner class PlayStoreMainViewHolder(val binding: ItemScrollableRecyclerviewForuKidsBinding) : BaseViewHolder(binding.root) {
 
-        val adapter = MainAdapter()
-
+        val adapter = BaseAdapter(onItemClickListener)
         init {
             binding.scrollableForUAndKidsRecyclerView.adapter = adapter
         }
 
-        override fun bind(item: List<Any>) {
+        override fun bind(item: List<BaseItemType>) {
             binding.titleTextview.text = when (item[absoluteAdapterPosition]) {
                 is GameForYouDto -> "Games For You"
                 is AppsForYouDto -> "Apps For You"

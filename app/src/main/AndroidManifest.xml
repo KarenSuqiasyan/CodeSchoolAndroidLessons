@@ -17,10 +17,10 @@
         android:theme="@style/Theme.CodeSchoolAndroidLessons"
         tools:targetApi="31">
         <activity
-            android:name=".playmarket.ui.BasePlayMarketActivity"
+            android:name=".playmarket.ui.base.activity.BasePlayMarketActivity"
             android:exported="false" />
         <activity
-            android:name=".playmarket.activity.PlayMarketHomeActivity"
+            android:name=".playmarket.ui.activity.PlayMarketHomeActivity"
             android:exported="false" />
         <activity
             android:name=".login_registration.activity.LoginOrRegistrationActivity"
@@ -61,6 +61,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".playmarket.utils.internet_connection.InternetReceiver"
+            android:label="ConnectivityDetection"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

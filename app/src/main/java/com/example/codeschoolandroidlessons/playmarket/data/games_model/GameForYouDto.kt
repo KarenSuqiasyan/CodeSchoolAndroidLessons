@@ -1,11 +1,13 @@
 package com.example.codeschoolandroidlessons.playmarket.data.games_model
 
+import com.example.codeschoolandroidlessons.playmarket.data.base.BaseItemType
+
 enum class GameForYouDto(
-    val title: String,
+    override val title: String,
     val imageUrl: String,
     val rating: Int,
     val memory: Int
-) {
+): BaseItemType {
     PLANTS_VS_ZOMBIES(
         "Plants vs. Zombies",
         "https://play-lh.googleusercontent.com/hO7716hh7NCcFauJedDclX-R3Zh9JmbSs8AUU6TP2edGVILlZM7gmyt_8WPCZELiPQA=w240-h480-rw",

@@ -6,24 +6,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.codeschoolandroidlessons.R
-import com.example.codeschoolandroidlessons.playmarket.ui.BasePlayMarketFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.base.fragment.BasePlayMarketFragment
 import com.example.codeschoolandroidlessons.databinding.FragmentAppsMainTabBinding
-import com.example.codeschoolandroidlessons.playmarket.FragmentTypeEnum
-import com.example.codeschoolandroidlessons.playmarket.ui.categories.CategoriesFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.for_you.ForYouFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.kids.KidsFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.top_charts.TopChartsFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.fragments.FragmentTypeEnum
+import com.example.codeschoolandroidlessons.playmarket.ui.fragments.categories.CategoriesFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.fragments.for_you.ForYouFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.fragments.kids.KidsFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.fragments.top_charts.TopChartsFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 class AppsMainTabFragment : BasePlayMarketFragment() {
 
     private lateinit var binding: FragmentAppsMainTabBinding
     private val tabFragments = mutableListOf<BasePlayMarketFragment>(
-        CategoriesFragment.newInstance(FragmentTypeEnum.APPS),
         ForYouFragment.newInstance(FragmentTypeEnum.APPS),
+        TopChartsFragment.newInstance(FragmentTypeEnum.APPS),
         KidsFragment.newInstance(FragmentTypeEnum.APPS),
-        TopChartsFragment.newInstance(FragmentTypeEnum.APPS)
-    )
+        CategoriesFragment.newInstance(FragmentTypeEnum.APPS)
+
+        )
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentAppsMainTabBinding.inflate(inflater, container, false)
@@ -50,10 +51,10 @@ class AppsMainTabFragment : BasePlayMarketFragment() {
     private fun setupStringResources() {
         TabLayoutMediator(binding.tabLayout, binding.viewPager, true) { tab, position ->
             when (tabFragments[position]) {
-                is CategoriesFragment -> tab.text = getString(R.string.categories)
                 is ForYouFragment -> tab.text = getString(R.string.for_you)
-                is KidsFragment -> tab.text = getString(R.string.kids)
                 is TopChartsFragment -> tab.text = getString(R.string.top_charts)
+                is KidsFragment -> tab.text = getString(R.string.kids)
+                is CategoriesFragment -> tab.text = getString(R.string.categories)
             }
         }.attach()
     }

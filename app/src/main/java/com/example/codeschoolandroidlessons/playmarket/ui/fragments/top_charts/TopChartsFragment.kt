@@ -1,24 +1,26 @@
-package com.example.codeschoolandroidlessons.playmarket.ui.top_charts
+package com.example.codeschoolandroidlessons.playmarket.ui.fragments.top_charts
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.codeschoolandroidlessons.databinding.FragmentTopChartsBinding
-import com.example.codeschoolandroidlessons.playmarket.FragmentTypeEnum
+import com.example.codeschoolandroidlessons.playmarket.ui.fragments.FragmentTypeEnum
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsCategoriesDto
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsTopChartsDto
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsTopChartsTopFreeDto
 import com.example.codeschoolandroidlessons.playmarket.data.games_model.GameTopChartsDto
 import com.example.codeschoolandroidlessons.playmarket.data.games_model.GamesTopChartsTopFreeDto
-import com.example.codeschoolandroidlessons.playmarket.ui.BasePlayMarketFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.adapters.MainAdapter
+import com.example.codeschoolandroidlessons.playmarket.ui.base.fragment.BasePlayMarketFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.adapters.BaseAdapter
 
 class TopChartsFragment(fragmentTypeEnum: FragmentTypeEnum) : BasePlayMarketFragment() {
 
     private lateinit var binding: FragmentTopChartsBinding
-    private val adapter = MainAdapter()
     private var mFragmentTypeEnum = fragmentTypeEnum
+    private val baseAdapter: BaseAdapter by lazy {
+        BaseAdapter (this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,8 +54,8 @@ class TopChartsFragment(fragmentTypeEnum: FragmentTypeEnum) : BasePlayMarketFrag
     }
 
     private fun setupViews() {
-        binding.topChartsRecyclerView.adapter = adapter
-        adapter.updateData(
+        binding.topChartsRecyclerView.adapter = baseAdapter
+        baseAdapter.updateData(
             when (mFragmentTypeEnum) {
                 FragmentTypeEnum.APPS -> AppsTopChartsDto.values().toList()
                 FragmentTypeEnum.GAMES -> GameTopChartsDto.values().toList()

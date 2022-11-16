@@ -1,6 +1,8 @@
 package com.example.codeschoolandroidlessons.playmarket.data.apps_model
 
-enum class AppsCategoriesDto(val categories: String) {
+import com.example.codeschoolandroidlessons.playmarket.data.base.BaseItemType
+
+enum class AppsCategoriesDto(override val title: String): BaseItemType {
     ACTION("Action"),
     ADVENTURE("Adventure"),
     ARCADE("Arcade"),

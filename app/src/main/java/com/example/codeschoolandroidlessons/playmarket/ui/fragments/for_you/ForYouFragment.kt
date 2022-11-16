@@ -1,22 +1,23 @@
-package com.example.codeschoolandroidlessons.playmarket.ui.for_you
+package com.example.codeschoolandroidlessons.playmarket.ui.fragments.for_you
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.codeschoolandroidlessons.databinding.FragmentForYouBinding
-import com.example.codeschoolandroidlessons.playmarket.FragmentTypeEnum
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.AppsForYouDto
 import com.example.codeschoolandroidlessons.playmarket.data.games_model.GameForYouDto
-import com.example.codeschoolandroidlessons.playmarket.ui.BasePlayMarketFragment
-import com.example.codeschoolandroidlessons.playmarket.ui.adapters.GlobalScrollAdapter
+import com.example.codeschoolandroidlessons.playmarket.ui.adapters.NestedScrollAdapter
+import com.example.codeschoolandroidlessons.playmarket.ui.base.fragment.BasePlayMarketFragment
+import com.example.codeschoolandroidlessons.playmarket.ui.fragments.FragmentTypeEnum
 
 class ForYouFragment(fragmentTypeEnum: FragmentTypeEnum) : BasePlayMarketFragment() {
 
     private lateinit var binding: FragmentForYouBinding
     private var mFragmentTypeEnum = fragmentTypeEnum
-
-    private val adapter = GlobalScrollAdapter()
+    private val nestedAdapter: NestedScrollAdapter by lazy {
+        NestedScrollAdapter(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,8 +33,8 @@ class ForYouFragment(fragmentTypeEnum: FragmentTypeEnum) : BasePlayMarketFragmen
     }
 
     private fun setupViews() {
-        binding.forYouRecyclerView.adapter = adapter
-        adapter.updateData(
+        binding.forYouRecyclerView.adapter = nestedAdapter
+        nestedAdapter.updateData(
             when (mFragmentTypeEnum) {
                 FragmentTypeEnum.GAMES -> listOf(
                     GameForYouDto.values().toList(),

@@ -48,6 +48,9 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+    <style name="TablayoutStyle" parent="Widget.Design.TabLayout">
+    </style>
+
     <!--End Play Market-->
 
 

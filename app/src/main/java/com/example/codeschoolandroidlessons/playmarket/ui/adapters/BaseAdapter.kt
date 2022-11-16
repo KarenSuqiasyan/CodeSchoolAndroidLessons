@@ -9,12 +9,14 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.codeschoolandroidlessons.databinding.*
+import com.example.codeschoolandroidlessons.playmarket.data.base.BaseItemType
 import com.example.codeschoolandroidlessons.playmarket.data.apps_model.*
 import com.example.codeschoolandroidlessons.playmarket.data.games_model.*
+import com.example.codeschoolandroidlessons.playmarket.ui.base.OnItemClickListener
 
-class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
+class BaseAdapter(private val onItemClickListener: OnItemClickListener) : RecyclerView.Adapter<BaseAdapter.BaseViewHolder>() {
 
-    private val items: MutableList<Any> = mutableListOf()
+    private val items: MutableList<BaseItemType> = mutableListOf()
 
     private lateinit var context: Context
     private lateinit var layoutInflater: LayoutInflater
@@ -24,7 +26,6 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
         context = recyclerView.context
         layoutInflater = LayoutInflater.from(context)
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
             : BaseViewHolder {
         return when (viewType) {
@@ -53,20 +54,25 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateData(items: List<Any>) {
+    fun updateData(items: List<BaseItemType>) {
         this.items.clear()
         this.items.addAll(items)
         notifyDataSetChanged()
     }
 
-    abstract class BaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        abstract fun bind(item: Any)
+    abstract inner class BaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        init {
+            itemView.setOnClickListener {
+                if (absoluteAdapterPosition == RecyclerView.NO_POSITION) return@setOnClickListener
+                onItemClickListener.onItemClicked(items[absoluteAdapterPosition])
+            }
+        }
+        abstract fun bind(item: BaseItemType)
     }
 
     private inner class GamesForYouItemViewHolder(val binding: ItemForYouGamesBinding) : BaseViewHolder(binding.root) {
 
-        override fun bind(item: Any) {
+        override fun bind(item: BaseItemType) {
             when (item) {
                 is GameForYouDto -> {
                     binding.nameTextView.text = item.title
@@ -82,7 +88,7 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
     private inner class TopChartsItemViewHolder(val binding: ItemTopChartsGamesAppsBinding) : BaseViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
-        override fun bind(item: Any) {
+        override fun bind(item: BaseItemType) {
             when (item) {
                 is GameTopChartsDto -> {
                     binding.topChartsTitleTextView.text = item.title
@@ -102,19 +108,19 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
         }
     }
     private inner class CategoriesItemViewHolder(val binding: ItemCategoriesGamesAppsBinding) : BaseViewHolder(binding.root) {
-        override fun bind(item: Any) {
+        override fun bind(item: BaseItemType) {
             when (item) {
                 is GamesCategoryDto -> {
-                    binding.categoriesTextView.text = item.categoryName
+                    binding.categoriesTextView.text = item.title
                 }
                 is AppsCategoriesDto -> {
-                    binding.categoriesTextView.text = item.categories
+                    binding.categoriesTextView.text = item.title
                 }
             }
         }
     }
     private inner class TopChartsTopFreeItemViewHolder(val binding: ItemCategoriesGamesAppsBinding) : BaseViewHolder(binding.root) {
-        override fun bind(item: Any) {
+        override fun bind(item: BaseItemType) {
             when (item) {
                 is GamesTopChartsTopFreeDto -> {
                     binding.categoriesTextView.text = item.title
@@ -127,7 +133,7 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.BaseViewHolder>() {
     }
     private inner class KidsAndAppsForYouItemViewHolder(val binding: ItemKidsGamesAppsForuAppsBinding) : BaseViewHolder(binding.root) {
 
-        override fun bind(item: Any) {
+        override fun bind(item: BaseItemType) {
             when (item) {
                 is GamesKidsDto -> {
                     binding.kidsForUNameTextView.text = item.title

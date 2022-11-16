@@ -1,11 +1,13 @@
 package com.example.codeschoolandroidlessons.playmarket.data.apps_model
 
+import com.example.codeschoolandroidlessons.playmarket.data.base.BaseItemType
+
 enum class AppsTopChartsDto(
-    val title: String,
+   override val title: String,
     val imageUrl: String,
     val rating: Int,
     val memory: Int
-) {
+): BaseItemType {
     WHATSAPP(
         "WhatsApp",
         "https://play-lh.googleusercontent.com/bYtqbOcTYOlgc6gqZ2rwb8lptHuwlNE75zYJu6Bn076-hTmvd96HH-6v7S0YUAAJXoJN=w240-h480-rw",

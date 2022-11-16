@@ -42,7 +42,7 @@
         <entry key="app/src/main/res/layout/activity_login_or_registration.xml" value="0.2882492065429688" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.29393115942028986" />
         <entry key="app/src/main/res/layout/activity_picker_and_menu.xml" value="0.2078125" />
-        <entry key="app/src/main/res/layout/activity_play_market_home.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/activity_play_market_home.xml" value="0.2285125732421875" />
         <entry key="app/src/main/res/layout/activity_players.xml" value="0.23967902142068614" />
         <entry key="app/src/main/res/layout/activity_poker_and_menu.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/activity_post.xml" value="0.28125" />
@@ -83,6 +83,7 @@
         <entry key="app/src/main/res/layout/view_tictactoe.xml" value="0.3532608695652174" />
         <entry key="app/src/main/res/menu/home_bottom_navigation.xml" value="0.390625" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.390625" />
+        <entry key="app/src/main/res/menu/search.xml" value="0.2140625" />
       </map>
     </option>
   </component>

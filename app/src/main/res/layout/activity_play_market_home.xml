@@ -6,6 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".playmarket.ui.activity.PlayMarketHomeActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+<!--        <androidx.appcompat.widget.SearchView-->
+<!--            android:id="@+id/gamesSreachView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:iconifiedByDefault="false"-->
+<!--            app:queryBackground="@null"-->
+<!--            app:queryHint="Search for apps and games" />-->
+
+    </androidx.appcompat.widget.Toolbar>
+
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/noInternetConnectionTextView"
         android:layout_width="match_parent"

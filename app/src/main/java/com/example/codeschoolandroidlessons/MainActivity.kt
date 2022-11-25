@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.example.codeschoolandroidlessons.calculator.CalculatorActivity
 import com.example.codeschoolandroidlessons.databinding.ActivityMainBinding
+import com.example.codeschoolandroidlessons.guardian.ui.activity.NewsActivity
 import com.example.codeschoolandroidlessons.login_registration.activity.LoginOrRegistrationActivity
 import com.example.codeschoolandroidlessons.multiple_recyclerview.ui.activity.posthome.PostHomeActivity
 import com.example.codeschoolandroidlessons.pickers_and_menues.PickerAndMenuActivity
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             CodeSchoolHomeworkEnum.PICKERS_AND_MENUS->startActivity(Intent(this, PickerAndMenuActivity::class.java))
             CodeSchoolHomeworkEnum.LOGIN_OR_REGISTRATION->startActivity(Intent(this, LoginOrRegistrationActivity::class.java))
             CodeSchoolHomeworkEnum.PLAY_MARKET->startActivity(Intent(this, PlayMarketHomeActivity::class.java))
-
+            CodeSchoolHomeworkEnum.GUARDIAN->startActivity(Intent(this, NewsActivity::class.java))
         }
     }
 }
@@ -54,5 +55,6 @@ enum class CodeSchoolHomeworkEnum {
     POST,
     PICKERS_AND_MENUS,
     LOGIN_OR_REGISTRATION,
-    PLAY_MARKET
+    PLAY_MARKET,
+    GUARDIAN
 }

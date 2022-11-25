@@ -23,7 +23,6 @@ class AppsMainTabFragment : BasePlayMarketFragment() {
         TopChartsFragment.newInstance(FragmentTypeEnum.APPS),
         KidsFragment.newInstance(FragmentTypeEnum.APPS),
         CategoriesFragment.newInstance(FragmentTypeEnum.APPS)
-
     )
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

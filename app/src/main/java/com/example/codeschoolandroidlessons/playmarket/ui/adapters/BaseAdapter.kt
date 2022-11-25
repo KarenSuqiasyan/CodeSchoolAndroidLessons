@@ -84,7 +84,6 @@ class BaseAdapter(private val onItemClickListener: OnItemClickListener) : Recycl
             }
         }
     }
-
     private inner class TopChartsItemViewHolder(val binding: ItemPlaymarketTopChartsGamesAppsBinding) : BaseViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")

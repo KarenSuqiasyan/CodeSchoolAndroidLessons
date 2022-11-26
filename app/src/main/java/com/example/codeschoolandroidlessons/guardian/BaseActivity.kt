@@ -1,4 +1,4 @@
-package com.example.codeschoolandroidlessons.guardian.ui
+package com.example.codeschoolandroidlessons.guardian
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment

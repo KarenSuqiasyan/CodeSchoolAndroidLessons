@@ -1,4 +1,4 @@
-package com.example.codeschoolandroidlessons.guardian.ui.fragment
+package com.example.codeschoolandroidlessons.guardian.ui.contentnews
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.codeschoolandroidlessons.databinding.ItemContentNewsBinding
+import com.example.codeschoolandroidlessons.databinding.ItemGuardianContentNewsBinding
 import com.example.codeschoolandroidlessons.guardian.data.model.Result
 
 class ContentNewsAdapter : RecyclerView.Adapter<ContentNewsAdapter.BaseViewHolder>() {
@@ -23,7 +23,7 @@ class ContentNewsAdapter : RecyclerView.Adapter<ContentNewsAdapter.BaseViewHolde
         layoutInflater = LayoutInflater.from(context)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = NewsViewHolder(ItemContentNewsBinding.inflate(layoutInflater, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = NewsViewHolder(ItemGuardianContentNewsBinding.inflate(layoutInflater, parent, false))
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) = holder.bind(items[position])
 
@@ -40,11 +40,11 @@ class ContentNewsAdapter : RecyclerView.Adapter<ContentNewsAdapter.BaseViewHolde
         abstract fun bind(item: Result)
     }
 
-    inner class NewsViewHolder(private val binding: ItemContentNewsBinding) : BaseViewHolder(binding.root) {
+    inner class NewsViewHolder(private val binding: ItemGuardianContentNewsBinding) : BaseViewHolder(binding.root) {
         override fun bind(item: Result) {
             binding.sectionNameTextView.text = item.sectionName
             binding.webTitleTextView.text = item.webTitle
-            item.fields.thumbnail.let { Glide.with(context).load(item.fields.thumbnail).centerCrop().into(binding.contentImageView)}
+            item.fields.thumbnail.let { Glide.with(context).load(item.fields.thumbnail).centerCrop().into(binding.contentImageView) }
         }
     }
 }

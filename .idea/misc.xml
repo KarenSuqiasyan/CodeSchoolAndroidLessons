@@ -59,6 +59,7 @@
         <entry key="app/src/main/res/layout/fragment_for_you.xml" value="0.271875" />
         <entry key="app/src/main/res/layout/fragment_games.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/fragment_games_main_tab.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_guardian_content_news.xml" value="0.3765625" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/fragment_kids.xml" value="0.20625" />
         <entry key="app/src/main/res/layout/fragment_log_in.xml" value="0.27708333333333335" />
@@ -73,10 +74,14 @@
         <entry key="app/src/main/res/layout/item_for_you.xml" value="0.42887776692708335" />
         <entry key="app/src/main/res/layout/item_for_you_games.xml" value="0.17257785467128028" />
         <entry key="app/src/main/res/layout/item_game_main.xml" value="0.2708333333333333" />
+        <entry key="app/src/main/res/layout/item_guardian_content_news.xml" value="0.3765625" />
         <entry key="app/src/main/res/layout/item_image.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/item_kids_games_apps_foru_apps.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/item_play_store_main.xml" value="0.22501220703125002" />
+        <entry key="app/src/main/res/layout/item_playmarket_categories_games_apps.xml" value="0.32685185185185184" />
         <entry key="app/src/main/res/layout/item_playmarket_for_you_games.xml" value="0.3498233215547703" />
+        <entry key="app/src/main/res/layout/item_playmarket_kids_games_apps_foru_apps.xml" value="0.32685185185185184" />
+        <entry key="app/src/main/res/layout/item_playmarket_top_charts_games_apps.xml" value="0.32685185185185184" />
         <entry key="app/src/main/res/layout/item_scrollable_recyclerview_foru_kids.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/item_text.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/item_top_charts_games_apps.xml" value="0.20677083333333332" />

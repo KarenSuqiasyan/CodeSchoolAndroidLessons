@@ -10,21 +10,17 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class NewsViewModel(
-    app: Application,
-    private val newsRepository: NewsRepository
-) : AndroidViewModel(app) {
+class NewsViewModel(app: Application, private val newsRepository: NewsRepository) : AndroidViewModel(app) {
 
     val contentNews: MutableLiveData<Resource<ContentNews>> = MutableLiveData()
     val contentNewsErrorLiveData: MutableLiveData<String> = MutableLiveData()
     var contentNewsPage = 20
     var contentNewsResponse: ContentNews? = null
 
-
     fun contentNewsCall() {
         contentNews.postValue(Resource.Loading())
         val response = newsRepository.getContentNews(contentNewsPage)
-        response.enqueue(object : Callback<ContentNews> {
+        response?.enqueue(object : Callback<ContentNews> {
             override fun onResponse(call: Call<ContentNews>, response: Response<ContentNews>) {
                 contentNews.postValue(handleContentNewsResponse(response))
             }
@@ -38,9 +34,10 @@ class NewsViewModel(
     private fun handleContentNewsResponse(response: Response<ContentNews>): Resource<ContentNews> {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
-                if (contentNewsResponse == null) {
-                    contentNewsResponse = resultResponse
-                }
+//                contentNewsPage++
+//                if (contentNewsResponse == null) {
+//                    contentNewsResponse = resultResponse
+//                }
                 return Resource.Success(contentNewsResponse ?: resultResponse)
             }
         }

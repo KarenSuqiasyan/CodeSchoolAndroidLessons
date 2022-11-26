@@ -4,21 +4,46 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AbsListView
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.codeschoolandroidlessons.databinding.FragmentGuardianContentNewsBinding
 import com.example.codeschoolandroidlessons.guardian.BaseFragment
-import com.example.codeschoolandroidlessons.guardian.util.Constants.QUERY_PAGE_SIZE
 import com.example.codeschoolandroidlessons.guardian.util.Resource
 
 class ContentNewsFragment : BaseFragment() {
 
     private lateinit var binding: FragmentGuardianContentNewsBinding
     lateinit var newsAdapter: ContentNewsAdapter
-    var isLastPage = false
-    var isLoading = false
+    var isScrolling = false
 
+    private val scrollListener = object : RecyclerView.OnScrollListener() {
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            super.onScrolled(recyclerView, dx, dy)
+
+            val layoutManager = recyclerView.layoutManager as LinearLayoutManager
+            val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
+            val visibleItemCount = layoutManager.childCount
+            val totalItemCount = layoutManager.itemCount
+
+            val isAtLastItem = firstVisibleItemPosition + visibleItemCount >= totalItemCount
+            val isNotAtBeginning = firstVisibleItemPosition >= 0
+            val shouldPaginate = isAtLastItem && isNotAtBeginning && isScrolling
+            if (shouldPaginate) {
+                viewModel.contentNewsCall()
+                isScrolling = false
+            }
+        }
+
+        override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+            super.onScrollStateChanged(recyclerView, newState)
+            if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
+                isScrolling = true
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,12 +63,7 @@ class ContentNewsFragment : BaseFragment() {
                 is Resource.Success -> {
                     hideProgressBar()
                     response.data?.let { newsResponse ->
-                        newsAdapter.updateData(newsResponse.response.results)
-                        val totalPages = newsResponse.response.pageSize / QUERY_PAGE_SIZE + 2
-                        isLastPage = viewModel.contentNewsPage == totalPages
-                        if (isLastPage) {
-                            binding.contentNewsRecyclerView.setPadding(0, 0, 0, 0)
-                        }
+                        newsAdapter.updateData(newsResponse.response.results.toList())
                     }
                 }
                 is Resource.Error -> {
@@ -61,12 +81,10 @@ class ContentNewsFragment : BaseFragment() {
 
     private fun hideProgressBar() {
         binding.progressBar.visibility = View.INVISIBLE
-        isLoading = false
     }
 
     private fun showProgressBar() {
         binding.progressBar.visibility = View.VISIBLE
-        isLoading = true
     }
 
     private fun setupRecyclerView() {
@@ -74,9 +92,10 @@ class ContentNewsFragment : BaseFragment() {
         binding.contentNewsRecyclerView.apply {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
+            addOnScrollListener(this@ContentNewsFragment.scrollListener)
+
         }
     }
-
     companion object {
         @JvmStatic
         fun newInstance() = ContentNewsFragment()

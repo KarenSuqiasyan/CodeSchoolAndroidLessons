@@ -10,5 +10,5 @@ import retrofit2.http.Query
 interface NewsApi {
     @Headers("api-key:${Constants.API_KEY}")
     @GET("search?")
-    fun getContent(@Query("page-size") pageNumber: Int = 100, @Query("show-fields") showFields: String): Call<ContentNews>
+    fun getContent(@Query("page-size") pageNumber: Int = 1, @Query("show-fields") showFields: String): Call<ContentNews>
 }

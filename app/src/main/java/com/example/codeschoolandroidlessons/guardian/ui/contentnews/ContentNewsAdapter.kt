@@ -9,8 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.codeschoolandroidlessons.databinding.ItemGuardianContentNewsBinding
 import com.example.codeschoolandroidlessons.guardian.data.model.Result
+import com.example.codeschoolandroidlessons.playmarket.ui.base.OnItemClickListener
 
-class ContentNewsAdapter : RecyclerView.Adapter<ContentNewsAdapter.BaseViewHolder>() {
+class ContentNewsAdapter(private val onItemClickListener: OnItemClickListener) : RecyclerView.Adapter<ContentNewsAdapter.BaseViewHolder>() {
 
     private val items: MutableList<Result> = mutableListOf()
 
@@ -37,6 +38,12 @@ class ContentNewsAdapter : RecyclerView.Adapter<ContentNewsAdapter.BaseViewHolde
     }
 
     abstract inner class BaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        init {
+            itemView.setOnClickListener {
+                if (absoluteAdapterPosition == RecyclerView.NO_POSITION) return@setOnClickListener
+                onItemClickListener.onItemClicked(items[absoluteAdapterPosition])
+            }
+        }
         abstract fun bind(item: Result)
     }
 

@@ -34,10 +34,16 @@ class NewsViewModel(app: Application, private val newsRepository: NewsRepository
     private fun handleContentNewsResponse(response: Response<ContentNews>): Resource<ContentNews> {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
-//                contentNewsPage++
-//                if (contentNewsResponse == null) {
-//                    contentNewsResponse = resultResponse
-//                }
+                contentNewsPage++
+                if (contentNewsResponse == null) {
+                    contentNewsResponse = resultResponse
+                } else {
+                    val oldResults = contentNewsResponse?.response?.results
+                    val newResults = contentNewsResponse?.response?.results
+                    if (newResults != null) {
+                        oldResults?.addAll(newResults)
+                    }
+                }
                 return Resource.Success(contentNewsResponse ?: resultResponse)
             }
         }

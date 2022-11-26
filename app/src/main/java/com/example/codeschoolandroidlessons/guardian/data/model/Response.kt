@@ -5,7 +5,7 @@ data class Response(
     val orderBy: String,
     val pageSize: Int,
     val pages: Int,
-    val results: List<Result>,
+    val results: MutableList<Result>,
     val startIndex: Int,
     val status: String,
     val total: Int,

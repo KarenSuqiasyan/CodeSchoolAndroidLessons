@@ -9,9 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.codeschoolandroidlessons.databinding.ItemGuardianContentNewsBinding
 import com.example.codeschoolandroidlessons.guardian.data.model.Result
-import com.example.codeschoolandroidlessons.playmarket.ui.base.OnItemClickListener
 
-class ContentNewsAdapter(private val onItemClickListener: OnItemClickListener) : RecyclerView.Adapter<ContentNewsAdapter.BaseViewHolder>() {
+class ContentNewsAdapter : RecyclerView.Adapter<ContentNewsAdapter.BaseViewHolder>() {
 
     private val items: MutableList<Result> = mutableListOf()
 
@@ -30,6 +29,8 @@ class ContentNewsAdapter(private val onItemClickListener: OnItemClickListener) :
 
     override fun getItemCount() = items.size
 
+    private var onItemClickListener: ((Result) -> Unit)? = null
+
     @SuppressLint("NotifyDataSetChanged")
     fun updateData(items: List<Result>) {
         this.items.clear()
@@ -38,12 +39,6 @@ class ContentNewsAdapter(private val onItemClickListener: OnItemClickListener) :
     }
 
     abstract inner class BaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        init {
-            itemView.setOnClickListener {
-                if (absoluteAdapterPosition == RecyclerView.NO_POSITION) return@setOnClickListener
-                onItemClickListener.onItemClicked(items[absoluteAdapterPosition])
-            }
-        }
         abstract fun bind(item: Result)
     }
 
@@ -53,6 +48,13 @@ class ContentNewsAdapter(private val onItemClickListener: OnItemClickListener) :
             binding.descriptionTextView.text = item.webTitle
             binding.publicationDateTextView.text = item.webPublicationDate
             item.fields.thumbnail.let { Glide.with(context).load(item.fields.thumbnail).centerCrop().into(binding.contentImageView) }
+            itemView.setOnClickListener {
+                onItemClickListener?.let { it(item) }
+            }
         }
+    }
+
+    fun setOnItemClickListener(listener: (Result) -> Unit) {
+        onItemClickListener = listener
     }
 }

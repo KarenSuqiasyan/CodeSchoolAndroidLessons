@@ -18,73 +18,78 @@ class ContentNewsFragment : BaseFragment() {
     private lateinit var binding: FragmentGuardianContentNewsBinding
     lateinit var newsAdapter: ContentNewsAdapter
     var isScrolling = false
+    private lateinit var scrollListener: RecyclerView.OnScrollListener
 
-    private val scrollListener = object : RecyclerView.OnScrollListener() {
-        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-            super.onScrolled(recyclerView, dx, dy)
-
-            val layoutManager = recyclerView.layoutManager as LinearLayoutManager
-            val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
-            val visibleItemCount = layoutManager.childCount
-            val totalItemCount = layoutManager.itemCount
-
-            val isAtLastItem = firstVisibleItemPosition + visibleItemCount >= totalItemCount
-            val isNotAtBeginning = firstVisibleItemPosition >= 0
-            val shouldPaginate = isAtLastItem && isNotAtBeginning && isScrolling
-            if (shouldPaginate) {
-                viewModel.contentNewsCall()
-                isScrolling = false
-            }
-        }
-
-        override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-            super.onScrollStateChanged(recyclerView, newState)
-            if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
-                isScrolling = true
-            }
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.contentNewsCall()
+        viewModel.getContentNews()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentGuardianContentNewsBinding.inflate(inflater, container, false)
-        setupRecyclerView()
-        observeLiveData()
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupListeners()
+        observeLiveData()
+    }
+
+    private fun setupListeners() {
+        scrollListener = object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                val layoutManager = recyclerView.layoutManager as LinearLayoutManager
+                val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
+                val visibleItemCount = layoutManager.childCount
+                val totalItemCount = layoutManager.itemCount
+
+                val isAtLastItem = firstVisibleItemPosition + visibleItemCount >= totalItemCount
+                val isNotAtBeginning = firstVisibleItemPosition >= 0
+                val shouldPaginate = isAtLastItem && isNotAtBeginning && isScrolling
+                if (shouldPaginate) {
+                    viewModel.getContentNews()
+                    isScrolling = false
+                }
+            }
+
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
+                    isScrolling = true
+                }
+            }
+        }
+        setupRecyclerView()
+        newsAdapter.setOnItemClickListener {
+            Toast.makeText(requireContext(), "${it.sectionName} is clicked", Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
     private fun observeLiveData() {
-        viewModel.contentNews.observe(viewLifecycleOwner, Observer { response ->
+        viewModel.contentNews.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Success -> {
-                    hideProgressBar()
+                    hideProgressBar(binding.progressBar)
                     response.data?.let { newsResponse ->
                         newsAdapter.updateData(newsResponse.response.results.toList())
                     }
                 }
                 is Resource.Error -> {
-                    hideProgressBar()
+                    hideProgressBar(binding.progressBar)
                     response.message?.let { message ->
                         Toast.makeText(activity, "An error occured: $message", Toast.LENGTH_LONG).show()
                     }
                 }
                 is Resource.Loading -> {
-                    showProgressBar()
+                    showProgressBar(binding.progressBar)
                 }
             }
-        })
-    }
-
-    private fun hideProgressBar() {
-        binding.progressBar.visibility = View.INVISIBLE
-    }
-
-    private fun showProgressBar() {
-        binding.progressBar.visibility = View.VISIBLE
+        }
     }
 
     private fun setupRecyclerView() {
@@ -93,9 +98,9 @@ class ContentNewsFragment : BaseFragment() {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
             addOnScrollListener(this@ContentNewsFragment.scrollListener)
-
         }
     }
+
     companion object {
         @JvmStatic
         fun newInstance() = ContentNewsFragment()

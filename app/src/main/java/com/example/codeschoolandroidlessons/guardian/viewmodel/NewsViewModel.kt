@@ -14,22 +14,8 @@ class NewsViewModel(app: Application, private val newsRepository: NewsRepository
 
     val contentNews: MutableLiveData<Resource<ContentNews>> = MutableLiveData()
     val contentNewsErrorLiveData: MutableLiveData<String> = MutableLiveData()
-    var contentNewsPage = 20
+    private var contentNewsPage = 30
     var contentNewsResponse: ContentNews? = null
-
-    fun contentNewsCall() {
-        contentNews.postValue(Resource.Loading())
-        val response = newsRepository.getContentNews(contentNewsPage)
-        response?.enqueue(object : Callback<ContentNews> {
-            override fun onResponse(call: Call<ContentNews>, response: Response<ContentNews>) {
-                contentNews.postValue(handleContentNewsResponse(response))
-            }
-
-            override fun onFailure(call: Call<ContentNews>, t: Throwable) {
-                contentNewsErrorLiveData.postValue(t.message)
-            }
-        })
-    }
 
     private fun handleContentNewsResponse(response: Response<ContentNews>): Resource<ContentNews> {
         if (response.isSuccessful) {
@@ -48,5 +34,19 @@ class NewsViewModel(app: Application, private val newsRepository: NewsRepository
             }
         }
         return Resource.Error(response.message())
+    }
+
+    fun getContentNews() {
+        contentNews.postValue(Resource.Loading())
+        val response = newsRepository.getContentNews(contentNewsPage)
+        response?.enqueue(object : Callback<ContentNews> {
+            override fun onResponse(call: Call<ContentNews>, response: Response<ContentNews>) {
+                contentNews.postValue(handleContentNewsResponse(response))
+            }
+
+            override fun onFailure(call: Call<ContentNews>, t: Throwable) {
+                contentNewsErrorLiveData.postValue(t.message)
+            }
+        })
     }
 }

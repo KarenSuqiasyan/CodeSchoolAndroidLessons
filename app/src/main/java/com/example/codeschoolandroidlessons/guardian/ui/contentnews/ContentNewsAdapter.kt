@@ -42,8 +42,9 @@ class ContentNewsAdapter : RecyclerView.Adapter<ContentNewsAdapter.BaseViewHolde
 
     inner class NewsViewHolder(private val binding: ItemGuardianContentNewsBinding) : BaseViewHolder(binding.root) {
         override fun bind(item: Result) {
-            binding.sectionNameTextView.text = item.sectionName
-            binding.webTitleTextView.text = item.webTitle
+            binding.titleTextView.text = item.sectionName
+            binding.descriptionTextView.text = item.webTitle
+            binding.publicationDateTextView.text = item.webPublicationDate
             item.fields.thumbnail.let { Glide.with(context).load(item.fields.thumbnail).centerCrop().into(binding.contentImageView) }
         }
     }

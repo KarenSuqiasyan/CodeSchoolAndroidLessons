@@ -96,7 +96,6 @@ class ContentNewsFragment : BaseFragment() {
         newsAdapter = ContentNewsAdapter()
         binding.contentNewsRecyclerView.apply {
             adapter = newsAdapter
-            layoutManager = LinearLayoutManager(activity)
             addOnScrollListener(this@ContentNewsFragment.scrollListener)
         }
     }

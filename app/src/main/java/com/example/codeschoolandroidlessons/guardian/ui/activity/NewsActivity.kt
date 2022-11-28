@@ -23,5 +23,6 @@ class NewsActivity : BaseActivity() {
         val viewModelProviderFactory = NewsViewModelProviderFactory(application, newsRepository)
         viewModel = ViewModelProvider(this, viewModelProviderFactory)[NewsViewModel::class.java]
         replaceFragment(ContentNewsFragment.newInstance(), R.id.containerGuardian)
+        checkNetworkConnection(binding.guardianNoInternetConnectionTextView)
     }
 }

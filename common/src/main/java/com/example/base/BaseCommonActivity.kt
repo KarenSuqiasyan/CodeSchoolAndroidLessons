@@ -1,13 +1,12 @@
-package com.example.codeschoolandroidlessons.guardian
+package com.example.base
 
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import com.example.codeschoolandroidlessons.guardian.util.NetworkLiveData
+import com.example.utils.NetworkLiveData
 
-open class BaseActivity : AppCompatActivity() {
+open class BaseCommonActivity : AppCompatActivity() {
 
     private lateinit var networkLiveData: NetworkLiveData
 

@@ -1,4 +1,4 @@
-package com.example.codeschoolandroidlessons.guardian.util
+package com.example.utils
 
 import android.app.Application
 import android.content.Context

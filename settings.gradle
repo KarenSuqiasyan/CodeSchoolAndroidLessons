@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "CodeSchoolAndroidLessons"
 include ':app'
+include ':guardian'
+include ':common'

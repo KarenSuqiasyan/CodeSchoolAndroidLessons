@@ -6,11 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.base.BaseCommonFragment
-import com.example.codeschoolandroidlessons.R
 import com.example.codeschoolandroidlessons.databinding.FragmentGuardianContentNewsBinding
 import com.example.guardian.news.data.ShowFieldsEnum
 import org.koin.androidx.scope.lifecycleScope

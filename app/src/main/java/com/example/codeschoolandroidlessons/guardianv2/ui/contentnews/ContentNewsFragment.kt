@@ -21,14 +21,12 @@ class ContentNewsFragment : BaseCommonFragment() {
     var isScrolling = false
     val viewModel by lifecycleScope.viewModel<ContentNewsViewModel>(this)
 
-
     private lateinit var scrollListener: RecyclerView.OnScrollListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getContentNews(20, ShowFieldsEnum.THUMBNAIL)
     }
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentGuardianContentNewsBinding.inflate(inflater, container, false)
@@ -72,7 +70,6 @@ class ContentNewsFragment : BaseCommonFragment() {
             Toast.makeText(requireContext(), "${it.sectionName} is clicked", Toast.LENGTH_SHORT).show()
         }
     }
-
 
     private fun observeLiveData() {
         viewModel.resultsLiveData.observe(viewLifecycleOwner) { it ->

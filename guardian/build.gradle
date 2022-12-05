@@ -4,9 +4,11 @@ plugins {
 }
 
 android {
+    //todo use versions from dependencies.gradle file ( project level )
     compileSdk 32
 
     defaultConfig {
+        //todo use versions from dependencies.gradle file ( project level )
         minSdk 24
         targetSdk 32
 
@@ -30,6 +32,9 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':common')
+
+    //todo see common -> build.gradle file todos
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -38,6 +43,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
-    api retrofitDependencies.values()
+//    api retrofitDependencies.values()
 
 }

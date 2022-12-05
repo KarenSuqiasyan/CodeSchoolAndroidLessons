@@ -8,6 +8,8 @@ ext {
     versionOfTargetSdk = 32
     versionOfBuildTools = '30.0.2'
 
+    //todo build.gradle file lines 35-37 move to here ( kotlinDependencies )
+
     versions = [
             //retrofit
             "retrofitVersion"      : '2.9.0',

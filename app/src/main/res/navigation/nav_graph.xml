@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/contentNewsFragment"
-        android:name="com.example.codeschoolandroidlessons.guardianv2.ui.contentnews.ContentNewsFragment"
+        android:name="com.common.codeschoolandroidlessons.guardianv2.ui.contentnews.ContentNewsFragment"
         android:label="fragment_contentNews"
         tools:layout="@layout/fragment_guardian_content_news">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.example.codeschoolandroidlessons.guardianv2.ui.details.DetailsFragment"
+        android:name="com.common.codeschoolandroidlessons.guardianv2.ui.details.DetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details">
         <argument

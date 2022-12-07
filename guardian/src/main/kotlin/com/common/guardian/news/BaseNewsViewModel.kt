@@ -11,8 +11,8 @@ import com.common.net.ResultCallback
 
 open class BaseNewsViewModel(private val repository: NewsRepository) : BaseCommonViewModel() {
 
-    private val _resultsLiveData: MutableLiveData<List<NewsResultDto>> = MutableLiveData()
-    val resultsLiveData: LiveData<List<NewsResultDto>>
+    private val _resultsLiveData: MutableLiveData<List<NewsResultDto?>?> = MutableLiveData()
+    val resultsLiveData: LiveData<List<NewsResultDto?>?>
         get() = _resultsLiveData
 
     fun getContentNews(

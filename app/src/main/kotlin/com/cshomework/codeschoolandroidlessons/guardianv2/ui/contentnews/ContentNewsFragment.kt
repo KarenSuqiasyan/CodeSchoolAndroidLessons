@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.common.BaseCommonFragment
@@ -64,10 +63,6 @@ class ContentNewsFragment : BaseCommonFragment() {
             }
         }
         setupRecyclerView()
-        newsAdapter.setOnItemClickListener {
-//            navigateFragment(ContentNewsFragment)
-            Toast.makeText(requireContext(), "${it.sectionName} is clicked", Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun observeLiveData() {
@@ -79,7 +74,9 @@ class ContentNewsFragment : BaseCommonFragment() {
     }
 
     private fun setupRecyclerView() {
-        newsAdapter = ContentNewsAdapter()
+        newsAdapter = ContentNewsAdapter {
+            navigateFragment(ContentNewsFragmentDirections.actionContentNewsFragmentToDetailsFragment(it))
+        }
         binding.contentNewsRecyclerView.apply {
             adapter = newsAdapter
             addOnScrollListener(this@ContentNewsFragment.scrollListener)

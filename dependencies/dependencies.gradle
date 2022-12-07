@@ -21,6 +21,25 @@ ext {
             "recyclerview"         : '1.2.1',
             //Navigation
             navigation             : '2.5.3',
+            //ui
+            appcompat              : '1.5.1',
+            material               : '1.7.0',
+            //core
+            core                   : '1.7.0',
+            //kotlin
+            kotlin                 : '1.7.10',
+            //fragment
+            fragment               : '1.5.4',
+            //glide
+            glide                  : '4.12.0',
+            //coroutines
+            coroutines_core        : '1.5.0',
+            coroutines_android     : '1.6.1',
+            //lifecycle
+            extensions : '2.2.0',
+            livedata : '2.3.1',
+            viewmodel: '2.3.1',
+            runtime : '2.5.1',
     ]
 
     retrofitDependencies = [
@@ -43,7 +62,38 @@ ext {
     navigationDependencies = [
             navigationFragment: "androidx.navigation:navigation-fragment-ktx:${versions.navigation}",
             navigationUi      : "androidx.navigation:navigation-ui-ktx:${versions.navigation}",
-            navigationCommon    : "androidx.navigation:navigation-common-ktx:${versions.navigation}",
+            navigationCommon  : "androidx.navigation:navigation-common-ktx:${versions.navigation}",
 
     ]
+
+    coreDependencies = [
+            navigationUi: "androidx.core:core-ktx:${versions.core}",
+    ]
+
+    uiDependencies = [
+            appcompat: "androidx.appcompat:appcompat:${versions.appcompat}",
+            material : "com.google.android.material:material:${versions.material}",
+
+    ]
+    kotlinDependencies = [
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
+
+    ]
+    fragmentDependencies = [
+            fragment: "androidx.fragment:fragment-ktx:${versions.fragment}",
+    ]
+    glideDependencies = [
+            glide: "com.github.bumptech.glide:glide:${versions.glide}",
+    ]
+    coroutinesDependencies = [
+            coroutines_core   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines_core}",
+            coroutines_android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines_android}",
+    ]
+    lifecycleDependencies = [
+            extensions   : "androidx.lifecycle:lifecycle-extensions:${versions.extensions}",
+            livedata   : "androidx.lifecycle:lifecycle-livedata:${versions.livedata}",
+            viewmodel   : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.viewmodel}",
+            runtime   : "androidx.lifecycle:lifecycle-runtime-ktx:${versions.runtime}",
+    ]
+
 }

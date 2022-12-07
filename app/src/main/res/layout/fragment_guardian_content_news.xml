@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".guardianv2.ui.contentnews.ContentNewsFragment">
+    tools:context="com.cshomework.codeschoolandroidlessons.guardianv2.ui.contentnews.ContentNewsFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/guardianNoInternetConnectionTextView"

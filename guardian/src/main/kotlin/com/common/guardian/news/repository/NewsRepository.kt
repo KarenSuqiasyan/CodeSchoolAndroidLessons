@@ -23,7 +23,7 @@ class NewsRepositoryImpl(private val newsApi: NewsApi) : NewsRepository {
         resultCallback: ResultCallback<ContentNewsDto?>
     ) {
 
-        newsApi.getContentNews(pageNumber, showFieldsEnum.fields)
+        newsApi.getContentNews(pageNumber = pageNumber, showFields = showFieldsEnum.fields)
             .enqueue(object : Callback<ContentNewsDto> {
 
                 override fun onResponse(

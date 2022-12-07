@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.common.BaseCommonActivity
 import com.common.codeschoolandroidlessons.databinding.ActivityGuardianNewsBinding
+import com.cshomework.codeschoolandroidlessons.guardianv2.ui.contentnews.ContentNewsFragment
 
 class NewsActivity : BaseCommonActivity() {
 

@@ -3,6 +3,8 @@ package com.common
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.common.common.R
 import com.common.utils.NetworkLiveData
 
 abstract class BaseCommonActivity : AppCompatActivity() {
@@ -25,9 +27,9 @@ abstract class BaseCommonActivity : AppCompatActivity() {
     }
 
 //    @Deprecated("Use Navigation Graph instead")
-//    fun replaceFragment(fragment: Fragment, resId: Int) {
-//        supportFragmentManager.beginTransaction().replace(resId, fragment).commit()
-//    }
+    fun replaceFragment(fragment: Fragment, resId: Int) {
+        supportFragmentManager.beginTransaction().replace(resId, fragment).commit()
+    }
 //
 //    fun replaceFragment(fragment: Fragment) {
 //        supportFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()

@@ -36,7 +36,7 @@
         <entry key="app/src/main/res/layout/activity_country_details.xml" value="0.20625" />
         <entry key="app/src/main/res/layout/activity_cuntries.xml" value="0.1734375" />
         <entry key="app/src/main/res/layout/activity_full_screen_image.xml" value="0.28125" />
-        <entry key="app/src/main/res/layout/activity_guardian_news.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_guardian_news.xml" value="0.18373870849609375" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.24752475247524752" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.26909179687499996" />
         <entry key="app/src/main/res/layout/activity_login_and_ragistration.xml" value="0.20625" />
@@ -58,6 +58,7 @@
         <entry key="app/src/main/res/layout/fragment_categories.xml" value="0.20625" />
         <entry key="app/src/main/res/layout/fragment_content_news.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/fragment_details.xml" value="0.22239583333333332" />
+        <entry key="app/src/main/res/layout/fragment_favorite.xml" value="0.22826086956521738" />
         <entry key="app/src/main/res/layout/fragment_for_you.xml" value="0.271875" />
         <entry key="app/src/main/res/layout/fragment_games.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/fragment_games_main_tab.xml" value="0.1" />
@@ -94,6 +95,7 @@
         <entry key="app/src/main/res/layout/share_layout.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/username_password_dialog.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/view_tictactoe.xml" value="0.3532608695652174" />
+        <entry key="app/src/main/res/menu/guardian_bottom_navigation_menu.xml" value="0.2609375" />
         <entry key="app/src/main/res/menu/home_bottom_navigation.xml" value="0.390625" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.390625" />
         <entry key="app/src/main/res/menu/search.xml" value="0.2140625" />

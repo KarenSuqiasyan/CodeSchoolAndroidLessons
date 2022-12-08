@@ -25,13 +25,4 @@ abstract class BaseCommonActivity : AppCompatActivity() {
             }
         }
     }
-
-//    @Deprecated("Use Navigation Graph instead")
-    fun replaceFragment(fragment: Fragment, resId: Int) {
-        supportFragmentManager.beginTransaction().replace(resId, fragment).commit()
-    }
-//
-//    fun replaceFragment(fragment: Fragment) {
-//        supportFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()
-//    }
 }

@@ -38,30 +38,30 @@ class ContentNewsFragment : BaseCommonFragment() {
     }
 
     private fun setupListeners() {
-        scrollListener = object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-
-                val layoutManager = recyclerView.layoutManager as LinearLayoutManager
-                val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
-                val visibleItemCount = layoutManager.childCount
-                val totalItemCount = layoutManager.itemCount
-
-                val isAtLastItem = firstVisibleItemPosition + visibleItemCount >= totalItemCount
-                val isNotAtBeginning = firstVisibleItemPosition >= 0
-                val shouldPaginate = isAtLastItem && isNotAtBeginning && isScrolling
-                if (shouldPaginate) {
-                    isScrolling = false
-                }
-            }
-
-            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                super.onScrollStateChanged(recyclerView, newState)
-                if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
-                    isScrolling = true
-                }
-            }
-        }
+//        scrollListener = object : RecyclerView.OnScrollListener() {
+//            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+//                super.onScrolled(recyclerView, dx, dy)
+//
+//                val layoutManager = recyclerView.layoutManager as LinearLayoutManager
+//                val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
+//                val visibleItemCount = layoutManager.childCount
+//                val totalItemCount = layoutManager.itemCount
+//
+//                val isAtLastItem = firstVisibleItemPosition + visibleItemCount >= totalItemCount
+//                val isNotAtBeginning = firstVisibleItemPosition >= 0
+//                val shouldPaginate = isAtLastItem && isNotAtBeginning && isScrolling
+//                if (shouldPaginate) {
+//                    isScrolling = false
+//                }
+//            }
+//
+//            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+//                super.onScrollStateChanged(recyclerView, newState)
+//                if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
+//                    isScrolling = true
+//                }
+//            }
+//        }
         setupRecyclerView()
     }
 
@@ -79,7 +79,7 @@ class ContentNewsFragment : BaseCommonFragment() {
         }
         binding.contentNewsRecyclerView.apply {
             adapter = newsAdapter
-            addOnScrollListener(this@ContentNewsFragment.scrollListener)
+//            addOnScrollListener(this@ContentNewsFragment.scrollListener)
         }
     }
 

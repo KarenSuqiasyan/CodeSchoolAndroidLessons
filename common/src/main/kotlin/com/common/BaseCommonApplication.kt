@@ -5,8 +5,6 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
 
-// TODO: main -> java rename to main kotlin
-
 abstract class BaseCommonApplication : Application() {
 
     override fun onCreate() {
@@ -18,5 +16,6 @@ abstract class BaseCommonApplication : Application() {
             modules(getKoinModules())
         }
     }
+
     abstract fun getKoinModules(): List<Module>
 }

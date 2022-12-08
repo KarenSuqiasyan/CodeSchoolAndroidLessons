@@ -2,9 +2,12 @@ package com.cshomework.codeschoolandroidlessons.guardianv2.ui.activity
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.common.BaseCommonActivity
+import com.common.codeschoolandroidlessons.R
 import com.common.codeschoolandroidlessons.databinding.ActivityGuardianNewsBinding
-import com.cshomework.codeschoolandroidlessons.guardianv2.ui.contentnews.ContentNewsFragment
+
 
 class NewsActivity : BaseCommonActivity() {
 
@@ -15,5 +18,6 @@ class NewsActivity : BaseCommonActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGuardianNewsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.bottomNavigationView.setupWithNavController(this.findNavController(R.id.navHostFragment))
     }
 }

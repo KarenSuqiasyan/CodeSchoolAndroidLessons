@@ -36,10 +36,12 @@ ext {
             coroutines_core        : '1.5.0',
             coroutines_android     : '1.6.1',
             //lifecycle
-            extensions : '2.2.0',
-            livedata : '2.3.1',
-            viewmodel: '2.3.1',
-            runtime : '2.5.1',
+            extensions             : '2.2.0',
+            livedata               : '2.3.1',
+            viewmodel              : '2.3.1',
+            runtime                : '2.5.1',
+            //room
+            "roomversion"           : "2.4.2",
     ]
 
     retrofitDependencies = [
@@ -90,10 +92,15 @@ ext {
             coroutines_android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines_android}",
     ]
     lifecycleDependencies = [
-            extensions   : "androidx.lifecycle:lifecycle-extensions:${versions.extensions}",
-            livedata   : "androidx.lifecycle:lifecycle-livedata:${versions.livedata}",
-            viewmodel   : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.viewmodel}",
+            extensions: "androidx.lifecycle:lifecycle-extensions:${versions.extensions}",
+            livedata  : "androidx.lifecycle:lifecycle-livedata:${versions.livedata}",
+            viewmodel : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.viewmodel}",
             runtime   : "androidx.lifecycle:lifecycle-runtime-ktx:${versions.runtime}",
+    ]
+
+    roomDependencies = [
+            room_runtime: "androidx.room:room-runtime:${versions.roomversion}",
+            room_ktx  : "androidx.room:room-ktx:${versions.roomversion}",
     ]
 
 }

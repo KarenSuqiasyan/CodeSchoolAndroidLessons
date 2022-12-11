@@ -3,7 +3,7 @@ package com.common.guardian.news
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.common.BaseCommonViewModel
-import com.common.guardian.news.data.ContentDto
+import com.common.guardian.news.data.DetailsContentDto
 import com.common.guardian.news.data.ContentNewsDto
 import com.common.guardian.news.data.DetailsDto
 import com.common.guardian.news.data.NewsResultDto
@@ -17,8 +17,8 @@ open class BaseNewsViewModel(private val repository: NewsRepository) : BaseCommo
     val resultsLiveData: LiveData<List<NewsResultDto?>?>
         get() = _resultsLiveData
 
-    private val _detailsLiveData: MutableLiveData<ContentDto?> = MutableLiveData()
-    val detailsLiveData: LiveData<ContentDto?>
+    private val _detailsLiveData: MutableLiveData<DetailsContentDto?> = MutableLiveData()
+    val detailsLiveData: LiveData<DetailsContentDto?>
         get() = _detailsLiveData
 
     fun getContentNews(

@@ -1,16 +1,18 @@
-package com.cshomework.codeschoolandroidlessons.guardianv2.ui.contentnews
+package com.cshomework.codeschoolandroidlessons.guardianv2.ui.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.common.codeschoolandroidlessons.databinding.ItemGuardianContentNewsBinding
 import com.common.guardian.news.data.NewsResultDto
+import com.cshomework.codeschoolandroidlessons.guardianv2.ui.activity.NewsActivity
 
-class ContentNewsAdapter(private val onItemClick: (NewsResultDto) -> Unit) : RecyclerView.Adapter<ContentNewsAdapter.BaseViewHolder>() {
+class NewsAdapter(private val onItemClick: (NewsResultDto) -> Unit) : RecyclerView.Adapter<NewsAdapter.BaseViewHolder>() {
 
     private val items: MutableList<NewsResultDto?> = mutableListOf()
 
@@ -29,8 +31,6 @@ class ContentNewsAdapter(private val onItemClick: (NewsResultDto) -> Unit) : Rec
 
     override fun getItemCount() = items.size
 
-    private var onItemClickListener: ((NewsResultDto) -> Unit)? = null
-
     @SuppressLint("NotifyDataSetChanged")
     fun updateData(items: List<NewsResultDto?>?) {
         items?.let {
@@ -45,6 +45,19 @@ class ContentNewsAdapter(private val onItemClick: (NewsResultDto) -> Unit) : Rec
     }
 
     inner class NewsViewHolder(private val binding: ItemGuardianContentNewsBinding) : BaseViewHolder(binding.root) {
+        init {
+            itemView.setOnClickListener {
+                items[absoluteAdapterPosition]?.let { it1 -> onItemClick(it1) }
+            }
+            binding.favoriteImageView.setOnClickListener {
+                if ((it as ImageView).isSelected) {
+                    items[absoluteAdapterPosition]?.id?.let { it1 -> (context as NewsActivity).favoriteViewModel.deleteNewsById(it1) }
+                } else {
+                    items[absoluteAdapterPosition]?.let { dto -> (context as NewsActivity).favoriteViewModel.saveNews(dto) }
+                }
+            }
+        }
+
         override fun bind(item: NewsResultDto?) {
             binding.titleTextView.text = item?.sectionName
             binding.descriptionTextView.text = item?.webTitle
@@ -53,11 +66,7 @@ class ContentNewsAdapter(private val onItemClick: (NewsResultDto) -> Unit) : Rec
                 Glide.with(context).load(item?.fields?.thumbnail).centerCrop()
                     .into(binding.contentImageView)
             }
-            itemView.setOnClickListener {
-                if (item != null) {
-                    onItemClick.invoke(item)
-                }
-            }
+            binding.favoriteImageView.isSelected = (context as? NewsActivity)?.favoriteViewModel?.favoriteNews?.value?.find { it.id == item?.id } != null
         }
     }
 }

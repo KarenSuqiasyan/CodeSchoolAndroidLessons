@@ -13,6 +13,9 @@ interface FavoriteNewsDao {
     @Query("SELECT * FROM favorite_news_table")
     fun getAllNews(): LiveData<List<FavoriteNewsEntity>>
 
+    @Query("DELETE FROM favorite_news_table WHERE id = :newsId")
+    fun deleteNewsById(newsId: String)
+
     @Delete
     fun deleteNews(favoriteNews: FavoriteNewsEntity)
 }

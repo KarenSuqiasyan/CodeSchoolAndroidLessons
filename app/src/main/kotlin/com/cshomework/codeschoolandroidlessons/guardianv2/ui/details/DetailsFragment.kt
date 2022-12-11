@@ -9,6 +9,8 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.common.BaseCommonFragment
 import com.common.codeschoolandroidlessons.databinding.FragmentDetailsBinding
+import com.cshomework.codeschoolandroidlessons.guardianv2.ui.favoritesViewModel
+import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.scope.lifecycleScope
 import org.koin.androidx.viewmodel.scope.viewModel
 
@@ -32,15 +34,34 @@ class DetailsFragment : BaseCommonFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupViews()
+        setUpListeners()
         observeLiveData()
     }
 
+    private fun setUpListeners() {
+        binding.fab.setOnClickListener {
+            args.newsResult?.id?.let { id ->
+                if (it.isSelected)
+                    favoritesViewModel?.deleteNewsById(id)
+                else {
+                    viewModel.detailsLiveData.value?.let { dto -> favoritesViewModel?.saveNews(dto) }
+                    view?.let { it1 -> Snackbar.make(it1, "News saved successfully", Snackbar.LENGTH_SHORT).show() }
+                }
+            }
+        }
+    }
+
+    private fun setupViews() {
+        binding.fab.isSelected = favoritesViewModel?.favoriteNews?.value?.find { it.id == args.newsResult?.id } != null
+    }
+
     private fun observeLiveData() {
-        viewModel.detailsLiveData.observe(viewLifecycleOwner) {contentDto ->
+        viewModel.detailsLiveData.observe(viewLifecycleOwner) { contentDto ->
             with(binding) {
-                    Glide.with(requireActivity())
-                        .load(contentDto?.fields?.thumbnail)
-                        .into(detailImage)
+                Glide.with(requireActivity())
+                    .load(contentDto?.fields?.thumbnail)
+                    .into(detailImage)
                 detailTitle.text = contentDto?.fields?.headline
                 detailBody.text = contentDto?.fields?.body?.let {
                     HtmlCompat.fromHtml(
@@ -49,6 +70,9 @@ class DetailsFragment : BaseCommonFragment() {
                     )
                 }
             }
+        }
+        favoritesViewModel?.favoriteNews?.observe(viewLifecycleOwner) { newsResult ->
+            binding.fab.isSelected = newsResult.find { it.id == args.newsResult?.id } != null
         }
     }
 

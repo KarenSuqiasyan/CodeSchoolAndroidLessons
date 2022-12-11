@@ -1,22 +1,23 @@
 package com.cshomework.codeschoolandroidlessons.guardianv2.ui.contentnews
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AbsListView
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.common.BaseCommonFragment
 import com.common.codeschoolandroidlessons.databinding.FragmentGuardianContentNewsBinding
+import com.cshomework.codeschoolandroidlessons.guardianv2.ui.adapter.NewsAdapter
+import com.cshomework.codeschoolandroidlessons.guardianv2.ui.favoritesViewModel
 import org.koin.androidx.scope.lifecycleScope
 import org.koin.androidx.viewmodel.scope.viewModel
 
 class ContentNewsFragment : BaseCommonFragment() {
 
     private lateinit var binding: FragmentGuardianContentNewsBinding
-    lateinit var newsAdapter: ContentNewsAdapter
-    var isScrolling = false
+    lateinit var newsAdapter: NewsAdapter
+//    var isScrolling = false
     private val viewModel by lifecycleScope.viewModel<ContentNewsViewModel>(this)
 
     private lateinit var scrollListener: RecyclerView.OnScrollListener
@@ -33,11 +34,22 @@ class ContentNewsFragment : BaseCommonFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupListeners()
+//        setupListeners()
         observeLiveData()
+        setupViews()
     }
 
-    private fun setupListeners() {
+    private fun setupViews() {
+        newsAdapter = NewsAdapter {
+            navigateFragment(ContentNewsFragmentDirections.actionContentNewsFragmentToDetailsFragment(it))
+        }
+        binding.contentNewsRecyclerView.apply {
+            adapter = newsAdapter
+//            addOnScrollListener(this@ContentNewsFragment.scrollListener)
+        }
+    }
+
+//    private fun setupListeners() {
 //        scrollListener = object : RecyclerView.OnScrollListener() {
 //            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
 //                super.onScrolled(recyclerView, dx, dy)
@@ -62,26 +74,30 @@ class ContentNewsFragment : BaseCommonFragment() {
 //                }
 //            }
 //        }
-        setupRecyclerView()
-    }
+//        setupRecyclerView()
+//    }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun observeLiveData() {
         viewModel.resultsLiveData.observe(viewLifecycleOwner) { it ->
             it?.let { result ->
                 newsAdapter.updateData(result)
             }
         }
+        favoritesViewModel?.favoriteNews?.observe(viewLifecycleOwner) {
+            newsAdapter.notifyDataSetChanged()
+        }
     }
 
-    private fun setupRecyclerView() {
-        newsAdapter = ContentNewsAdapter {
-            navigateFragment(ContentNewsFragmentDirections.actionContentNewsFragmentToDetailsFragment(it))
-        }
-        binding.contentNewsRecyclerView.apply {
-            adapter = newsAdapter
-//            addOnScrollListener(this@ContentNewsFragment.scrollListener)
-        }
-    }
+//    private fun setupRecyclerView() {
+//        newsAdapter = ContentNewsAdapter {
+//            navigateFragment(ContentNewsFragmentDirections.actionContentNewsFragmentToDetailsFragment(it))
+//        }
+//        binding.contentNewsRecyclerView.apply {
+//            adapter = newsAdapter
+////            addOnScrollListener(this@ContentNewsFragment.scrollListener)
+//        }
+//    }
 
     companion object {
         @JvmStatic

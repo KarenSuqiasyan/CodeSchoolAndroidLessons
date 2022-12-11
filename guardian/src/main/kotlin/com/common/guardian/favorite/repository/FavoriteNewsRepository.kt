@@ -3,20 +3,54 @@ package com.common.guardian.favorite.repository
 import androidx.lifecycle.LiveData
 import com.common.guardian.favorite.database.dao.FavoriteNewsDao
 import com.common.guardian.favorite.database.data.FavoriteNewsEntity
+import com.common.guardian.news.data.DetailsContentDto
+import com.common.guardian.news.data.NewsResultDto
 
 interface FavoriteNewsRepository {
-    fun insertNews(entity: FavoriteNewsEntity)
+    suspend fun insertNews(detailsContentDto: DetailsContentDto)
 
-    fun deleteNews(favoriteNews: FavoriteNewsEntity)
+    suspend fun insertNews(newsResultDto: NewsResultDto)
+
+    suspend fun deleteNewsById(newsId: String)
+
+    suspend fun deleteNews(favoriteNews: FavoriteNewsEntity)
 
     fun getNews(): LiveData<List<FavoriteNewsEntity>>
 }
 
 class FavoriteNewsRepositoryImpl(private val dataBase: FavoriteNewsDao) : FavoriteNewsRepository {
 
-    override fun insertNews(entity: FavoriteNewsEntity) = dataBase.insertNews(entity)
+    override suspend fun insertNews(detailsContentDto: DetailsContentDto) {
+        detailsContentDto.id?.let {
+            dataBase.insertNews(
+                FavoriteNewsEntity(
+                    id = detailsContentDto.id,
+                    thumbnail = detailsContentDto.fields?.thumbnail,
+                    webTitle = detailsContentDto.webTitle,
+                    sectionName = detailsContentDto.sectionName,
+                )
+            )
+        }
+    }
 
-    override fun deleteNews(favoriteNews: FavoriteNewsEntity): Unit = dataBase.deleteNews(favoriteNews)
+    override suspend fun insertNews(newsResultDto: NewsResultDto) {
+        newsResultDto.id?.let {
+            dataBase.insertNews(
+                FavoriteNewsEntity(
+                    id = newsResultDto.id,
+                    thumbnail = newsResultDto.fields?.thumbnail,
+                    webTitle = newsResultDto.webTitle,
+                    sectionName = newsResultDto.sectionName,
+                )
+            )
+        }
+    }
+
+
+    override suspend fun deleteNewsById(newsId: String): Unit = dataBase.deleteNewsById(newsId)
+
+    override suspend fun deleteNews(favoriteNews: FavoriteNewsEntity) = dataBase.deleteNews(favoriteNews)
 
     override fun getNews(): LiveData<List<FavoriteNewsEntity>> = dataBase.getAllNews()
 }
+

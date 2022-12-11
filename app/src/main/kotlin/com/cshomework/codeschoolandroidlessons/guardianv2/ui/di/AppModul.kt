@@ -1,5 +1,7 @@
 package com.cshomework.codeschoolandroidlessons.guardianv2.ui.di
 
+import com.common.guardian.favorite.BaseFavoriteViewModel
+import com.cshomework.codeschoolandroidlessons.guardianv2.ui.activity.NewsActivity
 import com.cshomework.codeschoolandroidlessons.guardianv2.ui.contentnews.ContentNewsFragment
 import com.cshomework.codeschoolandroidlessons.guardianv2.ui.contentnews.ContentNewsViewModel
 import com.cshomework.codeschoolandroidlessons.guardianv2.ui.details.DetailsFragment
@@ -10,9 +12,9 @@ import org.koin.dsl.module
 
 val guardianModule = module {
 
-//    scope(named<NewsActivity>()) {
-//        viewModel { BaseNewsViewModel(get()) }
-//    }
+    scope(named<NewsActivity>()) {
+        viewModel { BaseFavoriteViewModel(get()) }
+    }
 
     scope(named<ContentNewsFragment>()) {
         viewModel { ContentNewsViewModel(get()) }

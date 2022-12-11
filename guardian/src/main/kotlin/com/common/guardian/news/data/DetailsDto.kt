@@ -6,12 +6,12 @@ import java.io.Serializable
 
 data class DetailsDto(
     @SerializedName("response")
-    val response: ResponseDto?
+    val response: DetailsResponseDto?
 )
 
-data class ResponseDto(
+data class DetailsResponseDto(
     @SerializedName("content")
-    val content: ContentDto?,
+    val content: DetailsContentDto?,
     @SerializedName("status")
     val status: String?,
     @SerializedName("total")
@@ -20,11 +20,11 @@ data class ResponseDto(
     val userTier: String?
 ) : Serializable
 
-data class ContentDto(
+data class DetailsContentDto(
     @SerializedName("apiUrl")
     val apiUrl: String?,
     @SerializedName("fields")
-    val fields: FieldsDto?,
+    val fields: DetailsFieldsDto?,
     @SerializedName("id")
     val id: String?,
     @SerializedName("isHosted")
@@ -47,7 +47,7 @@ data class ContentDto(
     val webUrl: String?
 ) : Serializable
 
-data class FieldsDto(
+data class DetailsFieldsDto(
     @SerializedName("body")
     val body: String?,
     @SerializedName("headline")

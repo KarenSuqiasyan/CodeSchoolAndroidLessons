@@ -6,6 +6,7 @@ import com.common.guardian.news.api.NewsApi
 import com.common.guardian.news.repository.NewsRepository
 import com.common.guardian.news.repository.NewsRepositoryImpl
 import com.common.net.createWebService
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 fun newsModule() = module {
@@ -14,5 +15,5 @@ fun newsModule() = module {
 
     single<NewsRepository> { NewsRepositoryImpl(get()) }
 
-    single { BaseNewsViewModel(get()) }
+    viewModel { BaseNewsViewModel(get()) }
 }

@@ -91,6 +91,8 @@
     <string name="ages_up_to_5">@string/global_ages_up_to_5</string>
     <string name="ages_6_8">@string/global_ages_6_8</string>
     <string name="search">search</string>
+    <string name="favorite_news">Favorite News</string>
+    <string name="news">News</string>
 
     <!-- End Play Market-->
 

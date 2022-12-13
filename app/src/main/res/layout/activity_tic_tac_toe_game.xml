@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ticTacToeBackgroundColor"
-    tools:context=".tictactoe.TicTacToeGameActivity">
+    tools:context="com.cshomework.codeschoolandroidlessons.tictactoe.TicTacToeGameActivity">
 
-    <com.example.codeschoolandroidlessons.tictactoe.TicTacToeView
+    <com.cshomework.codeschoolandroidlessons.tictactoe.TicTacToeView
         android:id="@+id/ticTacToeView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
